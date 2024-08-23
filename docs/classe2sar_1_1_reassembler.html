@@ -95,6 +95,8 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">e2sar::Reassembler Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="e2sar_d_p_reassembler_8hpp_source.html">e2sarDPReassembler.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -144,7 +146,10 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>RecvThreadState</b>
 struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadState</b></td></tr>
 <tr class="separator:aafb45994932f56618fdb2fa1f20ea527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> class knows how to reassemble the events back. It relies on the RE header structure to reassemble the event, because the LB portion of LBRE header is stripped off by the load balancer.</p>
+<p>It runs on or next to the worker performing event processing. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a59944e548b624c5e5e65f3fda6496485" name="a59944e548b624c5e5e65f3fda6496485"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59944e548b624c5e5e65f3fda6496485">&#9670;&#160;</a></span>Reassembler() <span class="overload">[1/2]</span></h2>
 

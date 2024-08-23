@@ -139,7 +139,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>eventTimeout_ms</b></t
 <tr class="separator:adcb95119488a68a9254ead168a18607f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Structure for flags governing <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> behavior with sane defaults dpV6 - prefer the IPv6 address/port in the URI data address cpV6 - use IPv6 address if cp node specified by name and has IPv4 and IPv6 resolution {false} useCP - whether to use the control plane (sendState, registerWorker) {true} period_ms - period of the send state thread in milliseconds {100} epoch_ms - period of one epoch in milliseconds {1000} Ki, Kp, Kd - PID gains (integral, proportional and derivative) {0., 0., 0.} setPoint - setPoint queue occupied percentage to which to drive the PID controller {0.0} validateCert - validate control plane TLS certificate {true} portRange - 2^portRange (0&lt;=portRange&lt;=14) listening ports will be open starting from dataPort. If -1, then the number of ports matches either the number of CPU cores or the number of threads. Normally this value is calculated based on the number of cores or threads requested, but it can be overridden here. Use with caution. {-1} withLBHeader - expect LB header to be included (mainly for testing, as normally LB strips it off in normal operation) {false} eventTimeout_ms - how long (in ms) we allow events to remain in assembly before we give up {500} </p>
+<div class="textblock"><p>Structure for flags governing <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> behavior with sane defaults</p><ul>
+<li>dpV6 - prefer the IPv6 address/port in the URI data address</li>
+<li>cpV6 - use IPv6 address if cp node specified by name and has IPv4 and IPv6 resolution {false}</li>
+<li>useCP - whether to use the control plane (sendState, registerWorker) {true}</li>
+<li>period_ms - period of the send state thread in milliseconds {100}</li>
+<li>epoch_ms - period of one epoch in milliseconds {1000}</li>
+<li>Ki, Kp, Kd - PID gains (integral, proportional and derivative) {0., 0., 0.}</li>
+<li>setPoint - setPoint queue occupied percentage to which to drive the PID controller {0.0}</li>
+<li>validateCert - validate control plane TLS certificate {true}</li>
+<li>portRange - 2^portRange (0&lt;=portRange&lt;=14) listening ports will be open starting from dataPort. If -1, then the number of ports matches either the number of CPU cores or the number of threads. Normally this value is calculated based on the number of cores or threads requested, but it can be overridden here. Use with caution. {-1}</li>
+<li>withLBHeader - expect LB header to be included (mainly for testing, as normally LB strips it off in</li>
+<li>normal operation) {false}</li>
+<li>eventTimeout_ms - how long (in ms) we allow events to remain in assembly before we give up {500} </li>
+</ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="e2sar_d_p_reassembler_8hpp_source.html">e2sarDPReassembler.hpp</a></li>
 </ul>
