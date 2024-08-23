@@ -769,7 +769,12 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generate gRPC-compliant custom SSL Options object with just the server root cert </p>
+<p>Generate gRPC-compliant custom SSL Options object with just the server root cert </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pem_root_certs</td><td>- The file name containing the PEM encoding of the server root certificate. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -806,9 +811,9 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Generate gRPC-compliant custom SSL Options object with the following parameters, where any parameter can be empty </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pem_root_certs</td><td>The file name containing the PEM encoding of the server root certificate. </td></tr>
-    <tr><td class="paramname">pem_private_key</td><td>The file name containing the PEM encoding of the client's private key. </td></tr>
-    <tr><td class="paramname">pem_cert_chain</td><td>The file name containing the PEM encoding of the client's certificate chain.</td></tr>
+    <tr><td class="paramname">pem_root_certs</td><td>- The file name containing the PEM encoding of the server root certificate. </td></tr>
+    <tr><td class="paramname">pem_private_key</td><td>- The file name containing the PEM encoding of the client's private key. </td></tr>
+    <tr><td class="paramname">pem_cert_chain</td><td>- The file name containing the PEM encoding of the client's certificate chain.</td></tr>
   </table>
   </dd>
 </dl>

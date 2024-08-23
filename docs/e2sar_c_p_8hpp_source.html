@@ -427,40 +427,40 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>            std::string_view pem_private_key,</div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>            std::string_view pem_cert_chain);</div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>        <span class="keyword">static</span> result&lt;grpc::SslCredentialsOptions&gt; makeSslOptionsFromFiles(</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>            std::string_view pem_root_certs);</div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>    };</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        <span class="keyword">static</span> result&lt;grpc::SslCredentialsOptions&gt; makeSslOptionsFromFiles(</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>            std::string_view pem_root_certs);</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>    };</div>
 </div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> get_PortRange(<span class="keywordtype">int</span> source_count) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    {</div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        <span class="comment">// Based on the proto file enum for the load balancer, seen below,</span></div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        <span class="comment">// map the max # of sources a backend will see to the PortRange value.</span></div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        <span class="comment">// This is necessay to provide the control plane when registering.</span></div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        <span class="comment">// Handle edge cases</span></div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        <span class="keywordflow">if</span> (source_count &lt; 2)</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        {</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        }</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (source_count &gt; 16384)</div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>        {</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>            <span class="keywordflow">return</span> 14;</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        }</div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        <span class="keywordtype">int</span> maxCount = 2;</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>        <span class="keywordtype">int</span> iteration = 1;</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span> </div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>        <span class="keywordflow">while</span> (source_count &gt; maxCount)</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        {</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>            iteration++;</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>            maxCount &lt;&lt;= 1;</div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>        }</div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span> </div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>        <span class="keywordflow">return</span> iteration;</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>    }</div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>}</div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span> </div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> get_PortRange(<span class="keywordtype">int</span> source_count) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>    {</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        <span class="comment">// Based on the proto file enum for the load balancer, seen below,</span></div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        <span class="comment">// map the max # of sources a backend will see to the PortRange value.</span></div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>        <span class="comment">// This is necessay to provide the control plane when registering.</span></div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        <span class="comment">// Handle edge cases</span></div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        <span class="keywordflow">if</span> (source_count &lt; 2)</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        {</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        }</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (source_count &gt; 16384)</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        {</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>            <span class="keywordflow">return</span> 14;</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>        }</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>        <span class="keywordtype">int</span> maxCount = 2;</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>        <span class="keywordtype">int</span> iteration = 1;</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span> </div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <span class="keywordflow">while</span> (source_count &gt; maxCount)</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>        {</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>            iteration++;</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>            maxCount &lt;&lt;= 1;</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>        }</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>        <span class="keywordflow">return</span> iteration;</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    }</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>}</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html">e2sar::EjfatURI</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:29</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a244a052e47016e020b18b90e33284284"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a244a052e47016e020b18b90e33284284">e2sar::EjfatURI::get_useTls</a></div><div class="ttdeci">bool get_useTls() const</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:97</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a4e80ac31e926473994f2a866ba2a1fdf"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a4e80ac31e926473994f2a866ba2a1fdf">e2sar::EjfatURI::get_cpHost</a></div><div class="ttdeci">const result&lt; std::pair&lt; std::string, u_int16_t &gt; &gt; get_cpHost() const</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:209</div></div>
