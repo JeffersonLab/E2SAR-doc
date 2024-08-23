@@ -125,10 +125,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>numSendSockets</b><
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Because of the large number of constructor parameters in <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> we make this a structure with sane defaults</p><ul>
-<li>dpV6 - prefer V6 dataplane {false}</li>
-<li>zeroCopy - use zeroCopy optimization {false}</li>
+<li>dpV6 - prefer V6 dataplane if the URI specifies both data=&lt;ipv4&gt;&amp;data=&lt;ipv6&gt; addresses {false}</li>
+<li>zeroCopy - use zeroCopy send optimization {false}</li>
 <li>connectedSocket - use connected sockets {true}</li>
-<li>useCP - use control plane to send Sync packets {true}</li>
+<li>useCP - enable control plane to send Sync packets {true}</li>
 <li>syncPeriodMs - sync thread period in milliseconds {1000}</li>
 <li>syncPerods - number of sync periods to use for averaging reported send rate {2}</li>
 <li>mtu - size of the MTU to attempt to fit the segmented data in (must accommodate IP, UDP and LBRE headers) {1500}</li>

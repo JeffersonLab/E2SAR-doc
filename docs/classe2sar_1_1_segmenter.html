@@ -95,8 +95,6 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">e2sar::Segmenter Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="e2sar_d_p_segmenter_8hpp_source.html">e2sarDPSegmenter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -140,10 +138,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SyncThreadState</b>
 struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b></td></tr>
 <tr class="separator:a7e2f12e330c02e16324596baf43f686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> class knows how to break up the provided events into segments consumable by the hardware loadbalancer. It relies on header structures to segment into UDP packets and follows other LB rules while doing it.</p>
-<p>It runs on or next to the source of events. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7b6d9c19dc664d3c1af4a375866e4d56" name="a7b6d9c19dc664d3c1af4a375866e4d56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b6d9c19dc664d3c1af4a375866e4d56">&#9670;&#160;</a></span>Segmenter() <span class="overload">[1/2]</span></h2>
 
@@ -300,6 +295,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>- 0 on success, otherwise error condition </dd></dl>
 
 </div>
 </div>
@@ -429,7 +425,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Open sockets and start the threads - this marks the moment from which sync packets start being sent. </p>
+<p>Open sockets and start the threads - this marks the moment from which sync packets start being sent. </p><dl class="section return"><dt>Returns</dt><dd>- 0 on success, otherwise error condition </dd></dl>
 
 </div>
 </div>
@@ -510,6 +506,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>- 0 on success, otherwise error condition </dd></dl>
 
 </div>
 </div>

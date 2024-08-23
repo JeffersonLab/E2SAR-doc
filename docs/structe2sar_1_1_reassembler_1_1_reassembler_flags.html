@@ -140,7 +140,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>eventTimeout_ms</b></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure for flags governing <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> behavior with sane defaults</p><ul>
-<li>dpV6 - prefer the IPv6 address/port in the URI data address</li>
+<li>dpV6 - prefer the IPv6 address/port in the URI data address. <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> will bind to IPv6 instead of IPv4 address. {false}</li>
 <li>cpV6 - use IPv6 address if cp node specified by name and has IPv4 and IPv6 resolution {false}</li>
 <li>useCP - whether to use the control plane (sendState, registerWorker) {true}</li>
 <li>period_ms - period of the send state thread in milliseconds {100}</li>
@@ -149,8 +149,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>eventTimeout_ms</b></t
 <li>setPoint - setPoint queue occupied percentage to which to drive the PID controller {0.0}</li>
 <li>validateCert - validate control plane TLS certificate {true}</li>
 <li>portRange - 2^portRange (0&lt;=portRange&lt;=14) listening ports will be open starting from dataPort. If -1, then the number of ports matches either the number of CPU cores or the number of threads. Normally this value is calculated based on the number of cores or threads requested, but it can be overridden here. Use with caution. {-1}</li>
-<li>withLBHeader - expect LB header to be included (mainly for testing, as normally LB strips it off in</li>
-<li>normal operation) {false}</li>
+<li>withLBHeader - expect LB header to be included (mainly for testing, as normally LB strips it off in normal operation) {false}</li>
 <li>eventTimeout_ms - how long (in ms) we allow events to remain in assembly before we give up {500} </li>
 </ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
