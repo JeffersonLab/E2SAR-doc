@@ -10,5 +10,6 @@ var searchData=
   ['set_5flbname_7',['set_lbName',['../classe2sar_1_1_ejfat_u_r_i.html#a1e11918012d817b4cf73ef83be27741f',1,'e2sar::EjfatURI']]],
   ['set_5fsessionid_8',['set_sessionId',['../classe2sar_1_1_ejfat_u_r_i.html#a6f2abe6a692c5b398d4850cf86ba9636',1,'e2sar::EjfatURI']]],
   ['set_5fsessiontoken_9',['set_SessionToken',['../classe2sar_1_1_ejfat_u_r_i.html#a9479a60a1289baec5d27ef288e393fee',1,'e2sar::EjfatURI']]],
-  ['set_5fsyncaddr_10',['set_syncAddr',['../classe2sar_1_1_ejfat_u_r_i.html#aed7ae57cb810cd72f655aede327026cb',1,'e2sar::EjfatURI']]]
+  ['set_5fsyncaddr_10',['set_syncAddr',['../classe2sar_1_1_ejfat_u_r_i.html#aed7ae57cb810cd72f655aede327026cb',1,'e2sar::EjfatURI']]],
+  ['stopthreads_11',['stopThreads',['../classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3',1,'e2sar::Reassembler']]]
 ];

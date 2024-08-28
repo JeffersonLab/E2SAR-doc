@@ -12,5 +12,6 @@ var searchData=
   ['set_5fsessionid_9',['set_sessionId',['../classe2sar_1_1_ejfat_u_r_i.html#a6f2abe6a692c5b398d4850cf86ba9636',1,'e2sar::EjfatURI']]],
   ['set_5fsessiontoken_10',['set_SessionToken',['../classe2sar_1_1_ejfat_u_r_i.html#a9479a60a1289baec5d27ef288e393fee',1,'e2sar::EjfatURI']]],
   ['set_5fsyncaddr_11',['set_syncAddr',['../classe2sar_1_1_ejfat_u_r_i.html#aed7ae57cb810cd72f655aede327026cb',1,'e2sar::EjfatURI']]],
-  ['synchdr_12',['SyncHdr',['../structe2sar_1_1_sync_hdr.html',1,'e2sar']]]
+  ['stopthreads_12',['stopThreads',['../classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3',1,'e2sar::Reassembler']]],
+  ['synchdr_13',['SyncHdr',['../structe2sar_1_1_sync_hdr.html',1,'e2sar']]]
 ];

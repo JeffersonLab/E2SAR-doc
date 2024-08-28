@@ -131,6 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abac4d3a93ecac81d34b0b9face73f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a679e7fc30486417e84976857b47bb440" id="r_a679e7fc30486417e84976857b47bb440"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679e7fc30486417e84976857b47bb440">get_portRange</a> () const noexcept</td></tr>
 <tr class="separator:a679e7fc30486417e84976857b47bb440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cda1d99a76c3b1c0e62397d695455f3" id="r_a5cda1d99a76c3b1c0e62397d695455f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a> ()</td></tr>
+<tr class="separator:a5cda1d99a76c3b1c0e62397d695455f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -521,6 +523,32 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- 0 on success or an error condition </dd></dl>
+
+</div>
+</div>
+<a id="a5cda1d99a76c3b1c0e62397d695455f3" name="a5cda1d99a76c3b1c0e62397d695455f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cda1d99a76c3b1c0e62397d695455f3">&#9670;&#160;</a></span>stopThreads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void e2sar::Reassembler::stopThreads </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tell threads to stop. Also causes recvEvent to exit with (-1) </p>
 
 </div>
 </div>

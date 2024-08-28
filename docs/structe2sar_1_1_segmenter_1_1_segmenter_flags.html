@@ -122,6 +122,9 @@ u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>mtu</b></td></tr
 <tr class="memitem:a5b4fd26967635310d57988be79841af0" id="r_a5b4fd26967635310d57988be79841af0"><td class="memItemLeft" align="right" valign="top"><a id="a5b4fd26967635310d57988be79841af0" name="a5b4fd26967635310d57988be79841af0"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>numSendSockets</b></td></tr>
 <tr class="separator:a5b4fd26967635310d57988be79841af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae689d3cb81a1eafd9a9353914cd1fb4a" id="r_ae689d3cb81a1eafd9a9353914cd1fb4a"><td class="memItemLeft" align="right" valign="top"><a id="ae689d3cb81a1eafd9a9353914cd1fb4a" name="ae689d3cb81a1eafd9a9353914cd1fb4a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></td></tr>
+<tr class="separator:ae689d3cb81a1eafd9a9353914cd1fb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Because of the large number of constructor parameters in <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> we make this a structure with sane defaults</p><ul>
@@ -132,7 +135,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>numSendSockets</b><
 <li>syncPeriodMs - sync thread period in milliseconds {1000}</li>
 <li>syncPerods - number of sync periods to use for averaging reported send rate {2}</li>
 <li>mtu - size of the MTU to attempt to fit the segmented data in (must accommodate IP, UDP and LBRE headers) {1500}</li>
-<li>numSendSockets - number of sockets/source ports we will be sending data from. The more, the more randomness the LAG will see in delivering to different FPGA ports. {4} </li>
+<li>numSendSockets - number of sockets/source ports we will be sending data from. The more, the more randomness the LAG will see in delivering to different FPGA ports. {4}</li>
+<li>sndSocketBufSize - socket buffer size for sending set via SO_SNDBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.wmem_max) to be higher. {3MB} </li>
 </ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="e2sar_d_p_segmenter_8hpp_source.html">e2sarDPSegmenter.hpp</a></li>
