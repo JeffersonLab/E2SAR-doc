@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adcdcbd4ac51cda97e16d74d20ba25c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dac1a760ca3e903abd3e3a8000d5a5d" id="r_a1dac1a760ca3e903abd3e3a8000d5a5d"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dac1a760ca3e903abd3e3a8000d5a5d">getEvent</a> (uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId) noexcept</td></tr>
 <tr class="separator:a1dac1a760ca3e903abd3e3a8000d5a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d97b06e8813bf53ade74c08de8f4e91" id="r_a8d97b06e8813bf53ade74c08de8f4e91"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d97b06e8813bf53ade74c08de8f4e91">recvEvent</a> (uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId) noexcept</td></tr>
-<tr class="separator:a8d97b06e8813bf53ade74c08de8f4e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15704c5f2d91322390cb0899ff4bbac9" id="r_a15704c5f2d91322390cb0899ff4bbac9"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15704c5f2d91322390cb0899ff4bbac9">recvEvent</a> (uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept</td></tr>
+<tr class="separator:a15704c5f2d91322390cb0899ff4bbac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04232e140f42648c09b4d82dabfab8b" id="r_ad04232e140f42648c09b4d82dabfab8b"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; EventNum_t, EventNum_t, int, int, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04232e140f42648c09b4d82dabfab8b">getStats</a> () const noexcept</td></tr>
 <tr class="separator:ad04232e140f42648c09b4d82dabfab8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8955ea8ff93e880550f62abd0e030e1c" id="r_a8955ea8ff93e880550f62abd0e030e1c"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a> () const noexcept</td></tr>
@@ -428,8 +428,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
-<a id="a8d97b06e8813bf53ade74c08de8f4e91" name="a8d97b06e8813bf53ade74c08de8f4e91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d97b06e8813bf53ade74c08de8f4e91">&#9670;&#160;</a></span>recvEvent()</h2>
+<a id="a15704c5f2d91322390cb0899ff4bbac9" name="a15704c5f2d91322390cb0899ff4bbac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15704c5f2d91322390cb0899ff4bbac9">&#9670;&#160;</a></span>recvEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -455,7 +455,12 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>dataId</em></span>&#160;)</td>
+          <td class="paramtype">uint16_t *</td>          <td class="paramname"><span class="paramname"><em>dataId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int64_t</td>          <td class="paramname"><span class="paramname"><em>wait_ms</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -470,6 +475,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
     <tr><td class="paramname">bytes</td><td>- size of the event in the buffer </td></tr>
     <tr><td class="paramname">eventNum</td><td>- the assembled event number </td></tr>
     <tr><td class="paramname">dataId</td><td>- dataId from the reassembly header identifying the DAQ </td></tr>
+    <tr><td class="paramname">wait_ms</td><td>- how long to block before giving up, defaults to 0 - forever </td></tr>
   </table>
   </dd>
 </dl>
