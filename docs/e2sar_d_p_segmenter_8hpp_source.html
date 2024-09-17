@@ -354,124 +354,125 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                <a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>(): dpV6{<span class="keyword">false</span>}, zeroCopy{<span class="keyword">false</span>}, connectedSocket{<span class="keyword">true</span>},</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                    useCP{<span class="keyword">true</span>}, syncPeriodMs{1000}, syncPeriods{2}, mtu{1500},</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                    numSendSockets{4}, sndSocketBufSize{1024*1024*3} {}</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            };</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                <span class="keyword">static</span> result&lt;SegmenterFlags&gt; <a class="code hl_function" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html#af960d33a96f1f7752c59b5ae845b49e7">getFromINI</a>(<span class="keyword">const</span> std::string &amp;iniFile);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            };</div>
 </div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId,  </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>());</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">#if 0</span></div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>                std::string iface=<span class="stringliteral">&quot;&quot;</span>s, </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>                <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>());</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535">  321</a></span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp;s) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a">  325</a></span>            <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp;o) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="foldopen" id="foldopen00330" data-start="{" data-end="}">
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">  330</a></span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">~Segmenter</a>()</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            {</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                stopThreads();</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                <span class="comment">// wait to exit</span></div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                syncThreadState.threadObj.join();</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                sendThreadState.threadObj.join();</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>                <span class="comment">// pool memory is implicitly freed when pool goes out of scope</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId,  </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>());</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">#if 0</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>                std::string iface=<span class="stringliteral">&quot;&quot;</span>s, </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="code hl_struct" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>());</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535">  326</a></span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535">Segmenter</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp;s) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a">  330</a></span>            <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp;o) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">  335</a></span>            <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">~Segmenter</a>()</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                stopThreads();</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>                <span class="comment">// wait to exit</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>                syncThreadState.threadObj.join();</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>                sendThreadState.threadObj.join();</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>                <span class="comment">// pool memory is implicitly freed when pool goes out of scope</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>            }</div>
 </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7d08e65477848cfd57114cc97f48852e">openAndStart</a>() noexcept;</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a9756b15c8b843ea2654031d49d5a137f">sendEvent</a>(u_int8_t *event, <span class="keywordtype">size_t</span> bytes, EventNum_t _eventNumber=0LL, </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                u_int16_t _dataId=0, u_int16_t _entropy=0) noexcept;</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a05b3ea895a787044f5d87a4d99128382">addToSendQueue</a>(u_int8_t *event, <span class="keywordtype">size_t</span> bytes, </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                EventNum_t _eventNum=0LL, u_int16_t _dataId = 0, u_int16_t entropy=0,</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                <span class="keywordtype">void</span> (*callback)(boost::any) = <span class="keywordtype">nullptr</span>, </div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                boost::any cbArg = <span class="keywordtype">nullptr</span>) noexcept;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
-<div class="foldopen" id="foldopen00380" data-start="{" data-end="}">
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">  380</a></span>            inline const boost::tuple&lt;u_int64_t, u_int64_t, <span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">getSyncStats</a>() const noexcept</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>            {</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>                <span class="keywordflow">return</span> getStats(syncStats);</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>            }</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a7d08e65477848cfd57114cc97f48852e">openAndStart</a>() noexcept;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a9756b15c8b843ea2654031d49d5a137f">sendEvent</a>(u_int8_t *event, <span class="keywordtype">size_t</span> bytes, EventNum_t _eventNumber=0LL, </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                u_int16_t _dataId=0, u_int16_t _entropy=0) noexcept;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a05b3ea895a787044f5d87a4d99128382">addToSendQueue</a>(u_int8_t *event, <span class="keywordtype">size_t</span> bytes, </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>                EventNum_t _eventNum=0LL, u_int16_t _dataId = 0, u_int16_t entropy=0,</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                <span class="keywordtype">void</span> (*callback)(boost::any) = <span class="keywordtype">nullptr</span>, </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>                boost::any cbArg = <span class="keywordtype">nullptr</span>) noexcept;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
+<div class="foldopen" id="foldopen00385" data-start="{" data-end="}">
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">  385</a></span>            inline const boost::tuple&lt;u_int64_t, u_int64_t, <span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">getSyncStats</a>() const noexcept</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>            {</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                <span class="keywordflow">return</span> getStats(syncStats);</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            }</div>
 </div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
-<div class="foldopen" id="foldopen00390" data-start="{" data-end="}">
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">  390</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> boost::tuple&lt;u_int64_t, u_int64_t, int&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">getSendStats</a>() const noexcept</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>            {</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>                <span class="keywordflow">return</span> getStats(sendStats);</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>            }</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="foldopen" id="foldopen00395" data-start="{" data-end="}">
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">  395</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> boost::tuple&lt;u_int64_t, u_int64_t, int&gt; <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">getSendStats</a>() const noexcept</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>            {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>                <span class="keywordflow">return</span> getStats(sendStats);</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>            }</div>
 </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
-<div class="foldopen" id="foldopen00398" data-start="{" data-end="}">
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">  398</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> u_int16_t <a class="code hl_function" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a>() const noexcept</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>            {</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>                <span class="keywordflow">return</span> sendThreadState.mtu;</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            }</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="foldopen" id="foldopen00403" data-start="{" data-end="}">
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">  403</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> u_int16_t <a class="code hl_function" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a>() const noexcept</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            {</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>                <span class="keywordflow">return</span> sendThreadState.mtu;</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            }</div>
 </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
-<div class="foldopen" id="foldopen00406" data-start="{" data-end="}">
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">  406</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">getMaxPldLen</a>() const noexcept</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>            {</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>                <span class="keywordflow">return</span> sendThreadState.maxPldLen;</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            }</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="foldopen" id="foldopen00411" data-start="{" data-end="}">
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno"><a class="line" href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">  411</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">getMaxPldLen</a>() const noexcept</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            {</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>                <span class="keywordflow">return</span> sendThreadState.maxPldLen;</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            }</div>
 </div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>            <span class="comment">/*</span></div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="comment">            * Tell threads to stop</span></div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="comment">            */</span> </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> stopThreads() </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            {</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                threadsStop = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            }</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <span class="keyword">inline</span> <span class="keyword">const</span> boost::tuple&lt;u_int64_t, u_int64_t, int&gt; getStats(<span class="keyword">const</span> AtomicStats &amp;s)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="keyword">            </span>{</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                <span class="keywordflow">return</span> boost::make_tuple&lt;u_int64_t, u_int64_t, int&gt;(s.msgCnt, </div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                    s.errCnt, s.lastErrno);</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>            }</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>            <span class="comment">// Calculate the average event rate from circular buffer</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            <span class="comment">// note that locking lives outside this function, as needed.</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <span class="keyword">inline</span> EventRate_t eventRate(UnixTimeNano_t currentTimeNanos) </div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            {</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>                <span class="comment">// no rate to report</span></div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                <span class="keywordflow">if</span> (eventStatsBuffer.size() == 0)</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>                EventNum_t eventTotal{0LL};</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>                <span class="comment">// walk the circular buffer</span></div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> el: eventStatsBuffer)</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>                {</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>                    <span class="comment">// add up the events</span></div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>                    eventTotal += el.eventsSinceLastSync;</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>                }</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>                <span class="keyword">auto</span> timeDiff = currentTimeNanos - </div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>                    eventStatsBuffer.begin()-&gt;lastSyncTimeNanos;</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span> </div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                <span class="comment">// convert to Hz and return</span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                <span class="comment">//return (eventTotal*1000000000UL)/timeDiff;</span></div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                <span class="comment">// this uses floating point but is more accurate at low rates</span></div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>                <span class="keywordflow">return</span> std::round(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(eventTotal*1000000000UL)/timeDiff);</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>            }</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span> </div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>            <span class="comment">// doesn&#39;t require locking as it looks at only srcId in segmenter, which</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>            <span class="comment">// never changes past initialization</span></div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> fillSyncHdr(SyncHdr *hdr, EventRate_t eventRate, UnixTimeNano_t tnano) </div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>            {</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>                hdr-&gt;set(eventSrcId, eventNum, eventRate, tnano);</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>            }</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>            <span class="comment">// process backlog in return queue and free event queue item blocks on it</span></div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> freeEventItemBacklog() </div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>            {</div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>                EventQueueItem *item{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>                <span class="keywordflow">while</span> (returnQueue.pop(item))</div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>                    queueItemPool.free(item);</div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>            }</div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    };</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <span class="comment">/*</span></div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="comment">            * Tell threads to stop</span></div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="comment">            */</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> stopThreads() </div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                threadsStop = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            }</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            <span class="keyword">inline</span> <span class="keyword">const</span> boost::tuple&lt;u_int64_t, u_int64_t, int&gt; getStats(<span class="keyword">const</span> AtomicStats &amp;s)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>                <span class="keywordflow">return</span> boost::make_tuple&lt;u_int64_t, u_int64_t, int&gt;(s.msgCnt, </div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>                    s.errCnt, s.lastErrno);</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            }</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>            <span class="comment">// Calculate the average event rate from circular buffer</span></div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>            <span class="comment">// note that locking lives outside this function, as needed.</span></div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>            <span class="keyword">inline</span> EventRate_t eventRate(UnixTimeNano_t currentTimeNanos) </div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>            {</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>                <span class="comment">// no rate to report</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>                <span class="keywordflow">if</span> (eventStatsBuffer.size() == 0)</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>                    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>                EventNum_t eventTotal{0LL};</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>                <span class="comment">// walk the circular buffer</span></div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> el: eventStatsBuffer)</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>                {</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>                    <span class="comment">// add up the events</span></div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                    eventTotal += el.eventsSinceLastSync;</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                }</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                <span class="keyword">auto</span> timeDiff = currentTimeNanos - </div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>                    eventStatsBuffer.begin()-&gt;lastSyncTimeNanos;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>                <span class="comment">// convert to Hz and return</span></div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>                <span class="comment">//return (eventTotal*1000000000UL)/timeDiff;</span></div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>                <span class="comment">// this uses floating point but is more accurate at low rates</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>                <span class="keywordflow">return</span> std::round(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(eventTotal*1000000000UL)/timeDiff);</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>            }</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>            <span class="comment">// doesn&#39;t require locking as it looks at only srcId in segmenter, which</span></div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>            <span class="comment">// never changes past initialization</span></div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> fillSyncHdr(SyncHdr *hdr, EventRate_t eventRate, UnixTimeNano_t tnano) </div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>            {</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>                hdr-&gt;set(eventSrcId, eventNum, eventRate, tnano);</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>            }</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span> </div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>            <span class="comment">// process backlog in return queue and free event queue item blocks on it</span></div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> freeEventItemBacklog() </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>            {</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>                EventQueueItem *item{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>                <span class="keywordflow">while</span> (returnQueue.pop(item))</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>                    queueItemPool.free(item);</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>            }</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>    };</div>
 </div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>}</div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>}</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasse2sar_1_1_e2_s_a_r_exception_html"><div class="ttname"><a href="classe2sar_1_1_e2_s_a_r_exception.html">e2sar::E2SARException</a></div><div class="ttdef"><b>Definition</b> e2sarError.hpp:61</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html">e2sar::EjfatURI</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:29</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a66d63e915221a94ee80024dee68c8752"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a66d63e915221a94ee80024dee68c8752">e2sar::EjfatURI::has_syncAddr</a></div><div class="ttdeci">const bool has_syncAddr() const</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:235</div></div>
@@ -479,19 +480,20 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclasse2sar_1_1_net_util_html_a407c8e63faa4e7dffad004927a6f551a"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a407c8e63faa4e7dffad004927a6f551a">e2sar::NetUtil::getMTU</a></div><div class="ttdeci">static u_int16_t getMTU(const std::string &amp;interfaceName)</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:8</div></div>
 <div class="ttc" id="aclasse2sar_1_1_reassembler_html"><div class="ttname"><a href="classe2sar_1_1_reassembler.html">e2sar::Reassembler</a></div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:53</div></div>
 <div class="ttc" id="aclasse2sar_1_1_segmenter_html"><div class="ttname"><a href="classe2sar_1_1_segmenter.html">e2sar::Segmenter</a></div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:39</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a05b3ea895a787044f5d87a4d99128382"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a05b3ea895a787044f5d87a4d99128382">e2sar::Segmenter::addToSendQueue</a></div><div class="ttdeci">result&lt; int &gt; addToSendQueue(u_int8_t *event, size_t bytes, EventNum_t _eventNum=0LL, u_int16_t _dataId=0, u_int16_t entropy=0, void(*callback)(boost::any)=nullptr, boost::any cbArg=nullptr) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:574</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a11be9c4fc8654a983d4f15c8e529361b"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">e2sar::Segmenter::getSendStats</a></div><div class="ttdeci">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; getSendStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:390</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a2b6f324045c12fbabdce87845000d7c0"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">e2sar::Segmenter::~Segmenter</a></div><div class="ttdeci">~Segmenter()</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:330</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a574615ae74f27d1b57734d6f36bf6854"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">e2sar::Segmenter::getSyncStats</a></div><div class="ttdeci">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; getSyncStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:380</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a7b6d9c19dc664d3c1af4a375866e4d56"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">e2sar::Segmenter::Segmenter</a></div><div class="ttdeci">Segmenter(const EjfatURI &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, const SegmenterFlags &amp;sflags=SegmenterFlags())</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:15</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a7d08e65477848cfd57114cc97f48852e"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a7d08e65477848cfd57114cc97f48852e">e2sar::Segmenter::openAndStart</a></div><div class="ttdeci">result&lt; int &gt; openAndStart() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:50</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a93047c5e85352ce9ed8447c9e1470e24"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">e2sar::Segmenter::getMaxPldLen</a></div><div class="ttdeci">const size_t getMaxPldLen() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:406</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a9756b15c8b843ea2654031d49d5a137f"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a9756b15c8b843ea2654031d49d5a137f">e2sar::Segmenter::sendEvent</a></div><div class="ttdeci">result&lt; int &gt; sendEvent(u_int8_t *event, size_t bytes, EventNum_t _eventNumber=0LL, u_int16_t _dataId=0, u_int16_t _entropy=0) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:557</div></div>
-<div class="ttc" id="aclasse2sar_1_1_segmenter_html_acc21041a2d504fa87fe7bb77ae5e16e0"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">e2sar::Segmenter::getMTU</a></div><div class="ttdeci">const u_int16_t getMTU() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:398</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a05b3ea895a787044f5d87a4d99128382"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a05b3ea895a787044f5d87a4d99128382">e2sar::Segmenter::addToSendQueue</a></div><div class="ttdeci">result&lt; int &gt; addToSendQueue(u_int8_t *event, size_t bytes, EventNum_t _eventNum=0LL, u_int16_t _dataId=0, u_int16_t entropy=0, void(*callback)(boost::any)=nullptr, boost::any cbArg=nullptr) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:578</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a11be9c4fc8654a983d4f15c8e529361b"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b">e2sar::Segmenter::getSendStats</a></div><div class="ttdeci">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; getSendStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:395</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a2b6f324045c12fbabdce87845000d7c0"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a2b6f324045c12fbabdce87845000d7c0">e2sar::Segmenter::~Segmenter</a></div><div class="ttdeci">~Segmenter()</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:335</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a574615ae74f27d1b57734d6f36bf6854"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854">e2sar::Segmenter::getSyncStats</a></div><div class="ttdeci">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; getSyncStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:385</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a7b6d9c19dc664d3c1af4a375866e4d56"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56">e2sar::Segmenter::Segmenter</a></div><div class="ttdeci">Segmenter(const EjfatURI &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, const SegmenterFlags &amp;sflags=SegmenterFlags())</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:19</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a7d08e65477848cfd57114cc97f48852e"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a7d08e65477848cfd57114cc97f48852e">e2sar::Segmenter::openAndStart</a></div><div class="ttdeci">result&lt; int &gt; openAndStart() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:54</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a93047c5e85352ce9ed8447c9e1470e24"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">e2sar::Segmenter::getMaxPldLen</a></div><div class="ttdeci">const size_t getMaxPldLen() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:411</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_a9756b15c8b843ea2654031d49d5a137f"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#a9756b15c8b843ea2654031d49d5a137f">e2sar::Segmenter::sendEvent</a></div><div class="ttdeci">result&lt; int &gt; sendEvent(u_int8_t *event, size_t bytes, EventNum_t _eventNumber=0LL, u_int16_t _dataId=0, u_int16_t _entropy=0) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:561</div></div>
+<div class="ttc" id="aclasse2sar_1_1_segmenter_html_acc21041a2d504fa87fe7bb77ae5e16e0"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">e2sar::Segmenter::getMTU</a></div><div class="ttdeci">const u_int16_t getMTU() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:403</div></div>
 <div class="ttc" id="aclasse2sar_1_1_segmenter_html_ad4356095be97149a840e904ea02d0535"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535">e2sar::Segmenter::Segmenter</a></div><div class="ttdeci">Segmenter(const Segmenter &amp;s)=delete</div></div>
 <div class="ttc" id="aclasse2sar_1_1_segmenter_html_aeeb6ae191dcbe53f9be13e5ccf55ca2a"><div class="ttname"><a href="classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a">e2sar::Segmenter::operator=</a></div><div class="ttdeci">Segmenter &amp; operator=(const Segmenter &amp;o)=delete</div></div>
 <div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:10</div></div>
 <div class="ttc" id="astructe2sar_1_1_segmenter_1_1_segmenter_flags_html"><div class="ttname"><a href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">e2sar::Segmenter::SegmenterFlags</a></div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:275</div></div>
+<div class="ttc" id="astructe2sar_1_1_segmenter_1_1_segmenter_flags_html_af960d33a96f1f7752c59b5ae845b49e7"><div class="ttname"><a href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html#af960d33a96f1f7752c59b5ae845b49e7">e2sar::Segmenter::SegmenterFlags::getFromINI</a></div><div class="ttdeci">static result&lt; SegmenterFlags &gt; getFromINI(const std::string &amp;iniFile)</div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.cpp:602</div></div>
 <div class="ttc" id="astructe2sar_1_1_sync_hdr_html"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html">e2sar::SyncHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:173</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -89,6 +89,7 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle"><div class="title">e2sar::Segmenter::SegmenterFlags Struct Reference</div></div>
 </div><!--header-->
@@ -96,6 +97,11 @@ $(function(){ initResizable(false); });
 
 <p><code>#include &lt;<a class="el" href="e2sar_d_p_segmenter_8hpp_source.html">e2sarDPSegmenter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af960d33a96f1f7752c59b5ae845b49e7" id="r_af960d33a96f1f7752c59b5ae845b49e7"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af960d33a96f1f7752c59b5ae845b49e7">getFromINI</a> (const std::string &amp;iniFile)</td></tr>
+<tr class="separator:af960d33a96f1f7752c59b5ae845b49e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a2374d325efeb7c9852d5838997fce650" id="r_a2374d325efeb7c9852d5838997fce650"><td class="memItemLeft" align="right" valign="top"><a id="a2374d325efeb7c9852d5838997fce650" name="a2374d325efeb7c9852d5838997fce650"></a>
@@ -138,8 +144,41 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></
 <li>numSendSockets - number of sockets/source ports we will be sending data from. The more, the more randomness the LAG will see in delivering to different FPGA ports. {4}</li>
 <li>sndSocketBufSize - socket buffer size for sending set via SO_SNDBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.wmem_max) to be higher. {3MB} </li>
 </ul>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af960d33a96f1f7752c59b5ae845b49e7" name="af960d33a96f1f7752c59b5ae845b49e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af960d33a96f1f7752c59b5ae845b49e7">&#9670;&#160;</a></span>getFromINI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">Segmenter::SegmenterFlags</a> &gt; e2sar::Segmenter::SegmenterFlags::getFromINI </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>iniFile</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initialize flags from an INI file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iniFile</td><td>- path to the INI file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>include/<a class="el" href="e2sar_d_p_segmenter_8hpp_source.html">e2sarDPSegmenter.hpp</a></li>
+<li>src/<b>e2sarDPSegmenter.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
