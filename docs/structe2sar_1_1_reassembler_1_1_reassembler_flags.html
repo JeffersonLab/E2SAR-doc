@@ -143,6 +143,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>eventTimeout_ms</b></t
 <tr class="memitem:a62b09e35ec579f973ed7c8e20576a70f" id="r_a62b09e35ec579f973ed7c8e20576a70f"><td class="memItemLeft" align="right" valign="top"><a id="a62b09e35ec579f973ed7c8e20576a70f" name="a62b09e35ec579f973ed7c8e20576a70f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>rcvSocketBufSize</b></td></tr>
 <tr class="separator:a62b09e35ec579f973ed7c8e20576a70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b47e65340fae9791113bf0163d87d9" id="r_a57b47e65340fae9791113bf0163d87d9"><td class="memItemLeft" align="right" valign="top"><a id="a57b47e65340fae9791113bf0163d87d9" name="a57b47e65340fae9791113bf0163d87d9"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>weight</b></td></tr>
+<tr class="separator:a57b47e65340fae9791113bf0163d87d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fab95c5c85e08b81078ee106a34671" id="r_ac7fab95c5c85e08b81078ee106a34671"><td class="memItemLeft" align="right" valign="top"><a id="ac7fab95c5c85e08b81078ee106a34671" name="ac7fab95c5c85e08b81078ee106a34671"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>min_factor</b></td></tr>
+<tr class="separator:ac7fab95c5c85e08b81078ee106a34671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eda47a948e47fb61c7f4d30146bb62e" id="r_a1eda47a948e47fb61c7f4d30146bb62e"><td class="memItemLeft" align="right" valign="top"><a id="a1eda47a948e47fb61c7f4d30146bb62e" name="a1eda47a948e47fb61c7f4d30146bb62e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>max_factor</b></td></tr>
+<tr class="separator:a1eda47a948e47fb61c7f4d30146bb62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure for flags governing <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> behavior with sane defaults</p><ul>
@@ -156,7 +165,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rcvSocketBufSize</b></
 <li>portRange - 2^portRange (0&lt;=portRange&lt;=14) listening ports will be open starting from dataPort. If -1, then the number of ports matches either the number of CPU cores or the number of threads. Normally this value is calculated based on the number of cores or threads requested, but it can be overridden here. Use with caution. {-1}</li>
 <li>withLBHeader - expect LB header to be included (mainly for testing, as normally LB strips it off in normal operation) {false}</li>
 <li>eventTimeout_ms - how long (in ms) we allow events to remain in assembly before we give up {500}</li>
-<li>rcvSocketBufSize - socket buffer size for receiving set via SO_RCVBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.rmem_max) to be higher. {3MB} </li>
+<li>rcvSocketBufSize - socket buffer size for receiving set via SO_RCVBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.rmem_max) to be higher. {3MB}</li>
+<li>weight - weight given to this node in terms of processing power</li>
+<li>min_factor - multiplied with the number of slots that would be assigned evenly to determine min number of slots for example, 4 nodes with a minFactor of 0.5 = (512 slots / 4) * 0.5 = min 64 slots</li>
+<li>max_factor - multiplied with the number of slots that would be assigned evenly to determine max number of slots for example, 4 nodes with a maxFactor of 2 = (512 slots / 4) * 2 = max 256 slots set to 0 to specify no maximum </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0fbe6f0feef235a381c81f61483db70a" name="a0fbe6f0feef235a381c81f61483db70a"></a>

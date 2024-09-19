@@ -35,11 +35,12 @@ var searchData=
   ['getfromfile_32',['getFromFile',['../classe2sar_1_1_ejfat_u_r_i.html#a8a06bfa38ec689f0ff6309bb46528b10',1,'e2sar::EjfatURI']]],
   ['getfromini_33',['getFromINI',['../structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a0fbe6f0feef235a381c81f61483db70a',1,'e2sar::Reassembler::ReassemblerFlags::getFromINI()'],['../structe2sar_1_1_segmenter_1_1_segmenter_flags.html#af960d33a96f1f7752c59b5ae845b49e7',1,'e2sar::Segmenter::SegmenterFlags::getFromINI()']]],
   ['getfromstring_34',['getFromString',['../classe2sar_1_1_ejfat_u_r_i.html#ab8e2e2ebd34d19328935d9dce236597c',1,'e2sar::EjfatURI']]],
-  ['getlb_35',['getLB',['../classe2sar_1_1_l_b_manager.html#ad646e1e20d4e4938c83aced0efff1718',1,'e2sar::LBManager::getLB(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#a7dab3b03fb2cf78e27bdfd6b84add16a',1,'e2sar::LBManager::getLB() noexcept']]],
-  ['getlbstatus_36',['getLBStatus',['../classe2sar_1_1_l_b_manager.html#a55b8dd0eaa2ed0bd3e74b1faa2d20a19',1,'e2sar::LBManager::getLBStatus(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#aa7122ecc226c28bcf38128e38e0ca4c0',1,'e2sar::LBManager::getLBStatus() noexcept']]],
-  ['getmaxpldlen_37',['getMaxPldLen',['../classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24',1,'e2sar::Segmenter']]],
-  ['getmtu_38',['getMTU',['../classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0',1,'e2sar::Segmenter::getMTU()'],['../classe2sar_1_1_net_util.html#a407c8e63faa4e7dffad004927a6f551a',1,'e2sar::NetUtil::getMTU()']]],
-  ['getsendstats_39',['getSendStats',['../classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b',1,'e2sar::Segmenter']]],
-  ['getstats_40',['getStats',['../classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b',1,'e2sar::Reassembler']]],
-  ['getsyncstats_41',['getSyncStats',['../classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854',1,'e2sar::Segmenter']]]
+  ['gethostname_35',['getHostName',['../classe2sar_1_1_net_util.html#af867824b8202ec0cf8a17e476cfb9028',1,'e2sar::NetUtil']]],
+  ['getlb_36',['getLB',['../classe2sar_1_1_l_b_manager.html#ad646e1e20d4e4938c83aced0efff1718',1,'e2sar::LBManager::getLB(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#a7dab3b03fb2cf78e27bdfd6b84add16a',1,'e2sar::LBManager::getLB() noexcept']]],
+  ['getlbstatus_37',['getLBStatus',['../classe2sar_1_1_l_b_manager.html#a55b8dd0eaa2ed0bd3e74b1faa2d20a19',1,'e2sar::LBManager::getLBStatus(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#aa7122ecc226c28bcf38128e38e0ca4c0',1,'e2sar::LBManager::getLBStatus() noexcept']]],
+  ['getmaxpldlen_38',['getMaxPldLen',['../classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24',1,'e2sar::Segmenter']]],
+  ['getmtu_39',['getMTU',['../classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0',1,'e2sar::Segmenter::getMTU()'],['../classe2sar_1_1_net_util.html#a407c8e63faa4e7dffad004927a6f551a',1,'e2sar::NetUtil::getMTU()']]],
+  ['getsendstats_40',['getSendStats',['../classe2sar_1_1_segmenter.html#a11be9c4fc8654a983d4f15c8e529361b',1,'e2sar::Segmenter']]],
+  ['getstats_41',['getStats',['../classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b',1,'e2sar::Reassembler']]],
+  ['getsyncstats_42',['getSyncStats',['../classe2sar_1_1_segmenter.html#a574615ae74f27d1b57734d6f36bf6854',1,'e2sar::Segmenter']]]
 ];

@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cd88bc7413ab25f6f16769978541f09" id="r_a4cd88bc7413ab25f6f16769978541f09"><td class="memItemLeft" align="right" valign="top"><a id="a4cd88bc7413ab25f6f16769978541f09" name="a4cd88bc7413ab25f6f16769978541f09"></a>
 <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;o)=delete</td></tr>
 <tr class="separator:a4cd88bc7413ab25f6f16769978541f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5804969f47c755008cf171c765e3b7e5" id="r_a5804969f47c755008cf171c765e3b7e5"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5804969f47c755008cf171c765e3b7e5">registerWorker</a> (const std::string &amp;node_name, float weight, float min_factor, float max_factor) noexcept</td></tr>
-<tr class="separator:a5804969f47c755008cf171c765e3b7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dad039205e55e202942af00ae4c68d6" id="r_a0dad039205e55e202942af00ae4c68d6"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dad039205e55e202942af00ae4c68d6">registerWorker</a> (const std::string &amp;node_name) noexcept</td></tr>
+<tr class="separator:a0dad039205e55e202942af00ae4c68d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d74bb1d375c7d0d513075b49046ac7" id="r_af1d74bb1d375c7d0d513075b49046ac7"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1d74bb1d375c7d0d513075b49046ac7">deregisterWorker</a> () noexcept</td></tr>
 <tr class="separator:af1d74bb1d375c7d0d513075b49046ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcdcbd4ac51cda97e16d74d20ba25c7f" id="r_adcdcbd4ac51cda97e16d74d20ba25c7f"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcdcbd4ac51cda97e16d74d20ba25c7f">openAndStart</a> () noexcept</td></tr>
@@ -507,8 +507,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
-<a id="a5804969f47c755008cf171c765e3b7e5" name="a5804969f47c755008cf171c765e3b7e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5804969f47c755008cf171c765e3b7e5">&#9670;&#160;</a></span>registerWorker()</h2>
+<a id="a0dad039205e55e202942af00ae4c68d6" name="a0dad039205e55e202942af00ae4c68d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dad039205e55e202942af00ae4c68d6">&#9670;&#160;</a></span>registerWorker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -519,22 +519,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
         <tr>
           <td class="memname">result&lt; int &gt; e2sar::Reassembler::registerWorker </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>node_name</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>node_name</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>weight</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>min_factor</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>max_factor</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -546,9 +532,6 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 <p>Register a worker with the control plane </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">node_name</td><td>- name of this node (any unique string) </td></tr>
-    <tr><td class="paramname">weight</td><td>- weight given to this node in terms of processing power </td></tr>
-    <tr><td class="paramname">min_factor</td><td>- multiplied with the number of slots that would be assigned evenly to determine min number of slots for example, 4 nodes with a minFactor of 0.5 = (512 slots / 4) * 0.5 = min 64 slots </td></tr>
-    <tr><td class="paramname">max_factor</td><td>- multiplied with the number of slots that would be assigned evenly to determine max number of slots for example, 4 nodes with a maxFactor of 2 = (512 slots / 4) * 2 = max 256 slots set to 0 to specify no maximum </td></tr>
   </table>
   </dd>
 </dl>

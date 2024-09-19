@@ -98,8 +98,36 @@ $(function(){ initResizable(false); });
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a407c8e63faa4e7dffad004927a6f551a" id="r_a407c8e63faa4e7dffad004927a6f551a"><td class="memItemLeft" align="right" valign="top">static u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a407c8e63faa4e7dffad004927a6f551a">getMTU</a> (const std::string &amp;interfaceName)</td></tr>
 <tr class="separator:a407c8e63faa4e7dffad004927a6f551a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af867824b8202ec0cf8a17e476cfb9028" id="r_af867824b8202ec0cf8a17e476cfb9028"><td class="memItemLeft" align="right" valign="top">static result&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af867824b8202ec0cf8a17e476cfb9028">getHostName</a> ()</td></tr>
+<tr class="separator:af867824b8202ec0cf8a17e476cfb9028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af867824b8202ec0cf8a17e476cfb9028" name="af867824b8202ec0cf8a17e476cfb9028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af867824b8202ec0cf8a17e476cfb9028">&#9670;&#160;</a></span>getHostName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; std::string &gt; e2sar::NetUtil::getHostName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the hostname of the host </p>
+
+</div>
+</div>
 <a id="a407c8e63faa4e7dffad004927a6f551a" name="a407c8e63faa4e7dffad004927a6f551a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a407c8e63faa4e7dffad004927a6f551a">&#9670;&#160;</a></span>getMTU()</h2>
 
@@ -129,7 +157,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>MTU or 1500 as the best guess</dd></dl>
-<p>Get MTU of a given interface </p>
+<p>Get MTU of a given interface. Used in constructors, so doesn't return error. </p>
 
 </div>
 </div>
