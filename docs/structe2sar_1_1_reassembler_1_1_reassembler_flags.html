@@ -99,17 +99,17 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0fbe6f0feef235a381c81f61483db70a" id="r_a0fbe6f0feef235a381c81f61483db70a"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">Reassembler::ReassemblerFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fbe6f0feef235a381c81f61483db70a">getFromINI</a> (const std::string &amp;iniFile)</td></tr>
-<tr class="separator:a0fbe6f0feef235a381c81f61483db70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07544fff26b63b17371e04ad40023168" id="r_a07544fff26b63b17371e04ad40023168"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">Reassembler::ReassemblerFlags</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07544fff26b63b17371e04ad40023168">getFromINI</a> (const std::string &amp;iniFile) noexcept</td></tr>
+<tr class="separator:a07544fff26b63b17371e04ad40023168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aa1cfc4c1c050708765702e7c1bdc7dde" id="r_aa1cfc4c1c050708765702e7c1bdc7dde"><td class="memItemLeft" align="right" valign="top"><a id="aa1cfc4c1c050708765702e7c1bdc7dde" name="aa1cfc4c1c050708765702e7c1bdc7dde"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>cpV6</b></td></tr>
-<tr class="separator:aa1cfc4c1c050708765702e7c1bdc7dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e5e80128a5657916d010828ee6a0b4d" id="r_a5e5e80128a5657916d010828ee6a0b4d"><td class="memItemLeft" align="right" valign="top"><a id="a5e5e80128a5657916d010828ee6a0b4d" name="a5e5e80128a5657916d010828ee6a0b4d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useCP</b></td></tr>
 <tr class="separator:a5e5e80128a5657916d010828ee6a0b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3b9a3ba7181ec8b80664c151d67ff6" id="r_aab3b9a3ba7181ec8b80664c151d67ff6"><td class="memItemLeft" align="right" valign="top"><a id="aab3b9a3ba7181ec8b80664c151d67ff6" name="aab3b9a3ba7181ec8b80664c151d67ff6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>useHostAddress</b></td></tr>
+<tr class="separator:aab3b9a3ba7181ec8b80664c151d67ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a001eb404a45f0bdaf872bd35d891cf2c" id="r_a001eb404a45f0bdaf872bd35d891cf2c"><td class="memItemLeft" align="right" valign="top"><a id="a001eb404a45f0bdaf872bd35d891cf2c" name="a001eb404a45f0bdaf872bd35d891cf2c"></a>
 u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>period_ms</b></td></tr>
 <tr class="separator:a001eb404a45f0bdaf872bd35d891cf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,8 +155,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>max_factor</b></td><
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure for flags governing <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> behavior with sane defaults</p><ul>
-<li>cpV6 - use IPv6 address if cp node specified by name and has IPv4 and IPv6 resolution {false}</li>
 <li>useCP - whether to use the control plane (sendState, registerWorker) {true}</li>
+<li>useHostAddress - use IPv4 or IPv6 address for gRPC even if hostname is specified (disables cert validation) {false}</li>
 <li>period_ms - period of the send state thread in milliseconds {100}</li>
 <li>epoch_ms - period of one epoch in milliseconds {1000}</li>
 <li>Ki, Kp, Kd - PID gains (integral, proportional and derivative) {0., 0., 0.}</li>
@@ -171,8 +171,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>max_factor</b></td><
 <li>max_factor - multiplied with the number of slots that would be assigned evenly to determine max number of slots for example, 4 nodes with a maxFactor of 2 = (512 slots / 4) * 2 = max 256 slots set to 0 to specify no maximum </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0fbe6f0feef235a381c81f61483db70a" name="a0fbe6f0feef235a381c81f61483db70a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fbe6f0feef235a381c81f61483db70a">&#9670;&#160;</a></span>getFromINI()</h2>
+<a id="a07544fff26b63b17371e04ad40023168" name="a07544fff26b63b17371e04ad40023168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07544fff26b63b17371e04ad40023168">&#9670;&#160;</a></span>getFromINI()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +189,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>max_factor</b></td><
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

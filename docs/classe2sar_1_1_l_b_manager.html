@@ -97,8 +97,8 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aee79a02a264d3e48e3a96b78b778cbd4" id="r_aee79a02a264d3e48e3a96b78b778cbd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee79a02a264d3e48e3a96b78b778cbd4">LBManager</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;cpuri, bool validateServer=true, grpc::SslCredentialsOptions opts=grpc::SslCredentialsOptions())</td></tr>
-<tr class="separator:aee79a02a264d3e48e3a96b78b778cbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c1b39bc8c486bd173329779fc0c5fb" id="r_a32c1b39bc8c486bd173329779fc0c5fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32c1b39bc8c486bd173329779fc0c5fb">LBManager</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;cpuri, bool validateServer=true, bool useHostAddress=false, grpc::SslCredentialsOptions opts=grpc::SslCredentialsOptions())</td></tr>
+<tr class="separator:a32c1b39bc8c486bd173329779fc0c5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9b4c58f99dc442b3777df86e595ea19" id="r_af9b4c58f99dc442b3777df86e595ea19"><td class="memItemLeft" align="right" valign="top">result&lt; u_int32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9b4c58f99dc442b3777df86e595ea19">reserveLB</a> (const std::string &amp;lb_name, const <a class="el" href="namespacee2sar.html#ae18c28b113988abbc684f8ec0c3a0019">TimeUntil</a> &amp;until, const std::vector&lt; std::string &gt; &amp;senders) noexcept</td></tr>
 <tr class="separator:af9b4c58f99dc442b3777df86e595ea19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08766b1bec3020153940b13346a53976" id="r_a08766b1bec3020153940b13346a53976"><td class="memItemLeft" align="right" valign="top">result&lt; u_int32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08766b1bec3020153940b13346a53976">reserveLB</a> (const std::string &amp;lb_name, const boost::posix_time::time_duration &amp;duration, const std::vector&lt; std::string &gt; &amp;senders) noexcept</td></tr>
@@ -162,8 +162,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a90457e1355f2fd6e3a199dff2d021a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aee79a02a264d3e48e3a96b78b778cbd4" name="aee79a02a264d3e48e3a96b78b778cbd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee79a02a264d3e48e3a96b78b778cbd4">&#9670;&#160;</a></span>LBManager()</h2>
+<a id="a32c1b39bc8c486bd173329779fc0c5fb" name="a32c1b39bc8c486bd173329779fc0c5fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32c1b39bc8c486bd173329779fc0c5fb">&#9670;&#160;</a></span>LBManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,6 +184,11 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>useHostAddress</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">grpc::SslCredentialsOptions</td>          <td class="paramname"><span class="paramname"><em>opts</em></span><span class="paramdefsep"> = </span><span class="paramdefval">grpc::SslCredentialsOptions()</span>&#160;)</td>
         </tr>
       </table>
@@ -197,6 +202,7 @@ Static Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">cpuri</td><td>an <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> object parsed from configuration data </td></tr>
     <tr><td class="paramname">validateServer</td><td>if false, skip server certificate validation (useful for self-signed testing) </td></tr>
+    <tr><td class="paramname">useHostAddress</td><td>even if hostname is provided, use host address as resolved by URI object (with preference for IPv4 by default or for IPv6 if explicitly requested) </td></tr>
     <tr><td class="paramname">opts</td><td>grpc::SslCredentialsOptions containing some combination of server root certs, client key and client cert use of SSL/TLS is governed by the URI scheme ('ejfat' vs 'ejfats') </td></tr>
   </table>
   </dd>

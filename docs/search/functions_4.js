@@ -33,7 +33,7 @@ var searchData=
   ['getevent_30',['getEvent',['../classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d',1,'e2sar::Reassembler']]],
   ['getfromenv_31',['getFromEnv',['../classe2sar_1_1_ejfat_u_r_i.html#a6279e45cb2fdf508c2f38ed1e8459322',1,'e2sar::EjfatURI']]],
   ['getfromfile_32',['getFromFile',['../classe2sar_1_1_ejfat_u_r_i.html#a8a06bfa38ec689f0ff6309bb46528b10',1,'e2sar::EjfatURI']]],
-  ['getfromini_33',['getFromINI',['../structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a0fbe6f0feef235a381c81f61483db70a',1,'e2sar::Reassembler::ReassemblerFlags::getFromINI()'],['../structe2sar_1_1_segmenter_1_1_segmenter_flags.html#af960d33a96f1f7752c59b5ae845b49e7',1,'e2sar::Segmenter::SegmenterFlags::getFromINI()']]],
+  ['getfromini_33',['getFromINI',['../structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168',1,'e2sar::Reassembler::ReassemblerFlags::getFromINI()'],['../structe2sar_1_1_segmenter_1_1_segmenter_flags.html#a1bde331dfbb59afb6669a49d3a2d5495',1,'e2sar::Segmenter::SegmenterFlags::getFromINI()']]],
   ['getfromstring_34',['getFromString',['../classe2sar_1_1_ejfat_u_r_i.html#ab8e2e2ebd34d19328935d9dce236597c',1,'e2sar::EjfatURI']]],
   ['gethostname_35',['getHostName',['../classe2sar_1_1_net_util.html#af867824b8202ec0cf8a17e476cfb9028',1,'e2sar::NetUtil']]],
   ['getlb_36',['getLB',['../classe2sar_1_1_l_b_manager.html#ad646e1e20d4e4938c83aced0efff1718',1,'e2sar::LBManager::getLB(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#a7dab3b03fb2cf78e27bdfd6b84add16a',1,'e2sar::LBManager::getLB() noexcept']]],
