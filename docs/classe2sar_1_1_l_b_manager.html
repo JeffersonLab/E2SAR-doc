@@ -135,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3c1eb804a039a93c3a3929905e86f370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43456dd5ab5d5f8f75cd8a394bc779d" id="r_ae43456dd5ab5d5f8f75cd8a394bc779d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae43456dd5ab5d5f8f75cd8a394bc779d">get_URI</a> () const noexcept</td></tr>
 <tr class="separator:ae43456dd5ab5d5f8f75cd8a394bc779d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84020e16780235139e3ebb21be630343" id="r_a84020e16780235139e3ebb21be630343"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84020e16780235139e3ebb21be630343">get_AddrString</a> ()</td></tr>
+<tr class="separator:a84020e16780235139e3ebb21be630343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -154,12 +156,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aaf72784069d43e77a52ca30f0fbf438f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc3efd1ce339180e87d8ea9fd01ddd01" id="r_acc3efd1ce339180e87d8ea9fd01ddd01"><td class="memItemLeft" align="right" valign="top">static const OverviewMessage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc3efd1ce339180e87d8ea9fd01ddd01">asOverviewMessage</a> (const OverviewReply &amp;rep) noexcept</td></tr>
 <tr class="separator:acc3efd1ce339180e87d8ea9fd01ddd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a895ec804b742e4127688558b43638471" id="r_a895ec804b742e4127688558b43638471"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a895ec804b742e4127688558b43638471">makeSslOptions</a> (const std::string &amp;pem_root_certs, const std::string &amp;pem_private_key, const std::string &amp;pem_cert_chain)</td></tr>
-<tr class="separator:a895ec804b742e4127688558b43638471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f294de412c832a4a1264fcec64f95bc" id="r_a5f294de412c832a4a1264fcec64f95bc"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f294de412c832a4a1264fcec64f95bc">makeSslOptionsFromFiles</a> (std::string_view pem_root_certs, std::string_view pem_private_key, std::string_view pem_cert_chain)</td></tr>
-<tr class="separator:a5f294de412c832a4a1264fcec64f95bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90457e1355f2fd6e3a199dff2d021a2a" id="r_a90457e1355f2fd6e3a199dff2d021a2a"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90457e1355f2fd6e3a199dff2d021a2a">makeSslOptionsFromFiles</a> (std::string_view pem_root_certs)</td></tr>
-<tr class="separator:a90457e1355f2fd6e3a199dff2d021a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ca586788cfe5af16c4cbed1ade24c1" id="r_ae5ca586788cfe5af16c4cbed1ade24c1"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5ca586788cfe5af16c4cbed1ade24c1">makeSslOptions</a> (const std::string &amp;pem_root_certs, const std::string &amp;pem_private_key, const std::string &amp;pem_cert_chain) noexcept</td></tr>
+<tr class="separator:ae5ca586788cfe5af16c4cbed1ade24c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957151ee47888b7c3ceebdc549104f5e" id="r_a957151ee47888b7c3ceebdc549104f5e"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a957151ee47888b7c3ceebdc549104f5e">makeSslOptionsFromFiles</a> (std::string_view pem_root_certs, std::string_view pem_private_key, std::string_view pem_cert_chain) noexcept</td></tr>
+<tr class="separator:a957151ee47888b7c3ceebdc549104f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d177e12011bd72a8feca9d8c7123765" id="r_a4d177e12011bd72a8feca9d8c7123765"><td class="memItemLeft" align="right" valign="top">static result&lt; grpc::SslCredentialsOptions &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d177e12011bd72a8feca9d8c7123765">makeSslOptionsFromFiles</a> (std::string_view pem_root_certs) noexcept</td></tr>
+<tr class="separator:a4d177e12011bd72a8feca9d8c7123765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a32c1b39bc8c486bd173329779fc0c5fb" name="a32c1b39bc8c486bd173329779fc0c5fb"></a>
@@ -429,6 +431,33 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- 0 on success or error code with message on failure </dd></dl>
+
+</div>
+</div>
+<a id="a84020e16780235139e3ebb21be630343" name="a84020e16780235139e3ebb21be630343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84020e16780235139e3ebb21be630343">&#9670;&#160;</a></span>get_AddrString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string e2sar::LBManager::get_AddrString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the address string used by gRPC to connect to control plane. Can be in the format of hostname:port or ipv4:///W.X.Y.Z:port or ipv6:///[XXXX::XX:XXXX]:port</p>
+<dl class="section return"><dt>Returns</dt><dd>the string containing the address </dd></dl>
 
 </div>
 </div>
@@ -710,8 +739,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a895ec804b742e4127688558b43638471" name="a895ec804b742e4127688558b43638471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a895ec804b742e4127688558b43638471">&#9670;&#160;</a></span>makeSslOptions()</h2>
+<a id="ae5ca586788cfe5af16c4cbed1ade24c1" name="ae5ca586788cfe5af16c4cbed1ade24c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ca586788cfe5af16c4cbed1ade24c1">&#9670;&#160;</a></span>makeSslOptions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -737,7 +766,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -753,8 +782,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a90457e1355f2fd6e3a199dff2d021a2a" name="a90457e1355f2fd6e3a199dff2d021a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90457e1355f2fd6e3a199dff2d021a2a">&#9670;&#160;</a></span>makeSslOptionsFromFiles() <span class="overload">[1/2]</span></h2>
+<a id="a4d177e12011bd72a8feca9d8c7123765" name="a4d177e12011bd72a8feca9d8c7123765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d177e12011bd72a8feca9d8c7123765">&#9670;&#160;</a></span>makeSslOptionsFromFiles() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -771,7 +800,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -784,8 +813,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f294de412c832a4a1264fcec64f95bc" name="a5f294de412c832a4a1264fcec64f95bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f294de412c832a4a1264fcec64f95bc">&#9670;&#160;</a></span>makeSslOptionsFromFiles() <span class="overload">[2/2]</span></h2>
+<a id="a957151ee47888b7c3ceebdc549104f5e" name="a957151ee47888b7c3ceebdc549104f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a957151ee47888b7c3ceebdc549104f5e">&#9670;&#160;</a></span>makeSslOptionsFromFiles() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -811,7 +840,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
