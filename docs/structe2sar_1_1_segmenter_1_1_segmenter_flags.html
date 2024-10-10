@@ -116,6 +116,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>connectedSocket</b></
 <tr class="memitem:a586083069e973e7bb87b0b473d56c0fc" id="r_a586083069e973e7bb87b0b473d56c0fc"><td class="memItemLeft" align="right" valign="top"><a id="a586083069e973e7bb87b0b473d56c0fc" name="a586083069e973e7bb87b0b473d56c0fc"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useCP</b></td></tr>
 <tr class="separator:a586083069e973e7bb87b0b473d56c0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf936118884a1dd9a9485ed31843ebe" id="r_a5bf936118884a1dd9a9485ed31843ebe"><td class="memItemLeft" align="right" valign="top"><a id="a5bf936118884a1dd9a9485ed31843ebe" name="a5bf936118884a1dd9a9485ed31843ebe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>zeroRate</b></td></tr>
+<tr class="separator:a5bf936118884a1dd9a9485ed31843ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3126b2953030fa92b4d65304d24fd6da" id="r_a3126b2953030fa92b4d65304d24fd6da"><td class="memItemLeft" align="right" valign="top"><a id="a3126b2953030fa92b4d65304d24fd6da" name="a3126b2953030fa92b4d65304d24fd6da"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>usecAsEventNum</b></td></tr>
+<tr class="separator:a3126b2953030fa92b4d65304d24fd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a999499b2baeb67edb404d6dd9c0a2143" id="r_a999499b2baeb67edb404d6dd9c0a2143"><td class="memItemLeft" align="right" valign="top"><a id="a999499b2baeb67edb404d6dd9c0a2143" name="a999499b2baeb67edb404d6dd9c0a2143"></a>
 u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>syncPeriodMs</b></td></tr>
 <tr class="separator:a999499b2baeb67edb404d6dd9c0a2143"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +144,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></
 <li>zeroCopy - use zeroCopy send optimization {false}</li>
 <li>connectedSocket - use connected sockets {true}</li>
 <li>useCP - enable control plane to send Sync packets {true}</li>
+<li>zeroRate - don't provide event number change rate in Sync {false}</li>
+<li>clockAsEventNum - use usec clock samples as event numbers in LB and Sync packets {false}</li>
 <li>syncPeriodMs - sync thread period in milliseconds {1000}</li>
 <li>syncPerods - number of sync periods to use for averaging reported send rate {2}</li>
 <li>mtu - size of the MTU to attempt to fit the segmented data in (must accommodate IP, UDP and LBRE headers) {1500}</li>
