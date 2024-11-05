@@ -361,212 +361,211 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            boost::mutex recvThreadMtx;</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            <span class="comment">// condition variable for recv thread queue</span></div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            boost::condition_variable recvThreadCond;</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            boost::unique_lock&lt;boost::mutex&gt; condLock;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> assignPortsToThreads()</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            {</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <span class="comment">// O(numRecvPorts)</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;numRecvPorts;)</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                {</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0; i&lt;numRecvPorts &amp;&amp; j&lt;numRecvThreads; i++, j++)</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                    {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                        portsToThreads[j].push_back(dataPort + i);</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                    } </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>                }</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            }</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keyword">struct </span>SendStateThreadState {</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                <span class="comment">// owner object</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;reas;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                boost::thread threadObj;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <span class="keyword">const</span> u_int16_t period_ms;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                <span class="comment">// UDP sockets</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                <span class="keywordtype">int</span> socketFd{0};</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                <span class="keyword">inline</span> SendStateThreadState(<a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;r, u_int16_t period_ms): </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                    reas{r}, period_ms{period_ms}</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                {}</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>                <span class="comment">// thread loop. all important behavior is encapsulated inside LBManager</span></div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>                <span class="keywordtype">void</span> _threadBody();</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            };</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            <span class="keyword">friend</span> <span class="keyword">struct </span>sendStateThreadState;</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>            SendStateThreadState sendStateThreadState;</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="keywordtype">bool</span> useCP; <span class="comment">// for debugging we may not want to have CP running</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <span class="comment">// global thread stop signal</span></div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            <span class="keywordtype">bool</span> threadsStop{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> sanityChecks()</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>            {</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                <span class="keywordflow">if</span> (numRecvThreads &gt; 128)</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Too many reassembly threads requested, limit 128&quot;</span>);</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>                <span class="keywordflow">if</span> (numRecvPorts &gt; (2 &lt;&lt; 13))</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Too many receive ports reqiuested, limit 2^14&quot;</span>);</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                <span class="keywordflow">if</span> (eventTimeout_ms &gt; 5000)</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Event timeout exception unreasonably long, limit 5s&quot;</span>);</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                <span class="keywordflow">if</span> (dataPort &lt; 1024)</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Base receive port in the privileged range (&lt;1024)&quot;</span>);</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                <span class="keywordflow">if</span> (portRange &gt; 14)</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Port range out of bounds: [0, 14]&quot;</span>);</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>                <span class="keywordflow">if</span> (!dpuri.<a class="code hl_function" href="classe2sar_1_1_ejfat_u_r_i.html#ac9e0736dc385f05c20eaa1b198957a80">has_dataAddr</a>())</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Data address not present in the URI&quot;</span>);</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            }</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00368" data-start="{" data-end="};">
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">  368</a></span>            <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            {</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                <span class="keywordtype">bool</span> useCP;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>                <span class="keywordtype">bool</span> useHostAddress;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                u_int16_t period_ms;</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                <span class="keywordtype">bool</span> validateCert;</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                <span class="keywordtype">float</span> Ki, Kp, Kd, setPoint;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                u_int32_t epoch_ms;</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>                <span class="keywordtype">int</span> portRange; </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>                <span class="keywordtype">bool</span> withLBHeader;</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                <span class="keywordtype">int</span> eventTimeout_ms;</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>                <span class="keywordtype">int</span> rcvSocketBufSize; </div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>                <span class="keywordtype">float</span> weight, min_factor, max_factor;</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>(): useCP{<span class="keyword">true</span>}, useHostAddress{<span class="keyword">false</span>},</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>                    period_ms{100}, validateCert{<span class="keyword">true</span>}, Ki{0.}, Kp{0.}, Kd{0.}, setPoint{0.}, </div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>                    epoch_ms{1000}, portRange{-1}, withLBHeader{<span class="keyword">false</span>}, eventTimeout_ms{500},</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>                    rcvSocketBufSize{1024*1024*3}, weight{1.0}, min_factor{0.5}, max_factor{2.0} {}</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>                <span class="keyword">static</span> result&lt;Reassembler::ReassemblerFlags&gt; <a class="code hl_function" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168">getFromINI</a>(<span class="keyword">const</span> std::string &amp;iniFile) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            };</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> assignPortsToThreads()</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                <span class="comment">// O(numRecvPorts)</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;numRecvPorts;)</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0; i&lt;numRecvPorts &amp;&amp; j&lt;numRecvThreads; i++, j++)</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                    {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                        portsToThreads[j].push_back(dataPort + i);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                    } </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            <span class="keyword">struct </span>SendStateThreadState {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                <span class="comment">// owner object</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;reas;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                boost::thread threadObj;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>                <span class="keyword">const</span> u_int16_t period_ms;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>                <span class="comment">// UDP sockets</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                <span class="keywordtype">int</span> socketFd{0};</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                <span class="keyword">inline</span> SendStateThreadState(<a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;r, u_int16_t period_ms): </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                    reas{r}, period_ms{period_ms}</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                {}</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>                <span class="comment">// thread loop. all important behavior is encapsulated inside LBManager</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>                <span class="keywordtype">void</span> _threadBody();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            };</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keyword">friend</span> <span class="keyword">struct </span>sendStateThreadState;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            SendStateThreadState sendStateThreadState;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>            <span class="keywordtype">bool</span> useCP; <span class="comment">// for debugging we may not want to have CP running</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="comment">// global thread stop signal</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <span class="keywordtype">bool</span> threadsStop{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>            <span class="keyword">inline</span> <span class="keywordtype">void</span> sanityChecks()</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            {</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>                <span class="keywordflow">if</span> (numRecvThreads &gt; 128)</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Too many reassembly threads requested, limit 128&quot;</span>);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                <span class="keywordflow">if</span> (numRecvPorts &gt; (2 &lt;&lt; 13))</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Too many receive ports reqiuested, limit 2^14&quot;</span>);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>                <span class="keywordflow">if</span> (eventTimeout_ms &gt; 5000)</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Event timeout exception unreasonably long, limit 5s&quot;</span>);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>                <span class="keywordflow">if</span> (dataPort &lt; 1024)</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Base receive port in the privileged range (&lt;1024)&quot;</span>);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                <span class="keywordflow">if</span> (portRange &gt; 14)</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Port range out of bounds: [0, 14]&quot;</span>);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>                <span class="keywordflow">if</span> (!dpuri.<a class="code hl_function" href="classe2sar_1_1_ejfat_u_r_i.html#ac9e0736dc385f05c20eaa1b198957a80">has_dataAddr</a>())</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>                    <span class="keywordflow">throw</span> <a class="code hl_class" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a>(<span class="stringliteral">&quot;Data address not present in the URI&quot;</span>);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            }</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00367" data-start="{" data-end="};">
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">  367</a></span>            <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            {</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                <span class="keywordtype">bool</span> useCP;</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                <span class="keywordtype">bool</span> useHostAddress;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>                u_int16_t period_ms;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                <span class="keywordtype">bool</span> validateCert;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                <span class="keywordtype">float</span> Ki, Kp, Kd, setPoint;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                u_int32_t epoch_ms;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                <span class="keywordtype">int</span> portRange; </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>                <span class="keywordtype">bool</span> withLBHeader;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>                <span class="keywordtype">int</span> eventTimeout_ms;</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                <span class="keywordtype">int</span> rcvSocketBufSize; </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>                <span class="keywordtype">float</span> weight, min_factor, max_factor;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>                <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>(): useCP{<span class="keyword">true</span>}, useHostAddress{<span class="keyword">false</span>},</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                    period_ms{100}, validateCert{<span class="keyword">true</span>}, Ki{0.}, Kp{0.}, Kd{0.}, setPoint{0.}, </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>                    epoch_ms{1000}, portRange{-1}, withLBHeader{<span class="keyword">false</span>}, eventTimeout_ms{500},</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>                    rcvSocketBufSize{1024*1024*3}, weight{1.0}, min_factor{0.5}, max_factor{2.0} {}</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>                <span class="keyword">static</span> result&lt;Reassembler::ReassemblerFlags&gt; <a class="code hl_function" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168">getFromINI</a>(<span class="keyword">const</span> std::string &amp;iniFile) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>            };</div>
 </div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, ip::address data_ip, u_int16_t starting_port,</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>                        std::vector&lt;int&gt; cpuCoreList, </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags = <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>());</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, ip::address data_ip, u_int16_t starting_port,</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                        <span class="keywordtype">size_t</span> numRecvThreads = 1, <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags = <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>());</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;r) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;o) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            <a class="code hl_class" href="classe2sar_1_1_reassembler.html">~Reassembler</a>()</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            {</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                <span class="keywordflow">if</span> (useCP &amp;&amp; registeredWorker)</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                    <span class="keyword">auto</span> res = lbman.<a class="code hl_function" href="classe2sar_1_1_l_b_manager.html#a8e0fa40b7d4c1995902e05c122277251">deregisterWorker</a>();</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>                <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a>();</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>                <span class="comment">// wait to exit</span></div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>                <span class="keywordflow">if</span> (useCP)</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>                    sendStateThreadState.threadObj.join();</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = recvThreadState.begin(); i != recvThreadState.end(); ++i)</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>                    i-&gt;threadObj.join();</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>                <span class="comment">// pool memory is implicitly freed when pool goes out of scope</span></div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>            }</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>            </div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6">registerWorker</a>(<span class="keyword">const</span> std::string &amp;node_name) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#af1d74bb1d375c7d0d513075b49046ac7">deregisterWorker</a>() noexcept;</div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#adcdcbd4ac51cda97e16d74d20ba25c7f">openAndStart</a>() noexcept;</div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d">getEvent</a>(uint8_t **event, <span class="keywordtype">size_t</span> *bytes, EventNum_t* eventNum, uint16_t *dataId) noexcept;</div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span> </div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9">recvEvent</a>(uint8_t **event, <span class="keywordtype">size_t</span> *bytes, EventNum_t* eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept;</div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
-<div class="foldopen" id="foldopen00488" data-start="{" data-end="}">
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">  488</a></span>            inline const boost::tuple&lt;EventNum_t, EventNum_t, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <a class="code hl_enumeration" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">getStats</a>() const noexcept</div>
-<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>            {</div>
-<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>                <span class="keywordflow">return</span> boost::make_tuple&lt;EventNum_t, EventNum_t, int, int, int, E2SARErrorc&gt;(</div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>                    recvStats.enqueueLoss, recvStats.eventSuccess,</div>
-<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>                    recvStats.lastErrno, recvStats.grpcErrCnt, recvStats.dataErrCnt,</div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>                    recvStats.lastE2SARError);</div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>            }</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, ip::address data_ip, u_int16_t starting_port,</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>                        std::vector&lt;int&gt; cpuCoreList, </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags = <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>());</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, ip::address data_ip, u_int16_t starting_port,</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                        <span class="keywordtype">size_t</span> numRecvThreads = 1, <span class="keyword">const</span> <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags = <a class="code hl_struct" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>());</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">Reassembler</a>(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;r) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;o) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            <a class="code hl_class" href="classe2sar_1_1_reassembler.html">~Reassembler</a>()</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                <span class="keywordflow">if</span> (useCP &amp;&amp; registeredWorker)</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                    <span class="keyword">auto</span> res = lbman.<a class="code hl_function" href="classe2sar_1_1_l_b_manager.html#a8e0fa40b7d4c1995902e05c122277251">deregisterWorker</a>();</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>                <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a>();</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>                <span class="comment">// wait to exit</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>                <span class="keywordflow">if</span> (useCP)</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>                    sendStateThreadState.threadObj.join();</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = recvThreadState.begin(); i != recvThreadState.end(); ++i)</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                    i-&gt;threadObj.join();</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>                <span class="comment">// pool memory is implicitly freed when pool goes out of scope</span></div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>            }</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>            </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6">registerWorker</a>(<span class="keyword">const</span> std::string &amp;node_name) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>            result&lt;int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#af1d74bb1d375c7d0d513075b49046ac7">deregisterWorker</a>() noexcept;</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#adcdcbd4ac51cda97e16d74d20ba25c7f">openAndStart</a>() noexcept;</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d">getEvent</a>(uint8_t **event, <span class="keywordtype">size_t</span> *bytes, EventNum_t* eventNum, uint16_t *dataId) noexcept;</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>            result&lt;<span class="keywordtype">int</span>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9">recvEvent</a>(uint8_t **event, <span class="keywordtype">size_t</span> *bytes, EventNum_t* eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept;</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span> </div>
+<div class="foldopen" id="foldopen00487" data-start="{" data-end="}">
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">  487</a></span>            inline const boost::tuple&lt;EventNum_t, EventNum_t, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <a class="code hl_enumeration" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a>&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">getStats</a>() const noexcept</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>            {</div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>                <span class="keywordflow">return</span> boost::make_tuple&lt;EventNum_t, EventNum_t, int, int, int, E2SARErrorc&gt;(</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>                    recvStats.enqueueLoss, recvStats.eventSuccess,</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>                    recvStats.lastErrno, recvStats.grpcErrCnt, recvStats.dataErrCnt,</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>                    recvStats.lastE2SARError);</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>            }</div>
 </div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
-<div class="foldopen" id="foldopen00500" data-start="{" data-end="}">
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">  500</a></span>            <span class="keyword">inline</span> result&lt;std::pair&lt;EventNum_t, u_int16_t&gt;&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">get_LostEvent</a>() noexcept</div>
-<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>            {</div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>                std::pair&lt;EventNum_t, u_int16_t&gt; *res = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>                <span class="keywordflow">if</span> (recvStats.lostEventsQueue.pop(res))</div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>                {</div>
-<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>                    <span class="keyword">auto</span> ret{*res};</div>
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>                    <span class="keyword">delete</span> res;</div>
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>                    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>                }</div>
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>                    <span class="keywordflow">return</span> <a class="code hl_struct" href="structe2sar_1_1_e2_s_a_r_error_info.html">E2SARErrorInfo</a>{E2SARErrorc::NotFound, <span class="stringliteral">&quot;Lost event queue is empty&quot;</span>};</div>
-<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>            }</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span> </div>
+<div class="foldopen" id="foldopen00499" data-start="{" data-end="}">
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">  499</a></span>            <span class="keyword">inline</span> result&lt;std::pair&lt;EventNum_t, u_int16_t&gt;&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">get_LostEvent</a>() noexcept</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>            {</div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>                std::pair&lt;EventNum_t, u_int16_t&gt; *res = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>                <span class="keywordflow">if</span> (recvStats.lostEventsQueue.pop(res))</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>                {</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>                    <span class="keyword">auto</span> ret{*res};</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>                    <span class="keyword">delete</span> res;</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>                    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>                }</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>                    <span class="keywordflow">return</span> <a class="code hl_struct" href="structe2sar_1_1_e2_s_a_r_error_info.html">E2SARErrorInfo</a>{E2SARErrorc::NotFound, <span class="stringliteral">&quot;Lost event queue is empty&quot;</span>};</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>            }</div>
 </div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span> </div>
-<div class="foldopen" id="foldopen00516" data-start="{" data-end="}">
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">  516</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a>() const noexcept</div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>            {</div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>                <span class="keywordflow">return</span> numRecvThreads;</div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>            }</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span> </div>
+<div class="foldopen" id="foldopen00515" data-start="{" data-end="}">
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">  515</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a>() const noexcept</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>            {</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>                <span class="keywordflow">return</span> numRecvThreads;</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>            }</div>
 </div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span> </div>
-<div class="foldopen" id="foldopen00524" data-start="{" data-end="}">
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">  524</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> std::pair&lt;int, int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">get_recvPorts</a>() const noexcept</div>
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>            {</div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>                <span class="keywordflow">return</span> std::make_pair(dataPort, dataPort + numRecvPorts - 1);</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>            }</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span> </div>
+<div class="foldopen" id="foldopen00523" data-start="{" data-end="}">
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">  523</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> std::pair&lt;int, int&gt; <a class="code hl_function" href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">get_recvPorts</a>() const noexcept</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>            {</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>                <span class="keywordflow">return</span> std::make_pair(dataPort, dataPort + numRecvPorts - 1);</div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>            }</div>
 </div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span> </div>
-<div class="foldopen" id="foldopen00533" data-start="{" data-end="}">
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">  533</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">get_portRange</a>() const noexcept</div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>            {</div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>                <span class="keywordflow">return</span> portRange;</div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>            }</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span> </div>
+<div class="foldopen" id="foldopen00532" data-start="{" data-end="}">
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">  532</a></span>            <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">get_portRange</a>() const noexcept</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>            {</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>                <span class="keywordflow">return</span> portRange;</div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>            }</div>
 </div>
-<div class="foldopen" id="foldopen00540" data-start="{" data-end="}">
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">  540</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a>() </div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>            {</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>                threadsStop = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>            }</div>
+<div class="foldopen" id="foldopen00539" data-start="{" data-end="}">
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno"><a class="line" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">  539</a></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a>() </div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>            {</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>                threadsStop = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>            }</div>
 </div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span> </div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            result&lt;int&gt; setAffinity()</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>            {</div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span><span class="preprocessor">#ifdef AFFINITY_AVAILABLE</span></div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>                <span class="comment">// set this process affinity to the indicated set of cores</span></div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>                cpu_set_t set;</div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>                CPU_ZERO(&amp;set);</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> core: cpuCoreList)</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>                    CPU_SET(core, &amp;set);</div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>                <span class="keywordflow">if</span> (sched_setaffinity(0, <span class="keyword">sizeof</span>(set), &amp;set) == -1)</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>                    <span class="keywordflow">throw</span> <a class="code hl_struct" href="structe2sar_1_1_e2_s_a_r_error_info.html">E2SARErrorInfo</a>{E2SARErrorc::SystemError, strerror(errno)};</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>                <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>            }</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    };</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span> </div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>            result&lt;int&gt; setAffinity()</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            {</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span><span class="preprocessor">#ifdef AFFINITY_AVAILABLE</span></div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>                <span class="comment">// set this process affinity to the indicated set of cores</span></div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>                cpu_set_t set;</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>                CPU_ZERO(&amp;set);</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> core: cpuCoreList)</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>                    CPU_SET(core, &amp;set);</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>                <span class="keywordflow">if</span> (sched_setaffinity(0, <span class="keyword">sizeof</span>(set), &amp;set) == -1)</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>                    <span class="keywordflow">throw</span> <a class="code hl_struct" href="structe2sar_1_1_e2_s_a_r_error_info.html">E2SARErrorInfo</a>{E2SARErrorc::SystemError, strerror(errno)};</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>            }</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>    };</div>
 </div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>}</div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>}</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasse2sar_1_1_e2_s_a_r_exception_html"><div class="ttname"><a href="classe2sar_1_1_e2_s_a_r_exception.html">e2sar::E2SARException</a></div><div class="ttdef"><b>Definition</b> e2sarError.hpp:61</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html">e2sar::EjfatURI</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:31</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_ac9e0736dc385f05c20eaa1b198957a80"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#ac9e0736dc385f05c20eaa1b198957a80">e2sar::EjfatURI::has_dataAddr</a></div><div class="ttdeci">const bool has_dataAddr() const</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:231</div></div>
 <div class="ttc" id="aclasse2sar_1_1_l_b_manager_html"><div class="ttname"><a href="classe2sar_1_1_l_b_manager.html">e2sar::LBManager</a></div><div class="ttdef"><b>Definition</b> e2sarCP.hpp:120</div></div>
 <div class="ttc" id="aclasse2sar_1_1_l_b_manager_html_a8e0fa40b7d4c1995902e05c122277251"><div class="ttname"><a href="classe2sar_1_1_l_b_manager.html#a8e0fa40b7d4c1995902e05c122277251">e2sar::LBManager::deregisterWorker</a></div><div class="ttdeci">result&lt; int &gt; deregisterWorker() noexcept</div><div class="ttdef"><b>Definition</b> e2sarCP.cpp:450</div></div>
 <div class="ttc" id="aclasse2sar_1_1_reassembler_html"><div class="ttname"><a href="classe2sar_1_1_reassembler.html">e2sar::Reassembler</a></div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:54</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a0dad039205e55e202942af00ae4c68d6"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6">e2sar::Reassembler::registerWorker</a></div><div class="ttdeci">result&lt; int &gt; registerWorker(const std::string &amp;node_name) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:476</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a15704c5f2d91322390cb0899ff4bbac9"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9">e2sar::Reassembler::recvEvent</a></div><div class="ttdeci">result&lt; int &gt; recvEvent(uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:517</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a1dac1a760ca3e903abd3e3a8000d5a5d"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d">e2sar::Reassembler::getEvent</a></div><div class="ttdeci">result&lt; int &gt; getEvent(uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:499</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a5cda1d99a76c3b1c0e62397d695455f3"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">e2sar::Reassembler::stopThreads</a></div><div class="ttdeci">void stopThreads()</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:540</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a679e7fc30486417e84976857b47bb440"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">e2sar::Reassembler::get_portRange</a></div><div class="ttdeci">const int get_portRange() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:533</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a8955ea8ff93e880550f62abd0e030e1c"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">e2sar::Reassembler::get_numRecvThreads</a></div><div class="ttdeci">const size_t get_numRecvThreads() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:516</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a0dad039205e55e202942af00ae4c68d6"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6">e2sar::Reassembler::registerWorker</a></div><div class="ttdeci">result&lt; int &gt; registerWorker(const std::string &amp;node_name) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:474</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a15704c5f2d91322390cb0899ff4bbac9"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9">e2sar::Reassembler::recvEvent</a></div><div class="ttdeci">result&lt; int &gt; recvEvent(uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:515</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a1dac1a760ca3e903abd3e3a8000d5a5d"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d">e2sar::Reassembler::getEvent</a></div><div class="ttdeci">result&lt; int &gt; getEvent(uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:497</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a5cda1d99a76c3b1c0e62397d695455f3"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3">e2sar::Reassembler::stopThreads</a></div><div class="ttdeci">void stopThreads()</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:539</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a679e7fc30486417e84976857b47bb440"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440">e2sar::Reassembler::get_portRange</a></div><div class="ttdeci">const int get_portRange() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:532</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_a8955ea8ff93e880550f62abd0e030e1c"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c">e2sar::Reassembler::get_numRecvThreads</a></div><div class="ttdeci">const size_t get_numRecvThreads() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:515</div></div>
 <div class="ttc" id="aclasse2sar_1_1_reassembler_html_a9bcc31395b09ff293e7ace30e7fd6b00"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">e2sar::Reassembler::Reassembler</a></div><div class="ttdeci">Reassembler(const EjfatURI &amp;uri, ip::address data_ip, u_int16_t starting_port, std::vector&lt; int &gt; cpuCoreList, const ReassemblerFlags &amp;rflags=ReassemblerFlags())</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:37</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_abac4d3a93ecac81d34b0b9face73f448"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">e2sar::Reassembler::get_recvPorts</a></div><div class="ttdeci">const std::pair&lt; int, int &gt; get_recvPorts() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:524</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_ad04232e140f42648c09b4d82dabfab8b"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">e2sar::Reassembler::getStats</a></div><div class="ttdeci">const boost::tuple&lt; EventNum_t, EventNum_t, int, int, int, E2SARErrorc &gt; getStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:488</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_adcdcbd4ac51cda97e16d74d20ba25c7f"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#adcdcbd4ac51cda97e16d74d20ba25c7f">e2sar::Reassembler::openAndStart</a></div><div class="ttdeci">result&lt; int &gt; openAndStart() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:101</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_aecc122f8fe233c060559f06bcd0aea99"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">e2sar::Reassembler::get_LostEvent</a></div><div class="ttdeci">result&lt; std::pair&lt; EventNum_t, u_int16_t &gt; &gt; get_LostEvent() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:500</div></div>
-<div class="ttc" id="aclasse2sar_1_1_reassembler_html_af1d74bb1d375c7d0d513075b49046ac7"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#af1d74bb1d375c7d0d513075b49046ac7">e2sar::Reassembler::deregisterWorker</a></div><div class="ttdeci">result&lt; int &gt; deregisterWorker() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:487</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_abac4d3a93ecac81d34b0b9face73f448"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#abac4d3a93ecac81d34b0b9face73f448">e2sar::Reassembler::get_recvPorts</a></div><div class="ttdeci">const std::pair&lt; int, int &gt; get_recvPorts() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:523</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_ad04232e140f42648c09b4d82dabfab8b"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">e2sar::Reassembler::getStats</a></div><div class="ttdeci">const boost::tuple&lt; EventNum_t, EventNum_t, int, int, int, E2SARErrorc &gt; getStats() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:487</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_adcdcbd4ac51cda97e16d74d20ba25c7f"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#adcdcbd4ac51cda97e16d74d20ba25c7f">e2sar::Reassembler::openAndStart</a></div><div class="ttdeci">result&lt; int &gt; openAndStart() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:99</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_aecc122f8fe233c060559f06bcd0aea99"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99">e2sar::Reassembler::get_LostEvent</a></div><div class="ttdeci">result&lt; std::pair&lt; EventNum_t, u_int16_t &gt; &gt; get_LostEvent() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:499</div></div>
+<div class="ttc" id="aclasse2sar_1_1_reassembler_html_af1d74bb1d375c7d0d513075b49046ac7"><div class="ttname"><a href="classe2sar_1_1_reassembler.html#af1d74bb1d375c7d0d513075b49046ac7">e2sar::Reassembler::deregisterWorker</a></div><div class="ttdeci">result&lt; int &gt; deregisterWorker() noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:485</div></div>
 <div class="ttc" id="aclasse2sar_1_1_segmenter_html"><div class="ttname"><a href="classe2sar_1_1_segmenter.html">e2sar::Segmenter</a></div><div class="ttdef"><b>Definition</b> e2sarDPSegmenter.hpp:39</div></div>
 <div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:10</div></div>
 <div class="ttc" id="anamespacee2sar_html_a22467d88fc86a9d335f7dc1e3c830bf1"><div class="ttname"><a href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">e2sar::E2SARErrorc</a></div><div class="ttdeci">E2SARErrorc</div><div class="ttdef"><b>Definition</b> e2sarError.hpp:24</div></div>
@@ -575,8 +574,8 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a2e9bfaa8b5d69f36c819dd177ffab726"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a2e9bfaa8b5d69f36c819dd177ffab726">e2sar::REHdr::get_eventNum</a></div><div class="ttdeci">EventNum_t get_eventNum() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:43</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a39255365d45793a81b503cb4e3ef4b9d"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a39255365d45793a81b503cb4e3ef4b9d">e2sar::REHdr::get_dataId</a></div><div class="ttdeci">u_int16_t get_dataId() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:67</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_aacac4f3e1c20791fc43ad6687b6e731f"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#aacac4f3e1c20791fc43ad6687b6e731f">e2sar::REHdr::get_bufferLength</a></div><div class="ttdeci">u_int32_t get_bufferLength() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:51</div></div>
-<div class="ttc" id="astructe2sar_1_1_reassembler_1_1_reassembler_flags_html"><div class="ttname"><a href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">e2sar::Reassembler::ReassemblerFlags</a></div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:369</div></div>
-<div class="ttc" id="astructe2sar_1_1_reassembler_1_1_reassembler_flags_html_a07544fff26b63b17371e04ad40023168"><div class="ttname"><a href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168">e2sar::Reassembler::ReassemblerFlags::getFromINI</a></div><div class="ttdeci">static result&lt; Reassembler::ReassemblerFlags &gt; getFromINI(const std::string &amp;iniFile) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:547</div></div>
+<div class="ttc" id="astructe2sar_1_1_reassembler_1_1_reassembler_flags_html"><div class="ttname"><a href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">e2sar::Reassembler::ReassemblerFlags</a></div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.hpp:368</div></div>
+<div class="ttc" id="astructe2sar_1_1_reassembler_1_1_reassembler_flags_html_a07544fff26b63b17371e04ad40023168"><div class="ttname"><a href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168">e2sar::Reassembler::ReassemblerFlags::getFromINI</a></div><div class="ttdeci">static result&lt; Reassembler::ReassemblerFlags &gt; getFromINI(const std::string &amp;iniFile) noexcept</div><div class="ttdef"><b>Definition</b> e2sarDPReassembler.cpp:549</div></div>
 <div class="ttc" id="astructe2sar_1_1pair__equal_html"><div class="ttname"><a href="structe2sar_1_1pair__equal.html">e2sar::pair_equal</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:467</div></div>
 <div class="ttc" id="astructe2sar_1_1pair__hash_html"><div class="ttname"><a href="structe2sar_1_1pair__hash.html">e2sar::pair_hash</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:458</div></div>
 </div><!-- fragment --></div><!-- contents -->
