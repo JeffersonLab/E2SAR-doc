@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.1.4</span>
+   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.2.0</span>
    </div>
   </td>
  </tr>
@@ -557,11 +557,25 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>        entropy *= -1.0/std::log(2);</div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        <span class="keywordflow">return</span> entropy;</div>
 <div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>    }</div>
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>};</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span> </div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Container&gt;</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    std::string concatWithSeparator(<span class="keyword">const</span> Container&amp; c, <span class="keyword">const</span> std::string&amp; sep)</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>    {</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>        <span class="keyword">typename</span> Container::const_iterator it = c.begin();</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        std::string rets{};</div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>        <span class="keywordflow">while</span>(it != c.end())</div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>        {</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>            rets += *it;</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>            <span class="keywordflow">if</span> (++it != c.end())</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>                rets += sep;</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        }</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        <span class="keywordflow">return</span> rets;</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    }</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>};</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasse2sar_1_1_e2_s_a_r_exception_html"><div class="ttname"><a href="classe2sar_1_1_e2_s_a_r_exception.html">e2sar::E2SARException</a></div><div class="ttdef"><b>Definition</b> e2sarError.hpp:61</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html">e2sar::EjfatURI</a></div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:31</div></div>
-<div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a0e8408d5790be8a2be878bdea21a53b9"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a0e8408d5790be8a2be878bdea21a53b9">e2sar::EjfatURI::EjfatURI</a></div><div class="ttdeci">EjfatURI(const std::string &amp;uri, TokenType tt=TokenType::admin, bool preferV6=false)</div><div class="ttdef"><b>Definition</b> e2sarUtil.cpp:54</div></div>
+<div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a0e8408d5790be8a2be878bdea21a53b9"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a0e8408d5790be8a2be878bdea21a53b9">e2sar::EjfatURI::EjfatURI</a></div><div class="ttdeci">EjfatURI(const std::string &amp;uri, TokenType tt=TokenType::admin, bool preferV6=false)</div><div class="ttdef"><b>Definition</b> e2sarUtil.cpp:125</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a158faca606ef77b7ff9dca492703569d"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a158faca606ef77b7ff9dca492703569d">e2sar::EjfatURI::get_syncAddr</a></div><div class="ttdeci">const result&lt; std::pair&lt; ip::address, u_int16_t &gt; &gt; get_syncAddr() const noexcept</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:259</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a1b0d6bda37bdd029304fc4d4a994abdc"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a1b0d6bda37bdd029304fc4d4a994abdc">e2sar::EjfatURI::get_SessionToken</a></div><div class="ttdeci">const result&lt; std::string &gt; get_SessionToken() const</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:125</div></div>
 <div class="ttc" id="aclasse2sar_1_1_ejfat_u_r_i_html_a1e11918012d817b4cf73ef83be27741f"><div class="ttname"><a href="classe2sar_1_1_ejfat_u_r_i.html#a1e11918012d817b4cf73ef83be27741f">e2sar::EjfatURI::set_lbName</a></div><div class="ttdeci">void set_lbName(const std::string &amp;n)</div><div class="ttdef"><b>Definition</b> e2sarUtil.hpp:143</div></div>

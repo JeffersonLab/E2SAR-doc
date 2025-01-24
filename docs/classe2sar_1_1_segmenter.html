@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.1.4</span>
+   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.2.0</span>
    </div>
   </td>
  </tr>
@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a574615ae74f27d1b57734d6f36bf6854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11be9c4fc8654a983d4f15c8e529361b" id="r_a11be9c4fc8654a983d4f15c8e529361b"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11be9c4fc8654a983d4f15c8e529361b">getSendStats</a> () const noexcept</td></tr>
 <tr class="separator:a11be9c4fc8654a983d4f15c8e529361b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe5c3795789615fa235ca0ad16c372a" id="r_a8fe5c3795789615fa235ca0ad16c372a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe5c3795789615fa235ca0ad16c372a">getIntf</a> () const noexcept</td></tr>
+<tr class="separator:a8fe5c3795789615fa235ca0ad16c372a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc21041a2d504fa87fe7bb77ae5e16e0" id="r_acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memItemLeft" align="right" valign="top">const u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a> () const noexcept</td></tr>
 <tr class="separator:acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93047c5e85352ce9ed8447c9e1470e24" id="r_a93047c5e85352ce9ed8447c9e1470e24"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93047c5e85352ce9ed8447c9e1470e24">getMaxPldLen</a> () const noexcept</td></tr>
@@ -175,7 +177,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
     <tr><td class="paramname">uri</td><td>- <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> initialized for sender with sync address and data address(es) </td></tr>
     <tr><td class="paramname">dataId</td><td>- unique identifier of the originating segmentation point (e.g. a DAQ), carried in SAR header </td></tr>
     <tr><td class="paramname">eventSrcId</td><td>- unique identifier of an individual LB packet transmitting host/daq, 32-bit to accommodate IP addresses more easily, carried in Sync header </td></tr>
-    <tr><td class="paramname">sfalags</td><td>- <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> </td></tr>
+    <tr><td class="paramname">sflags</td><td>- <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -299,6 +301,32 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- 0 on success, otherwise error condition </dd></dl>
+
+</div>
+</div>
+<a id="a8fe5c3795789615fa235ca0ad16c372a" name="a8fe5c3795789615fa235ca0ad16c372a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe5c3795789615fa235ca0ad16c372a">&#9670;&#160;</a></span>getIntf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string e2sar::Segmenter::getIntf </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the outgoing interface (if available) </p>
 
 </div>
 </div>

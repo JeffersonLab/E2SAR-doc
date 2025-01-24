@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['read_5ffile_0',['read_file',['../namespacee2sar.html#a830f33137fb76ad3dac564a61bdfecf0',1,'e2sar']]],
-  ['reassembler_1',['Reassembler',['../classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00',1,'e2sar::Reassembler::Reassembler(const EjfatURI &amp;uri, ip::address data_ip, u_int16_t starting_port, std::vector&lt; int &gt; cpuCoreList, const ReassemblerFlags &amp;rflags=ReassemblerFlags())'],['../classe2sar_1_1_reassembler.html#a782bf8bedae1067fefbcbb8f8554a2b7',1,'e2sar::Reassembler::Reassembler(const EjfatURI &amp;uri, ip::address data_ip, u_int16_t starting_port, size_t numRecvThreads=1, const ReassemblerFlags &amp;rflags=ReassemblerFlags())']]],
-  ['recvevent_2',['recvEvent',['../classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9',1,'e2sar::Reassembler']]],
-  ['registerworker_3',['registerWorker',['../classe2sar_1_1_l_b_manager.html#a71ba78cf2988e9bb7373d707b16c9f35',1,'e2sar::LBManager::registerWorker()'],['../classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6',1,'e2sar::Reassembler::registerWorker()']]],
-  ['removesenders_4',['removeSenders',['../classe2sar_1_1_l_b_manager.html#ad0f1647dfad7988f277421ea6ffdc9b3',1,'e2sar::LBManager']]],
-  ['reservelb_5',['reserveLB',['../classe2sar_1_1_l_b_manager.html#af9b4c58f99dc442b3777df86e595ea19',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const TimeUntil &amp;until, const std::vector&lt; std::string &gt; &amp;senders) noexcept'],['../classe2sar_1_1_l_b_manager.html#a08766b1bec3020153940b13346a53976',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const boost::posix_time::time_duration &amp;duration, const std::vector&lt; std::string &gt; &amp;senders) noexcept'],['../classe2sar_1_1_l_b_manager.html#aff4d68d73fd135c879e77e77aabef0c5',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const double &amp;durationSeconds, const std::vector&lt; std::string &gt; &amp;senders) noexcept']]]
+  ['pid_0',['pid',['../namespacee2sar.html#a892836008a587e9b6edb6d9a49bd4293',1,'e2sar']]]
 ];

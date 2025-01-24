@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['segmenter_0',['Segmenter',['../classe2sar_1_1_segmenter.html#a7b6d9c19dc664d3c1af4a375866e4d56',1,'e2sar::Segmenter::Segmenter(const EjfatURI &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, const SegmenterFlags &amp;sflags=SegmenterFlags())'],['../classe2sar_1_1_segmenter.html#ad4356095be97149a840e904ea02d0535',1,'e2sar::Segmenter::Segmenter(const Segmenter &amp;s)=delete']]],
-  ['sendevent_1',['sendEvent',['../classe2sar_1_1_segmenter.html#a9756b15c8b843ea2654031d49d5a137f',1,'e2sar::Segmenter']]],
-  ['sendstate_2',['sendState',['../classe2sar_1_1_l_b_manager.html#a8a3a46bc2e5e134dbce8c719bc9f5a8f',1,'e2sar::LBManager::sendState(float fill_percent, float control_signal, bool is_ready) noexcept'],['../classe2sar_1_1_l_b_manager.html#a62846d7ffcc1eec4f604082447be05bf',1,'e2sar::LBManager::sendState(float fill_percent, float control_signal, bool is_ready, const Timestamp &amp;ts) noexcept']]],
-  ['set_3',['set',['../structe2sar_1_1_r_e_hdr.html#ac335666a1e5656ab4f0dab06cdcbacce',1,'e2sar::REHdr::set()'],['../structe2sar_1_1_l_b_hdr.html#a15aa87e651c1387407a0e34b50c469a5',1,'e2sar::LBHdr::set()'],['../structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051',1,'e2sar::SyncHdr::set()']]],
-  ['set_5fdataaddr_4',['set_dataAddr',['../classe2sar_1_1_ejfat_u_r_i.html#a826fe03bc806ddc60e44e444824cecc8',1,'e2sar::EjfatURI']]],
-  ['set_5finstancetoken_5',['set_InstanceToken',['../classe2sar_1_1_ejfat_u_r_i.html#a3495f62f503cf111dfd23598fd07dbd0',1,'e2sar::EjfatURI']]],
-  ['set_5flbid_6',['set_lbId',['../classe2sar_1_1_ejfat_u_r_i.html#afd7b10008181b4246019d0af9a4c6517',1,'e2sar::EjfatURI']]],
-  ['set_5flbname_7',['set_lbName',['../classe2sar_1_1_ejfat_u_r_i.html#a1e11918012d817b4cf73ef83be27741f',1,'e2sar::EjfatURI']]],
-  ['set_5fsessionid_8',['set_sessionId',['../classe2sar_1_1_ejfat_u_r_i.html#a6f2abe6a692c5b398d4850cf86ba9636',1,'e2sar::EjfatURI']]],
-  ['set_5fsessiontoken_9',['set_SessionToken',['../classe2sar_1_1_ejfat_u_r_i.html#a9479a60a1289baec5d27ef288e393fee',1,'e2sar::EjfatURI']]],
-  ['set_5fsyncaddr_10',['set_syncAddr',['../classe2sar_1_1_ejfat_u_r_i.html#aed7ae57cb810cd72f655aede327026cb',1,'e2sar::EjfatURI']]],
-  ['stopthreads_11',['stopThreads',['../classe2sar_1_1_reassembler.html#a5cda1d99a76c3b1c0e62397d695455f3',1,'e2sar::Reassembler']]]
+  ['read_5ffile_0',['read_file',['../namespacee2sar.html#a830f33137fb76ad3dac564a61bdfecf0',1,'e2sar']]],
+  ['reassembler_1',['Reassembler',['../classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00',1,'e2sar::Reassembler::Reassembler(const EjfatURI &amp;uri, ip::address data_ip, u_int16_t starting_port, std::vector&lt; int &gt; cpuCoreList, const ReassemblerFlags &amp;rflags=ReassemblerFlags())'],['../classe2sar_1_1_reassembler.html#a782bf8bedae1067fefbcbb8f8554a2b7',1,'e2sar::Reassembler::Reassembler(const EjfatURI &amp;uri, ip::address data_ip, u_int16_t starting_port, size_t numRecvThreads=1, const ReassemblerFlags &amp;rflags=ReassemblerFlags())']]],
+  ['recvevent_2',['recvEvent',['../classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9',1,'e2sar::Reassembler']]],
+  ['registerworker_3',['registerWorker',['../classe2sar_1_1_l_b_manager.html#a71ba78cf2988e9bb7373d707b16c9f35',1,'e2sar::LBManager::registerWorker()'],['../classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6',1,'e2sar::Reassembler::registerWorker()']]],
+  ['removesenders_4',['removeSenders',['../classe2sar_1_1_l_b_manager.html#ad0f1647dfad7988f277421ea6ffdc9b3',1,'e2sar::LBManager']]],
+  ['reservelb_5',['reserveLB',['../classe2sar_1_1_l_b_manager.html#af9b4c58f99dc442b3777df86e595ea19',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const TimeUntil &amp;until, const std::vector&lt; std::string &gt; &amp;senders) noexcept'],['../classe2sar_1_1_l_b_manager.html#a08766b1bec3020153940b13346a53976',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const boost::posix_time::time_duration &amp;duration, const std::vector&lt; std::string &gt; &amp;senders) noexcept'],['../classe2sar_1_1_l_b_manager.html#aff4d68d73fd135c879e77e77aabef0c5',1,'e2sar::LBManager::reserveLB(const std::string &amp;lb_name, const double &amp;durationSeconds, const std::vector&lt; std::string &gt; &amp;senders) noexcept']]]
 ];

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['openandstart_0',['openAndStart',['../classe2sar_1_1_reassembler.html#adcdcbd4ac51cda97e16d74d20ba25c7f',1,'e2sar::Reassembler::openAndStart()'],['../classe2sar_1_1_segmenter.html#a7d08e65477848cfd57114cc97f48852e',1,'e2sar::Segmenter::openAndStart()']]],
-  ['operator_20std_3a_3astring_1',['operator std::string',['../classe2sar_1_1_e2_s_a_r_exception.html#ae82f239fded75e415d170277f2952616',1,'e2sar::E2SARException::string()'],['../classe2sar_1_1_ejfat_u_r_i.html#afdf6ed525509160828f904a2597411f6',1,'e2sar::EjfatURI::string()']]],
-  ['operator_3d_2',['operator=',['../classe2sar_1_1_segmenter.html#aeeb6ae191dcbe53f9be13e5ccf55ca2a',1,'e2sar::Segmenter']]],
-  ['overview_3',['overview',['../classe2sar_1_1_l_b_manager.html#a3f9ee67b0c1fa346bf345b8dcfebb19f',1,'e2sar::LBManager']]]
+  ['makessloptions_0',['makeSslOptions',['../classe2sar_1_1_l_b_manager.html#ae5ca586788cfe5af16c4cbed1ade24c1',1,'e2sar::LBManager']]],
+  ['makessloptionsfromfiles_1',['makeSslOptionsFromFiles',['../classe2sar_1_1_l_b_manager.html#a957151ee47888b7c3ceebdc549104f5e',1,'e2sar::LBManager::makeSslOptionsFromFiles(std::string_view pem_root_certs, std::string_view pem_private_key, std::string_view pem_cert_chain) noexcept'],['../classe2sar_1_1_l_b_manager.html#a4d177e12011bd72a8feca9d8c7123765',1,'e2sar::LBManager::makeSslOptionsFromFiles(std::string_view pem_root_certs) noexcept']]]
 ];
