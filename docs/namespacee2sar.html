@@ -96,6 +96,8 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classe2sar_1_1_affinity.html">Affinity</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structe2sar_1_1_e2_s_a_r_error_info.html">E2SARErrorInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a></td></tr>
@@ -113,6 +115,8 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structe2sar_1_1_l_b_worker_status.html">LBWorkerStatus</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classe2sar_1_1_net_util.html">NetUtil</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classe2sar_1_1_optimizations.html">Optimizations</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structe2sar_1_1_overview_entry.html">OverviewEntry</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +156,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>UnixTimeMicro_t</b> 
 <tr class="memitem:a83593660a33b2e56deff6411e5b4ffd7" id="r_a83593660a33b2e56deff6411e5b4ffd7"><td class="memItemLeft" align="right" valign="top"><a id="a83593660a33b2e56deff6411e5b4ffd7" name="a83593660a33b2e56deff6411e5b4ffd7"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>EventRate_t</b> = u_int32_t</td></tr>
 <tr class="separator:a83593660a33b2e56deff6411e5b4ffd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06712c6e4c7d261e9ec7c6082645c18" id="r_ad06712c6e4c7d261e9ec7c6082645c18"><td class="memItemLeft" align="right" valign="top"><a id="ad06712c6e4c7d261e9ec7c6082645c18" name="ad06712c6e4c7d261e9ec7c6082645c18"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>OptimizationsWord</b> = u_int16_t</td></tr>
+<tr class="separator:ad06712c6e4c7d261e9ec7c6082645c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -181,15 +188,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a30119949ac9626982c5d01a2eec28f2c" id="r_a30119949ac9626982c5d01a2eec28f2c"><td class="memItemLeft" align="right" valign="top"><a id="a30119949ac9626982c5d01a2eec28f2c" name="a30119949ac9626982c5d01a2eec28f2c"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_Version</b> ()</td></tr>
 <tr class="separator:a30119949ac9626982c5d01a2eec28f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d861ad9974666612f99008f7ed3ff5e" id="r_a5d861ad9974666612f99008f7ed3ff5e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d861ad9974666612f99008f7ed3ff5e">get_Optimizations</a> () noexcept</td></tr>
-<tr class="separator:a5d861ad9974666612f99008f7ed3ff5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af92a5214f8f6e05cef484b83dd10494e" id="r_af92a5214f8f6e05cef484b83dd10494e"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af92a5214f8f6e05cef484b83dd10494e">select_Optimizations</a> (std::vector&lt; std::string &gt; &amp;opt)</td></tr>
-<tr class="separator:af92a5214f8f6e05cef484b83dd10494e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a346a52bf2131a191ab106774c47c5a8a" id="r_a346a52bf2131a191ab106774c47c5a8a"><td class="memItemLeft" align="right" valign="top"><a id="a346a52bf2131a191ab106774c47c5a8a" name="a346a52bf2131a191ab106774c47c5a8a"></a>
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>get_SelectedOptimizations</b> () noexcept</td></tr>
-<tr class="separator:a346a52bf2131a191ab106774c47c5a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb1028f5d9d4e9b7d57010fca742b52" id="r_acdb1028f5d9d4e9b7d57010fca742b52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdb1028f5d9d4e9b7d57010fca742b52">is_SelectedOptimization</a> (std::string s) noexcept</td></tr>
-<tr class="separator:acdb1028f5d9d4e9b7d57010fca742b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cc254cbc1cc32b254cae03732572aaf" id="r_a7cc254cbc1cc32b254cae03732572aaf"><td class="memItemLeft" align="right" valign="top"><a id="a7cc254cbc1cc32b254cae03732572aaf" name="a7cc254cbc1cc32b254cae03732572aaf"></a>
 std::error_code&#160;</td><td class="memItemRight" valign="bottom"><b>make_error_code</b> (<a class="el" href="#a22467d88fc86a9d335f7dc1e3c830bf1">e2sar::E2SARErrorc</a> e)</td></tr>
 <tr class="separator:a7cc254cbc1cc32b254cae03732572aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,10 +200,10 @@ boost::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>make_
 <tr class="memitem:a9a5429876004a39d74df39ef317b7f66" id="r_a9a5429876004a39d74df39ef317b7f66"><td class="memItemLeft" align="right" valign="top"><a id="a9a5429876004a39d74df39ef317b7f66" name="a9a5429876004a39d74df39ef317b7f66"></a>
 struct <a class="el" href="structe2sar_1_1_r_e_hdr.html">e2sar::REHdr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((__packed__))</td></tr>
 <tr class="separator:a9a5429876004a39d74df39ef317b7f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e51e073d5ba39e5a2b17f0e8f3abc4" id="r_af3e51e073d5ba39e5a2b17f0e8f3abc4"><td class="memTemplParams" colspan="2"><a id="af3e51e073d5ba39e5a2b17f0e8f3abc4" name="af3e51e073d5ba39e5a2b17f0e8f3abc4"></a>
+<tr class="memitem:a497e6d37a0b4fcd7d44648d58d4b6fe6" id="r_a497e6d37a0b4fcd7d44648d58d4b6fe6"><td class="memTemplParams" colspan="2"><a id="a497e6d37a0b4fcd7d44648d58d4b6fe6" name="a497e6d37a0b4fcd7d44648d58d4b6fe6"></a>
 template&lt;typename Container &gt; </td></tr>
-<tr class="memitem:af3e51e073d5ba39e5a2b17f0e8f3abc4"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>concatWithSeparator</b> (const Container &amp;c, const std::string &amp;sep)</td></tr>
-<tr class="separator:af3e51e073d5ba39e5a2b17f0e8f3abc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497e6d37a0b4fcd7d44648d58d4b6fe6"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>concatWithSeparator</b> (const Container &amp;c, const std::string &amp;sep=&quot;,&quot;s)</td></tr>
+<tr class="separator:a497e6d37a0b4fcd7d44648d58d4b6fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830f33137fb76ad3dac564a61bdfecf0" id="r_a830f33137fb76ad3dac564a61bdfecf0"><td class="memItemLeft" align="right" valign="top">result&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a830f33137fb76ad3dac564a61bdfecf0">read_file</a> (std::string_view path)</td></tr>
 <tr class="separator:a830f33137fb76ad3dac564a61bdfecf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a892836008a587e9b6edb6d9a49bd4293" id="r_a892836008a587e9b6edb6d9a49bd4293"><td class="memTemplParams" colspan="2">template&lt;class X &gt; </td></tr>
@@ -244,11 +242,6 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>TOTAL_HDR
 <tr class="memitem:a3923ed5dde2cefce746149c6c1aeafc5" id="r_a3923ed5dde2cefce746149c6c1aeafc5"><td class="memItemLeft" align="right" valign="top"><a id="a3923ed5dde2cefce746149c6c1aeafc5" name="a3923ed5dde2cefce746149c6c1aeafc5"></a>
 const u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>DATAPLANE_PORT</b> = 19522</td></tr>
 <tr class="separator:a3923ed5dde2cefce746149c6c1aeafc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e2c8c6647d0a9afa7c32e1d0b9385bb" id="r_a7e2c8c6647d0a9afa7c32e1d0b9385bb"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e2c8c6647d0a9afa7c32e1d0b9385bb">available_optimizations</a></td></tr>
-<tr class="separator:a7e2c8c6647d0a9afa7c32e1d0b9385bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab211b52b47172253f89a74a1313b0371" id="r_ab211b52b47172253f89a74a1313b0371"><td class="memItemLeft" align="right" valign="top"><a id="ab211b52b47172253f89a74a1313b0371" name="ab211b52b47172253f89a74a1313b0371"></a>
-std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>selected_optimizations</b></td></tr>
-<tr class="separator:ab211b52b47172253f89a74a1313b0371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file defines error codes for E2SAR and plugs the error code classes into system::error_code such that E2SAR functions can return result objects (either result or error code) </p>
@@ -293,58 +286,6 @@ std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5d861ad9974666612f99008f7ed3ff5e" name="a5d861ad9974666612f99008f7ed3ff5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d861ad9974666612f99008f7ed3ff5e">&#9670;&#160;</a></span>get_Optimizations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string e2sar::get_Optimizations </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get a string showing available optimizations for send/and/or/receive </p>
-
-</div>
-</div>
-<a id="acdb1028f5d9d4e9b7d57010fca742b52" name="acdb1028f5d9d4e9b7d57010fca742b52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdb1028f5d9d4e9b7d57010fca742b52">&#9670;&#160;</a></span>is_SelectedOptimization()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool e2sar::is_SelectedOptimization </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns true if the named optimization is selected </p>
-
-</div>
-</div>
 <a id="a892836008a587e9b6edb6d9a49bd4293" name="a892836008a587e9b6edb6d9a49bd4293"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a892836008a587e9b6edb6d9a49bd4293">&#9670;&#160;</a></span>pid()</h2>
 
@@ -415,54 +356,6 @@ template&lt;class X &gt; </div>
 </div><div class="memdoc">
 <p>modified from <a href="https://stackoverflow.com/questions/116038/how-do-i-read-an-entire-file-into-a-stdstring-in-c">https://stackoverflow.com/questions/116038/how-do-i-read-an-entire-file-into-a-stdstring-in-c</a> </p>
 
-</div>
-</div>
-<a id="af92a5214f8f6e05cef484b83dd10494e" name="af92a5214f8f6e05cef484b83dd10494e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af92a5214f8f6e05cef484b83dd10494e">&#9670;&#160;</a></span>select_Optimizations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">result&lt; int &gt; e2sar::select_Optimizations </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>opts</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Provide a list of optimizations we want to use. It will be checked for compatibility and availability of these options. Use <a class="el" href="#a5d861ad9974666612f99008f7ed3ff5e">get_Optimizations()</a> to get the available optimizations </p><dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classe2sar_1_1_e2_s_a_r_exception.html">E2SARException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a7e2c8c6647d0a9afa7c32e1d0b9385bb" name="a7e2c8c6647d0a9afa7c32e1d0b9385bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e2c8c6647d0a9afa7c32e1d0b9385bb">&#9670;&#160;</a></span>available_optimizations</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;std::string&gt; e2sar::available_optimizations</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= </div>
-<div class="line">    {</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

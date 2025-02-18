@@ -103,6 +103,8 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a93703c1223b9e6bca214f69a89b6bc42" id="r_a93703c1223b9e6bca214f69a89b6bc42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93703c1223b9e6bca214f69a89b6bc42">Segmenter</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, std::vector&lt; int &gt; cpuCoreList, const <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>())</td></tr>
+<tr class="separator:a93703c1223b9e6bca214f69a89b6bc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b6d9c19dc664d3c1af4a375866e4d56" id="r_a7b6d9c19dc664d3c1af4a375866e4d56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b6d9c19dc664d3c1af4a375866e4d56">Segmenter</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t dataId, u_int32_t eventSrcId, const <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;sflags=<a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>())</td></tr>
 <tr class="separator:a7b6d9c19dc664d3c1af4a375866e4d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4356095be97149a840e904ea02d0535" id="r_ad4356095be97149a840e904ea02d0535"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4356095be97149a840e904ea02d0535">Segmenter</a> (const <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> &amp;s)=delete</td></tr>
@@ -117,10 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9756b15c8b843ea2654031d49d5a137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05b3ea895a787044f5d87a4d99128382" id="r_a05b3ea895a787044f5d87a4d99128382"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05b3ea895a787044f5d87a4d99128382">addToSendQueue</a> (u_int8_t *event, size_t bytes, EventNum_t _eventNum=0LL, u_int16_t _dataId=0, u_int16_t entropy=0, void(*callback)(boost::any)=nullptr, boost::any cbArg=nullptr) noexcept</td></tr>
 <tr class="separator:a05b3ea895a787044f5d87a4d99128382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a574615ae74f27d1b57734d6f36bf6854" id="r_a574615ae74f27d1b57734d6f36bf6854"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a574615ae74f27d1b57734d6f36bf6854">getSyncStats</a> () const noexcept</td></tr>
-<tr class="separator:a574615ae74f27d1b57734d6f36bf6854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11be9c4fc8654a983d4f15c8e529361b" id="r_a11be9c4fc8654a983d4f15c8e529361b"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11be9c4fc8654a983d4f15c8e529361b">getSendStats</a> () const noexcept</td></tr>
-<tr class="separator:a11be9c4fc8654a983d4f15c8e529361b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae50d4ca2dd41f920d610415387320f2a" id="r_ae50d4ca2dd41f920d610415387320f2a"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae50d4ca2dd41f920d610415387320f2a">getSyncStats</a> () const noexcept</td></tr>
+<tr class="separator:ae50d4ca2dd41f920d610415387320f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6174f15df2daea85997f5c1e90f71a1" id="r_af6174f15df2daea85997f5c1e90f71a1"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6174f15df2daea85997f5c1e90f71a1">getSendStats</a> () const noexcept</td></tr>
+<tr class="separator:af6174f15df2daea85997f5c1e90f71a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fe5c3795789615fa235ca0ad16c372a" id="r_a8fe5c3795789615fa235ca0ad16c372a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe5c3795789615fa235ca0ad16c372a">getIntf</a> () const noexcept</td></tr>
 <tr class="separator:a8fe5c3795789615fa235ca0ad16c372a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc21041a2d504fa87fe7bb77ae5e16e0" id="r_acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memItemLeft" align="right" valign="top">const u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a> () const noexcept</td></tr>
@@ -144,8 +146,54 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 <tr class="separator:a7e2f12e330c02e16324596baf43f686a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a93703c1223b9e6bca214f69a89b6bc42" name="a93703c1223b9e6bca214f69a89b6bc42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93703c1223b9e6bca214f69a89b6bc42">&#9670;&#160;</a></span>Segmenter() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">e2sar::Segmenter::Segmenter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int16_t</td>          <td class="paramname"><span class="paramname"><em>dataId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int32_t</td>          <td class="paramname"><span class="paramname"><em>eventSrcId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt;</td>          <td class="paramname"><span class="paramname"><em>cpuCoreList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sflags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a>()</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize segmenter state. Call <a class="el" href="#a7d08e65477848cfd57114cc97f48852e">openAndStart()</a> to begin operation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uri</td><td>- <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> initialized for sender with sync address and data address(es) </td></tr>
+    <tr><td class="paramname">dataId</td><td>- unique identifier of the originating segmentation point (e.g. a DAQ), carried in SAR header </td></tr>
+    <tr><td class="paramname">eventSrcId</td><td>- unique identifier of an individual LB packet transmitting host/daq, 32-bit to accommodate IP addresses more easily, carried in Sync header </td></tr>
+    <tr><td class="paramname">cpuCoreList</td><td>- list of cores that can be used by sending threads </td></tr>
+    <tr><td class="paramname">sflags</td><td>- <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7b6d9c19dc664d3c1af4a375866e4d56" name="a7b6d9c19dc664d3c1af4a375866e4d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b6d9c19dc664d3c1af4a375866e4d56">&#9670;&#160;</a></span>Segmenter() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6d9c19dc664d3c1af4a375866e4d56">&#9670;&#160;</a></span>Segmenter() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +233,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 </div>
 </div>
 <a id="ad4356095be97149a840e904ea02d0535" name="ad4356095be97149a840e904ea02d0535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4356095be97149a840e904ea02d0535">&#9670;&#160;</a></span>Segmenter() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4356095be97149a840e904ea02d0535">&#9670;&#160;</a></span>Segmenter() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,8 +430,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 
 </div>
 </div>
-<a id="a11be9c4fc8654a983d4f15c8e529361b" name="a11be9c4fc8654a983d4f15c8e529361b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11be9c4fc8654a983d4f15c8e529361b">&#9670;&#160;</a></span>getSendStats()</h2>
+<a id="af6174f15df2daea85997f5c1e90f71a1" name="af6174f15df2daea85997f5c1e90f71a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6174f15df2daea85997f5c1e90f71a1">&#9670;&#160;</a></span>getSendStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,7 +440,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; e2sar::Segmenter::getSendStats </td>
+          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Segmenter::getSendStats </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -404,12 +452,12 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get a tuple &lt;event datagrams cnt, event datagrams err cnt, last errno&gt; of send statistics. Stat structure have atomic members, no additional locking needed </p>
+<p>Get a tuple &lt;event datagrams cnt, event datagrams err cnt, last errno, last E2SAR error&gt; of send statistics. Stat structure have atomic members, no additional locking needed </p>
 
 </div>
 </div>
-<a id="a574615ae74f27d1b57734d6f36bf6854" name="a574615ae74f27d1b57734d6f36bf6854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a574615ae74f27d1b57734d6f36bf6854">&#9670;&#160;</a></span>getSyncStats()</h2>
+<a id="ae50d4ca2dd41f920d610415387320f2a" name="ae50d4ca2dd41f920d610415387320f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae50d4ca2dd41f920d610415387320f2a">&#9670;&#160;</a></span>getSyncStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,7 +466,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int &gt; e2sar::Segmenter::getSyncStats </td>
+          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Segmenter::getSyncStats </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>

@@ -95,27 +95,21 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define E2SARHPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;e2sarUtil.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;e2sarCP.hpp&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;e2sarDPSegmenter.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;e2sarDPReassembler.hpp&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacee2sar.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacee2sar.html">e2sar</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string E2SARVersion;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">const</span> std::string&amp; get_Version();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">const</span> std::string <a class="code hl_function" href="namespacee2sar.html#a5d861ad9974666612f99008f7ed3ff5e">get_Optimizations</a>() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    result&lt;int&gt; <a class="code hl_function" href="namespacee2sar.html#af92a5214f8f6e05cef484b83dd10494e">select_Optimizations</a>(std::vector&lt;std::string&gt;&amp; opt);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">const</span> std::string get_SelectedOptimizations() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacee2sar.html#acdb1028f5d9d4e9b7d57010fca742b52">is_SelectedOptimization</a>(std::string s) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;e2sarAffinity.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;e2sarCP.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;e2sarDPSegmenter.hpp&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;e2sarDPReassembler.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacee2sar.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacee2sar.html">e2sar</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string E2SARVersion;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">const</span> std::string&amp; get_Version();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:10</div></div>
-<div class="ttc" id="anamespacee2sar_html_a5d861ad9974666612f99008f7ed3ff5e"><div class="ttname"><a href="namespacee2sar.html#a5d861ad9974666612f99008f7ed3ff5e">e2sar::get_Optimizations</a></div><div class="ttdeci">const std::string get_Optimizations() noexcept</div><div class="ttdef"><b>Definition</b> e2sarUtil.cpp:39</div></div>
-<div class="ttc" id="anamespacee2sar_html_acdb1028f5d9d4e9b7d57010fca742b52"><div class="ttname"><a href="namespacee2sar.html#acdb1028f5d9d4e9b7d57010fca742b52">e2sar::is_SelectedOptimization</a></div><div class="ttdeci">bool is_SelectedOptimization(std::string s) noexcept</div><div class="ttdef"><b>Definition</b> e2sarUtil.cpp:88</div></div>
-<div class="ttc" id="anamespacee2sar_html_af92a5214f8f6e05cef484b83dd10494e"><div class="ttname"><a href="namespacee2sar.html#af92a5214f8f6e05cef484b83dd10494e">e2sar::select_Optimizations</a></div><div class="ttdeci">result&lt; int &gt; select_Optimizations(std::vector&lt; std::string &gt; &amp;opt)</div><div class="ttdef"><b>Definition</b> e2sarUtil.cpp:52</div></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

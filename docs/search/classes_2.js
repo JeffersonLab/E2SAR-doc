@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['lbhdr_0',['LBHdr',['../structe2sar_1_1_l_b_hdr.html',1,'e2sar']]],
-  ['lbmanager_1',['LBManager',['../classe2sar_1_1_l_b_manager.html',1,'e2sar']]],
-  ['lbrehdr_2',['LBREHdr',['../structe2sar_1_1_l_b_r_e_hdr.html',1,'e2sar']]],
-  ['lbstatus_3',['LBStatus',['../structe2sar_1_1_l_b_status.html',1,'e2sar']]],
-  ['lbworkerstatus_4',['LBWorkerStatus',['../structe2sar_1_1_l_b_worker_status.html',1,'e2sar']]]
+  ['is_5ferror_5fcode_5fenum_3c_20e2sar_3a_3ae2sarerrorc_20_3e_0',['is_error_code_enum&lt; e2sar::E2SARErrorc &gt;',['../structstd_1_1is__error__code__enum_3_01e2sar_1_1_e2_s_a_r_errorc_01_4.html',1,'std']]]
 ];
