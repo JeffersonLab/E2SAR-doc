@@ -96,14 +96,16 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a693c6d9a61f38743b4d89657e33adb12" id="r_a693c6d9a61f38743b4d89657e33adb12"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a693c6d9a61f38743b4d89657e33adb12">getMTU</a> (const std::string &amp;interfaceName)</td></tr>
-<tr class="separator:a693c6d9a61f38743b4d89657e33adb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af867824b8202ec0cf8a17e476cfb9028" id="r_af867824b8202ec0cf8a17e476cfb9028"><td class="memItemLeft" align="right" valign="top">static result&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af867824b8202ec0cf8a17e476cfb9028">getHostName</a> ()</td></tr>
-<tr class="separator:af867824b8202ec0cf8a17e476cfb9028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37fb7d8d68088969c89131a36095f936" id="r_a37fb7d8d68088969c89131a36095f936"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37fb7d8d68088969c89131a36095f936">getMTU</a> (const std::string &amp;interfaceName) noexcept</td></tr>
+<tr class="separator:a37fb7d8d68088969c89131a36095f936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a164b4d0fe47db80be667e3d81d51b3" id="r_a9a164b4d0fe47db80be667e3d81d51b3"><td class="memItemLeft" align="right" valign="top">static result&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a164b4d0fe47db80be667e3d81d51b3">getHostName</a> () noexcept</td></tr>
+<tr class="separator:a9a164b4d0fe47db80be667e3d81d51b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f46bcf9843097757f8d35830ae3a087" id="r_a6f46bcf9843097757f8d35830ae3a087"><td class="memItemLeft" align="right" valign="top">static result&lt; std::vector&lt; ip::address &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f46bcf9843097757f8d35830ae3a087">getInterfaceIPs</a> (const std::string &amp;interfaceName, bool v6=false) noexcept</td></tr>
+<tr class="separator:a6f46bcf9843097757f8d35830ae3a087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af867824b8202ec0cf8a17e476cfb9028" name="af867824b8202ec0cf8a17e476cfb9028"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af867824b8202ec0cf8a17e476cfb9028">&#9670;&#160;</a></span>getHostName()</h2>
+<a id="a9a164b4d0fe47db80be667e3d81d51b3" name="a9a164b4d0fe47db80be667e3d81d51b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a164b4d0fe47db80be667e3d81d51b3">&#9670;&#160;</a></span>getHostName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,7 +122,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -128,8 +130,38 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a693c6d9a61f38743b4d89657e33adb12" name="a693c6d9a61f38743b4d89657e33adb12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693c6d9a61f38743b4d89657e33adb12">&#9670;&#160;</a></span>getMTU()</h2>
+<a id="a6f46bcf9843097757f8d35830ae3a087" name="a6f46bcf9843097757f8d35830ae3a087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f46bcf9843097757f8d35830ae3a087">&#9670;&#160;</a></span>getInterfaceIPs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; std::vector&lt; ip::address &gt; &gt; e2sar::NetUtil::getInterfaceIPs </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>interfaceName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get IPs of an interface (by name), either IPv4 or IPv6 </p>
+
+</div>
+</div>
+<a id="a37fb7d8d68088969c89131a36095f936" name="a37fb7d8d68088969c89131a36095f936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37fb7d8d68088969c89131a36095f936">&#9670;&#160;</a></span>getMTU()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +178,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -94,31 +94,28 @@ $(function(){ initResizable(false); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef E2SARDPNETUTILHPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define E2SARDPNETUTILHPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifdef NETLINK_CAPABLE</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;linux/netlink.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;linux/rtnetlink.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;boost/asio.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;boost/asio/ip/udp.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;boost/tuple/tuple.hpp&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;boost/tuple/tuple_io.hpp&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;boost/asio.hpp&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;boost/asio/ip/udp.hpp&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;boost/tuple/tuple.hpp&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;boost/tuple/tuple_io.hpp&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;e2sarError.hpp&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using namespace </span>boost::asio;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacee2sar.html">e2sar</a></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">/*</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">        Network utilities class with static functions</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    */</span></div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classe2sar_1_1_net_util.html">   23</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classe2sar_1_1_net_util.html">NetUtil</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_net_util.html#a693c6d9a61f38743b4d89657e33adb12">getMTU</a>(<span class="keyword">const</span> std::string &amp;interfaceName);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">static</span> result&lt;std::string&gt; <a class="code hl_function" href="classe2sar_1_1_net_util.html#af867824b8202ec0cf8a17e476cfb9028">getHostName</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;e2sarError.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>boost::asio;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacee2sar.html">e2sar</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">        Network utilities class with static functions</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    */</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classe2sar_1_1_net_util.html">   18</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classe2sar_1_1_net_util.html">NetUtil</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936">getMTU</a>(<span class="keyword">const</span> std::string &amp;interfaceName) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">static</span> result&lt;std::string&gt; <a class="code hl_function" href="classe2sar_1_1_net_util.html#a9a164b4d0fe47db80be667e3d81d51b3">getHostName</a>() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">static</span> result&lt;std::vector&lt;ip::address&gt;&gt; <a class="code hl_function" href="classe2sar_1_1_net_util.html#a6f46bcf9843097757f8d35830ae3a087">getInterfaceIPs</a>(<span class="keyword">const</span> std::string &amp;interfaceName, <span class="keywordtype">bool</span> v6=<span class="keyword">false</span>) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifdef NETLINK_CAPABLE</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">static</span> <span class="keyword">inline</span> result&lt;boost::tuple&lt;std::string, u_int16_t&gt;&gt; getInterfaceAndMTU(<span class="keyword">const</span> std::string &amp;ipaddr) </div>
@@ -132,9 +129,10 @@ $(function(){ initResizable(false); });
 </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclasse2sar_1_1_net_util_html"><div class="ttname"><a href="classe2sar_1_1_net_util.html">e2sar::NetUtil</a></div><div class="ttdef"><b>Definition</b> e2sarNetUtil.hpp:24</div></div>
-<div class="ttc" id="aclasse2sar_1_1_net_util_html_a693c6d9a61f38743b4d89657e33adb12"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a693c6d9a61f38743b4d89657e33adb12">e2sar::NetUtil::getMTU</a></div><div class="ttdeci">static size_t getMTU(const std::string &amp;interfaceName)</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:9</div></div>
-<div class="ttc" id="aclasse2sar_1_1_net_util_html_af867824b8202ec0cf8a17e476cfb9028"><div class="ttname"><a href="classe2sar_1_1_net_util.html#af867824b8202ec0cf8a17e476cfb9028">e2sar::NetUtil::getHostName</a></div><div class="ttdeci">static result&lt; std::string &gt; getHostName()</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:23</div></div>
+<div class="ttc" id="aclasse2sar_1_1_net_util_html"><div class="ttname"><a href="classe2sar_1_1_net_util.html">e2sar::NetUtil</a></div><div class="ttdef"><b>Definition</b> e2sarNetUtil.hpp:19</div></div>
+<div class="ttc" id="aclasse2sar_1_1_net_util_html_a37fb7d8d68088969c89131a36095f936"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936">e2sar::NetUtil::getMTU</a></div><div class="ttdeci">static size_t getMTU(const std::string &amp;interfaceName) noexcept</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:18</div></div>
+<div class="ttc" id="aclasse2sar_1_1_net_util_html_a6f46bcf9843097757f8d35830ae3a087"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a6f46bcf9843097757f8d35830ae3a087">e2sar::NetUtil::getInterfaceIPs</a></div><div class="ttdeci">static result&lt; std::vector&lt; ip::address &gt; &gt; getInterfaceIPs(const std::string &amp;interfaceName, bool v6=false) noexcept</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:45</div></div>
+<div class="ttc" id="aclasse2sar_1_1_net_util_html_a9a164b4d0fe47db80be667e3d81d51b3"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a9a164b4d0fe47db80be667e3d81d51b3">e2sar::NetUtil::getHostName</a></div><div class="ttdeci">static result&lt; std::string &gt; getHostName() noexcept</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:33</div></div>
 <div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

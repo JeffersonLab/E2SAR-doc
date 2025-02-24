@@ -119,12 +119,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acfeed65fb683514bba5215bd4f0c133c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f1647dfad7988f277421ea6ffdc9b3" id="r_ad0f1647dfad7988f277421ea6ffdc9b3"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0f1647dfad7988f277421ea6ffdc9b3">removeSenders</a> (const std::vector&lt; std::string &gt; &amp;senders) noexcept</td></tr>
 <tr class="separator:ad0f1647dfad7988f277421ea6ffdc9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a2d2c585dbc70e3a91736830d0acd1" id="r_ab9a2d2c585dbc70e3a91736830d0acd1"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a2d2c585dbc70e3a91736830d0acd1">addSenderSelf</a> (bool v6=false) noexcept</td></tr>
+<tr class="separator:ab9a2d2c585dbc70e3a91736830d0acd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad848724273a40f4ba7cb8affb17e8d78" id="r_ad848724273a40f4ba7cb8affb17e8d78"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad848724273a40f4ba7cb8affb17e8d78">removeSenderSelf</a> (bool v6=false) noexcept</td></tr>
+<tr class="separator:ad848724273a40f4ba7cb8affb17e8d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7052ffdbfa7137616c2146c8cddaf6df" id="r_a7052ffdbfa7137616c2146c8cddaf6df"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7052ffdbfa7137616c2146c8cddaf6df">freeLB</a> (const std::string &amp;lbid) noexcept</td></tr>
 <tr class="separator:a7052ffdbfa7137616c2146c8cddaf6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1454cfc487e9e4b8443734cad9bcf0cf" id="r_a1454cfc487e9e4b8443734cad9bcf0cf"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1454cfc487e9e4b8443734cad9bcf0cf">freeLB</a> () noexcept</td></tr>
 <tr class="separator:a1454cfc487e9e4b8443734cad9bcf0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71ba78cf2988e9bb7373d707b16c9f35" id="r_a71ba78cf2988e9bb7373d707b16c9f35"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71ba78cf2988e9bb7373d707b16c9f35">registerWorker</a> (const std::string &amp;node_name, std::pair&lt; ip::address, u_int16_t &gt; node_ip_port, float weight, u_int16_t source_count, float min_factor, float max_factor) noexcept</td></tr>
 <tr class="separator:a71ba78cf2988e9bb7373d707b16c9f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc45fd84b4bd405be00a037d041c04dc" id="r_acc45fd84b4bd405be00a037d041c04dc"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc45fd84b4bd405be00a037d041c04dc">registerWorkerSelf</a> (const std::string &amp;node_name, u_int16_t node_port, float weight, u_int16_t source_count, float min_factor, float max_factor, bool v6=false) noexcept</td></tr>
+<tr class="separator:acc45fd84b4bd405be00a037d041c04dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e0fa40b7d4c1995902e05c122277251" id="r_a8e0fa40b7d4c1995902e05c122277251"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e0fa40b7d4c1995902e05c122277251">deregisterWorker</a> () noexcept</td></tr>
 <tr class="separator:a8e0fa40b7d4c1995902e05c122277251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a3a46bc2e5e134dbce8c719bc9f5a8f" id="r_a8a3a46bc2e5e134dbce8c719bc9f5a8f"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a3a46bc2e5e134dbce8c719bc9f5a8f">sendState</a> (float fill_percent, float control_signal, bool is_ready) noexcept</td></tr>
@@ -239,6 +245,37 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender_list</td><td>- list of sender addresses </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9a2d2c585dbc70e3a91736830d0acd1" name="ab9a2d2c585dbc70e3a91736830d0acd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a2d2c585dbc70e3a91736830d0acd1">&#9670;&#160;</a></span>addSenderSelf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; int &gt; e2sar::LBManager::addSenderSelf </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Determine the caller's outgoing interface towards LB dataplane and register it as a sender </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">-</td><td>use IPv6 dataplane (default false) </td></tr>
   </table>
   </dd>
 </dl>
@@ -945,6 +982,74 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="acc45fd84b4bd405be00a037d041c04dc" name="acc45fd84b4bd405be00a037d041c04dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc45fd84b4bd405be00a037d041c04dc">&#9670;&#160;</a></span>registerWorkerSelf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; int &gt; e2sar::LBManager::registerWorkerSelf </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>node_name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int16_t</td>          <td class="paramname"><span class="paramname"><em>node_port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>weight</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int16_t</td>          <td class="paramname"><span class="paramname"><em>source_count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>min_factor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>max_factor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Register the calling worker workernode/backend with an allocated loadbalancer. The node tries to determine its outgoing IP address towards LB dataplane. Note that this call uses instance token. It sets session token and session id on the internal URI object. Note that a new worker must send state immediately (within 10s) or be automatically deregistered.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node_name</td><td>- name of the node (can be FQDN) </td></tr>
+    <tr><td class="paramname">node_port</td><td>- a u_int16_t starting UDP port on which it listens </td></tr>
+    <tr><td class="paramname">weight</td><td>- weight given to this node in terms of processing power </td></tr>
+    <tr><td class="paramname">source_count</td><td>- how many sources we can listen to (gets converted to port range [0,14]) </td></tr>
+    <tr><td class="paramname">min_factor</td><td>- multiplied with the number of slots that would be assigned evenly to determine min number of slots for example, 4 nodes with a minFactor of 0.5 = (512 slots / 4) * 0.5 = min 64 slots </td></tr>
+    <tr><td class="paramname">max_factor</td><td>- multiplied with the number of slots that would be assigned evenly to determine max number of slots for example, 4 nodes with a maxFactor of 2 = (512 slots / 4) * 2 = max 256 slots set to 0 to specify no maximum </td></tr>
+    <tr><td class="paramname">v6</td><td>- use IPv6 dataplane (defaults to false) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>- 0 on success or an error condition </dd></dl>
+
+</div>
+</div>
 <a id="ad0f1647dfad7988f277421ea6ffdc9b3" name="ad0f1647dfad7988f277421ea6ffdc9b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad0f1647dfad7988f277421ea6ffdc9b3">&#9670;&#160;</a></span>removeSenders()</h2>
 
@@ -968,6 +1073,37 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Remove 'safe' sender addresses from CP to disallow these senders to send data to the LB </p>
+
+</div>
+</div>
+<a id="ad848724273a40f4ba7cb8affb17e8d78" name="ad848724273a40f4ba7cb8affb17e8d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad848724273a40f4ba7cb8affb17e8d78">&#9670;&#160;</a></span>removeSenderSelf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; int &gt; e2sar::LBManager::removeSenderSelf </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Determine the caller's outgoing interface towards LB dataplane and unregister as a sender </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">-</td><td>use IPv6 dataplane (default false) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

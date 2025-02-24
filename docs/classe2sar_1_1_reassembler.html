@@ -107,6 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9bcc31395b09ff293e7ace30e7fd6b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a782bf8bedae1067fefbcbb8f8554a2b7" id="r_a782bf8bedae1067fefbcbb8f8554a2b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a782bf8bedae1067fefbcbb8f8554a2b7">Reassembler</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, ip::address data_ip, u_int16_t starting_port, size_t numRecvThreads=1, const <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags=<a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>())</td></tr>
 <tr class="separator:a782bf8bedae1067fefbcbb8f8554a2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a567e954771eee4c818e7694a485c73e5" id="r_a567e954771eee4c818e7694a485c73e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a567e954771eee4c818e7694a485c73e5">Reassembler</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t starting_port, std::vector&lt; int &gt; cpuCoreList, const <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags=<a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>(), bool v6=false)</td></tr>
+<tr class="separator:a567e954771eee4c818e7694a485c73e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72447114ee739dec1d65bd28181dec2" id="r_ab72447114ee739dec1d65bd28181dec2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab72447114ee739dec1d65bd28181dec2">Reassembler</a> (const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;uri, u_int16_t starting_port, size_t numRecvThreads=1, const <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;rflags=<a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>(), bool v6=false)</td></tr>
+<tr class="separator:ab72447114ee739dec1d65bd28181dec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29baa68360c561a08e333332f75e4bc4" id="r_a29baa68360c561a08e333332f75e4bc4"><td class="memItemLeft" align="right" valign="top"><a id="a29baa68360c561a08e333332f75e4bc4" name="a29baa68360c561a08e333332f75e4bc4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Reassembler</b> (const <a class="el" href="classe2sar_1_1_reassembler.html">Reassembler</a> &amp;r)=delete</td></tr>
 <tr class="separator:a29baa68360c561a08e333332f75e4bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,6 +137,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abac4d3a93ecac81d34b0b9face73f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a679e7fc30486417e84976857b47bb440" id="r_a679e7fc30486417e84976857b47bb440"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679e7fc30486417e84976857b47bb440">get_portRange</a> () const noexcept</td></tr>
 <tr class="separator:a679e7fc30486417e84976857b47bb440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd19bde43918f660a33e96ba2d4853a" id="r_a6fd19bde43918f660a33e96ba2d4853a"><td class="memItemLeft" align="right" valign="top">const ip::address&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fd19bde43918f660a33e96ba2d4853a">get_dataIP</a> () const noexcept</td></tr>
+<tr class="separator:a6fd19bde43918f660a33e96ba2d4853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cda1d99a76c3b1c0e62397d695455f3" id="r_a5cda1d99a76c3b1c0e62397d695455f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a> ()</td></tr>
 <tr class="separator:a5cda1d99a76c3b1c0e62397d695455f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -150,7 +156,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9bcc31395b09ff293e7ace30e7fd6b00" name="a9bcc31395b09ff293e7ace30e7fd6b00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bcc31395b09ff293e7ace30e7fd6b00">&#9670;&#160;</a></span>Reassembler() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcc31395b09ff293e7ace30e7fd6b00">&#9670;&#160;</a></span>Reassembler() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +202,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 </div>
 </div>
 <a id="a782bf8bedae1067fefbcbb8f8554a2b7" name="a782bf8bedae1067fefbcbb8f8554a2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a782bf8bedae1067fefbcbb8f8554a2b7">&#9670;&#160;</a></span>Reassembler() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a782bf8bedae1067fefbcbb8f8554a2b7">&#9670;&#160;</a></span>Reassembler() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,6 +247,98 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
+<a id="a567e954771eee4c818e7694a485c73e5" name="a567e954771eee4c818e7694a485c73e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a567e954771eee4c818e7694a485c73e5">&#9670;&#160;</a></span>Reassembler() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">e2sar::Reassembler::Reassembler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int16_t</td>          <td class="paramname"><span class="paramname"><em>starting_port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt;</td>          <td class="paramname"><span class="paramname"><em>cpuCoreList</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rflags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>()</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a reassembler object to run receive on a specific set of CPU cores We assume you picked the CPU core list by studying CPU-to-NUMA affinity for the receiver NIC on the target system. The number of started receive threads will match the number of cores on the list. For the started receive threads affinity will be set to these cores. This method attempts to auto-detect the outgoing IP address </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uri</td><td>- <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> with lb_id and instance token, so we can register a worker and then SendState </td></tr>
+    <tr><td class="paramname">starting_port</td><td>- starting port number on which we are listening </td></tr>
+    <tr><td class="paramname">cpuCoreList</td><td>- list of core identifiers to be used for receive threads </td></tr>
+    <tr><td class="paramname">rflags</td><td>- optional <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> structure with additional flags </td></tr>
+    <tr><td class="paramname">v6</td><td>- use IPv6 dataplane </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab72447114ee739dec1d65bd28181dec2" name="ab72447114ee739dec1d65bd28181dec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72447114ee739dec1d65bd28181dec2">&#9670;&#160;</a></span>Reassembler() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">e2sar::Reassembler::Reassembler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u_int16_t</td>          <td class="paramname"><span class="paramname"><em>starting_port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>numRecvThreads</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rflags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a>()</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a reassembler object to run on a specified number of receive threads without taking into account thread-to-CPU and CPU-to-NUMA affinity. This method attempts to auto-detect the outgoing IP address </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uri</td><td>- <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> with lb_id and instance token, so we can register a worker and then SendState </td></tr>
+    <tr><td class="paramname">starting_port</td><td>- starting port number on which we are listening </td></tr>
+    <tr><td class="paramname">numRecvThreads</td><td>- number of threads </td></tr>
+    <tr><td class="paramname">rflags</td><td>- optional <a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html">ReassemblerFlags</a> structure with additional flags </td></tr>
+    <tr><td class="paramname">v6</td><td>- use IPv6 dataplane </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af1d74bb1d375c7d0d513075b49046ac7" name="af1d74bb1d375c7d0d513075b49046ac7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1d74bb1d375c7d0d513075b49046ac7">&#9670;&#160;</a></span>deregisterWorker()</h2>
@@ -265,6 +363,32 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 </table>
 </div><div class="memdoc">
 <p>Deregister this worker </p><dl class="section return"><dt>Returns</dt><dd>- 0 on success or an error condition </dd></dl>
+
+</div>
+</div>
+<a id="a6fd19bde43918f660a33e96ba2d4853a" name="a6fd19bde43918f660a33e96ba2d4853a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd19bde43918f660a33e96ba2d4853a">&#9670;&#160;</a></span>get_dataIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ip::address e2sar::Reassembler::get_dataIP </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the data IP address to be used for communicating to the dataplane </p>
 
 </div>
 </div>

@@ -164,6 +164,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9af62745719793d1ea7da98fcc82282d" id="r_a9af62745719793d1ea7da98fcc82282d"><td class="memItemLeft" align="right" valign="top"><a id="a9af62745719793d1ea7da98fcc82282d" name="a9af62745719793d1ea7da98fcc82282d"></a>
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (TokenType tt=TokenType::admin) const</td></tr>
 <tr class="separator:a9af62745719793d1ea7da98fcc82282d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5167320df42d96a861a477c3b937a92" id="r_ac5167320df42d96a861a477c3b937a92"><td class="memItemLeft" align="right" valign="top">result&lt; std::vector&lt; ip::address &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5167320df42d96a861a477c3b937a92">getDataplaneLocalAddresses</a> (bool v6=false) noexcept</td></tr>
+<tr class="separator:ac5167320df42d96a861a477c3b937a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -571,6 +573,37 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 </table>
 </div><div class="memdoc">
 <p>check if TLS should be used </p>
+
+</div>
+</div>
+<a id="ac5167320df42d96a861a477c3b937a92" name="ac5167320df42d96a861a477c3b937a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5167320df42d96a861a477c3b937a92">&#9670;&#160;</a></span>getDataplaneLocalAddresses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; std::vector&lt; ip::address &gt; &gt; e2sar::EjfatURI::getDataplaneLocalAddresses </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>v6</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Figure out the local outgoing dataplane addresses based on data= entries in the URI. This only works where NETLINK is available (Linux) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v6</td><td>- if true look for v6 (default false) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

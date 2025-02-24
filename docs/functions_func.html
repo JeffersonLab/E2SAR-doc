@@ -88,6 +88,7 @@ $(function(){ initResizable(false); });
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
 <li>addSenders()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#acfeed65fb683514bba5215bd4f0c133c">e2sar::LBManager</a></li>
+<li>addSenderSelf()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#ab9a2d2c585dbc70e3a91736830d0acd1">e2sar::LBManager</a></li>
 <li>addToSendQueue()&#160;:&#160;<a class="el" href="classe2sar_1_1_segmenter.html#a05b3ea895a787044f5d87a4d99128382">e2sar::Segmenter</a></li>
 <li>asLBStatus()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#abc9e35f7326e9c99f92b1df9fa347005">e2sar::LBManager</a></li>
 <li>asOverviewMessage()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#aaf72784069d43e77a52ca30f0fbf438f">e2sar::LBManager</a></li>
@@ -122,6 +123,7 @@ $(function(){ initResizable(false); });
 <li>get_dataAddrv4()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#acc057d0313ae84c05ea53f37a224f155">e2sar::EjfatURI</a></li>
 <li>get_dataAddrv6()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#a416c4316027bbb437cb66029fe6adc44">e2sar::EjfatURI</a></li>
 <li>get_dataId()&#160;:&#160;<a class="el" href="structe2sar_1_1_r_e_hdr.html#a39255365d45793a81b503cb4e3ef4b9d">e2sar::REHdr</a></li>
+<li>get_dataIP()&#160;:&#160;<a class="el" href="classe2sar_1_1_reassembler.html#a6fd19bde43918f660a33e96ba2d4853a">e2sar::Reassembler</a></li>
 <li>get_entropy()&#160;:&#160;<a class="el" href="structe2sar_1_1_l_b_hdr.html#ab9132919e75e5f72c35a9750fec372cb">e2sar::LBHdr</a></li>
 <li>get_eventNum()&#160;:&#160;<a class="el" href="structe2sar_1_1_l_b_hdr.html#a9de8ee51f8442f1806a6684a596b1329">e2sar::LBHdr</a>, <a class="el" href="structe2sar_1_1_r_e_hdr.html#a2e9bfaa8b5d69f36c819dd177ffab726">e2sar::REHdr</a></li>
 <li>get_eventNumber()&#160;:&#160;<a class="el" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">e2sar::SyncHdr</a></li>
@@ -144,17 +146,19 @@ $(function(){ initResizable(false); });
 <li>get_useTls()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#a244a052e47016e020b18b90e33284284">e2sar::EjfatURI</a></li>
 <li>get_version()&#160;:&#160;<a class="el" href="structe2sar_1_1_l_b_hdr.html#a1eff7b38fce2bd185174b99b97bdcd49">e2sar::LBHdr</a></li>
 <li>get_WorkerStatusVector()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#a12a6f4a541439481119f345d357eaf86">e2sar::LBManager</a></li>
+<li>getDataplaneLocalAddresses()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#ac5167320df42d96a861a477c3b937a92">e2sar::EjfatURI</a></li>
 <li>getEvent()&#160;:&#160;<a class="el" href="classe2sar_1_1_reassembler.html#a1dac1a760ca3e903abd3e3a8000d5a5d">e2sar::Reassembler</a></li>
 <li>getFromEnv()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#a6279e45cb2fdf508c2f38ed1e8459322">e2sar::EjfatURI</a></li>
 <li>getFromFile()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#a8a06bfa38ec689f0ff6309bb46528b10">e2sar::EjfatURI</a></li>
 <li>getFromINI()&#160;:&#160;<a class="el" href="structe2sar_1_1_reassembler_1_1_reassembler_flags.html#a07544fff26b63b17371e04ad40023168">e2sar::Reassembler::ReassemblerFlags</a>, <a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html#a1bde331dfbb59afb6669a49d3a2d5495">e2sar::Segmenter::SegmenterFlags</a></li>
 <li>getFromString()&#160;:&#160;<a class="el" href="classe2sar_1_1_ejfat_u_r_i.html#ab8e2e2ebd34d19328935d9dce236597c">e2sar::EjfatURI</a></li>
-<li>getHostName()&#160;:&#160;<a class="el" href="classe2sar_1_1_net_util.html#af867824b8202ec0cf8a17e476cfb9028">e2sar::NetUtil</a></li>
+<li>getHostName()&#160;:&#160;<a class="el" href="classe2sar_1_1_net_util.html#a9a164b4d0fe47db80be667e3d81d51b3">e2sar::NetUtil</a></li>
+<li>getInterfaceIPs()&#160;:&#160;<a class="el" href="classe2sar_1_1_net_util.html#a6f46bcf9843097757f8d35830ae3a087">e2sar::NetUtil</a></li>
 <li>getIntf()&#160;:&#160;<a class="el" href="classe2sar_1_1_segmenter.html#a8fe5c3795789615fa235ca0ad16c372a">e2sar::Segmenter</a></li>
 <li>getLB()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#ad646e1e20d4e4938c83aced0efff1718">e2sar::LBManager</a></li>
 <li>getLBStatus()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#a55b8dd0eaa2ed0bd3e74b1faa2d20a19">e2sar::LBManager</a></li>
 <li>getMaxPldLen()&#160;:&#160;<a class="el" href="classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24">e2sar::Segmenter</a></li>
-<li>getMTU()&#160;:&#160;<a class="el" href="classe2sar_1_1_net_util.html#a693c6d9a61f38743b4d89657e33adb12">e2sar::NetUtil</a>, <a class="el" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">e2sar::Segmenter</a></li>
+<li>getMTU()&#160;:&#160;<a class="el" href="classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936">e2sar::NetUtil</a>, <a class="el" href="classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0">e2sar::Segmenter</a></li>
 <li>getSendStats()&#160;:&#160;<a class="el" href="classe2sar_1_1_segmenter.html#af6174f15df2daea85997f5c1e90f71a1">e2sar::Segmenter</a></li>
 <li>getStats()&#160;:&#160;<a class="el" href="classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b">e2sar::Reassembler</a></li>
 <li>getSyncStats()&#160;:&#160;<a class="el" href="classe2sar_1_1_segmenter.html#ae50d4ca2dd41f920d610415387320f2a">e2sar::Segmenter</a></li>
@@ -198,7 +202,9 @@ $(function(){ initResizable(false); });
 <li>Reassembler()&#160;:&#160;<a class="el" href="classe2sar_1_1_reassembler.html#a9bcc31395b09ff293e7ace30e7fd6b00">e2sar::Reassembler</a></li>
 <li>recvEvent()&#160;:&#160;<a class="el" href="classe2sar_1_1_reassembler.html#a15704c5f2d91322390cb0899ff4bbac9">e2sar::Reassembler</a></li>
 <li>registerWorker()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#a71ba78cf2988e9bb7373d707b16c9f35">e2sar::LBManager</a>, <a class="el" href="classe2sar_1_1_reassembler.html#a0dad039205e55e202942af00ae4c68d6">e2sar::Reassembler</a></li>
+<li>registerWorkerSelf()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#acc45fd84b4bd405be00a037d041c04dc">e2sar::LBManager</a></li>
 <li>removeSenders()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#ad0f1647dfad7988f277421ea6ffdc9b3">e2sar::LBManager</a></li>
+<li>removeSenderSelf()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#ad848724273a40f4ba7cb8affb17e8d78">e2sar::LBManager</a></li>
 <li>reserveLB()&#160;:&#160;<a class="el" href="classe2sar_1_1_l_b_manager.html#af9b4c58f99dc442b3777df86e595ea19">e2sar::LBManager</a></li>
 </ul>
 
