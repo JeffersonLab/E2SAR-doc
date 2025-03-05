@@ -47,6 +47,6 @@ var searchData=
   ['getmaxpldlen_44',['getMaxPldLen',['../classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24',1,'e2sar::Segmenter']]],
   ['getmtu_45',['getMTU',['../classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0',1,'e2sar::Segmenter::getMTU()'],['../classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936',1,'e2sar::NetUtil::getMTU()']]],
   ['getsendstats_46',['getSendStats',['../classe2sar_1_1_segmenter.html#af6174f15df2daea85997f5c1e90f71a1',1,'e2sar::Segmenter']]],
-  ['getstats_47',['getStats',['../classe2sar_1_1_reassembler.html#ad04232e140f42648c09b4d82dabfab8b',1,'e2sar::Reassembler']]],
+  ['getstats_47',['getStats',['../classe2sar_1_1_reassembler.html#aa33922881a190ecdc06d17da18d8644f',1,'e2sar::Reassembler']]],
   ['getsyncstats_48',['getSyncStats',['../classe2sar_1_1_segmenter.html#ae50d4ca2dd41f920d610415387320f2a',1,'e2sar::Segmenter']]]
 ];

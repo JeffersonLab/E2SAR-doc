@@ -119,6 +119,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>zeroRate</b></td></tr
 <tr class="memitem:a3126b2953030fa92b4d65304d24fd6da" id="r_a3126b2953030fa92b4d65304d24fd6da"><td class="memItemLeft" align="right" valign="top"><a id="a3126b2953030fa92b4d65304d24fd6da" name="a3126b2953030fa92b4d65304d24fd6da"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>usecAsEventNum</b></td></tr>
 <tr class="separator:a3126b2953030fa92b4d65304d24fd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af245ba9bd6ab174f77a18efbdd03d16c" id="r_af245ba9bd6ab174f77a18efbdd03d16c"><td class="memItemLeft" align="right" valign="top"><a id="af245ba9bd6ab174f77a18efbdd03d16c" name="af245ba9bd6ab174f77a18efbdd03d16c"></a>
+u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>warmUpMs</b></td></tr>
+<tr class="separator:af245ba9bd6ab174f77a18efbdd03d16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a999499b2baeb67edb404d6dd9c0a2143" id="r_a999499b2baeb67edb404d6dd9c0a2143"><td class="memItemLeft" align="right" valign="top"><a id="a999499b2baeb67edb404d6dd9c0a2143" name="a999499b2baeb67edb404d6dd9c0a2143"></a>
 u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>syncPeriodMs</b></td></tr>
 <tr class="separator:a999499b2baeb67edb404d6dd9c0a2143"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +145,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></
 <li>useCP - enable control plane to send Sync packets {true}</li>
 <li>zeroRate - don't provide event number change rate in Sync {false}</li>
 <li>usecAsEventNum - use usec clock samples as event numbers in LB and Sync packets {true}</li>
+<li>warmUpMs - a period of sending sync messages before data is allowed {1000}</li>
 <li>syncPeriodMs - sync thread period in milliseconds {1000}</li>
 <li>syncPerods - number of sync periods to use for averaging reported send rate {2}</li>
 <li>mtu - size of the MTU to attempt to fit the segmented data in (must accommodate IP, UDP and LBRE headers). Value of 0 means auto-detect based on MTU of outgoing interface</li>

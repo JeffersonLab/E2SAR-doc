@@ -127,8 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1dac1a760ca3e903abd3e3a8000d5a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15704c5f2d91322390cb0899ff4bbac9" id="r_a15704c5f2d91322390cb0899ff4bbac9"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15704c5f2d91322390cb0899ff4bbac9">recvEvent</a> (uint8_t **event, size_t *bytes, EventNum_t *eventNum, uint16_t *dataId, u_int64_t wait_ms=0) noexcept</td></tr>
 <tr class="separator:a15704c5f2d91322390cb0899ff4bbac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad04232e140f42648c09b4d82dabfab8b" id="r_ad04232e140f42648c09b4d82dabfab8b"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; EventNum_t, EventNum_t, int, int, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04232e140f42648c09b4d82dabfab8b">getStats</a> () const noexcept</td></tr>
-<tr class="separator:ad04232e140f42648c09b4d82dabfab8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33922881a190ecdc06d17da18d8644f" id="r_aa33922881a190ecdc06d17da18d8644f"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; EventNum_t, EventNum_t, EventNum_t, int, int, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa33922881a190ecdc06d17da18d8644f">getStats</a> () const noexcept</td></tr>
+<tr class="separator:aa33922881a190ecdc06d17da18d8644f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc122f8fe233c060559f06bcd0aea99" id="r_aecc122f8fe233c060559f06bcd0aea99"><td class="memItemLeft" align="right" valign="top">result&lt; std::pair&lt; EventNum_t, u_int16_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecc122f8fe233c060559f06bcd0aea99">get_LostEvent</a> () noexcept</td></tr>
 <tr class="separator:aecc122f8fe233c060559f06bcd0aea99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8955ea8ff93e880550f62abd0e030e1c" id="r_a8955ea8ff93e880550f62abd0e030e1c"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a> () const noexcept</td></tr>
@@ -545,8 +545,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
-<a id="ad04232e140f42648c09b4d82dabfab8b" name="ad04232e140f42648c09b4d82dabfab8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad04232e140f42648c09b4d82dabfab8b">&#9670;&#160;</a></span>getStats()</h2>
+<a id="aa33922881a190ecdc06d17da18d8644f" name="aa33922881a190ecdc06d17da18d8644f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa33922881a190ecdc06d17da18d8644f">&#9670;&#160;</a></span>getStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -555,7 +555,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::tuple&lt; EventNum_t, EventNum_t, int, int, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Reassembler::getStats </td>
+          <td class="memname">const boost::tuple&lt; EventNum_t, EventNum_t, EventNum_t, int, int, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Reassembler::getStats </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -569,6 +569,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 </div><div class="memdoc">
 <p>Get a tuple representing all the stats:</p><ul>
 <li>EventNum_t enqueueLoss; // number of events received and lost on enqueue</li>
+<li>EventNum_t reassemblyLoss; // number of events lost in reassembly due to missing segments</li>
 <li>EventNum_t eventSuccess; // events successfully processed</li>
 <li>int lastErrno;</li>
 <li>int grpcErrCnt;</li>
