@@ -128,7 +128,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>dataErrCnt</b></td></t
 <tr class="separator:aed3240d93f482388027ee171cda74937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Structure in which statistics are reported back to user, sync and send stats are identical so same structure is used. </p>
+<div class="textblock"><p>Structure in which statistics are reported back to user.</p><ul>
+<li>EventNum_t enqueueLoss; // number of events received and lost on enqueue</li>
+<li>EventNum_t reassemblyLoss; // number of events lost in reassembly due to missing segments</li>
+<li>EventNum_t eventSuccess; // events successfully processed</li>
+<li>int lastErrno; // last reported errno (use strerror() to get error message)</li>
+<li>int grpcErrCnt; // number of gRPC errors</li>
+<li>int dataErrCnt; // number of dataplae errors</li>
+<li>E2SARErrorc lastE2SARError; // last recorded E2SAR error (use make_error_code(stats.lastE2SARError).message()) </li>
+</ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="e2sar_d_p_reassembler_8hpp_source.html">e2sarDPReassembler.hpp</a></li>
 </ul>
