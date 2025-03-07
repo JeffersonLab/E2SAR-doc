@@ -98,6 +98,8 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structe2sar_1_1_segmenter_1_1_segmenter_flags.html">SegmenterFlags</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -119,10 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9756b15c8b843ea2654031d49d5a137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05b3ea895a787044f5d87a4d99128382" id="r_a05b3ea895a787044f5d87a4d99128382"><td class="memItemLeft" align="right" valign="top">result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05b3ea895a787044f5d87a4d99128382">addToSendQueue</a> (u_int8_t *event, size_t bytes, EventNum_t _eventNum=0LL, u_int16_t _dataId=0, u_int16_t entropy=0, void(*callback)(boost::any)=nullptr, boost::any cbArg=nullptr) noexcept</td></tr>
 <tr class="separator:a05b3ea895a787044f5d87a4d99128382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50d4ca2dd41f920d610415387320f2a" id="r_ae50d4ca2dd41f920d610415387320f2a"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae50d4ca2dd41f920d610415387320f2a">getSyncStats</a> () const noexcept</td></tr>
-<tr class="separator:ae50d4ca2dd41f920d610415387320f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6174f15df2daea85997f5c1e90f71a1" id="r_af6174f15df2daea85997f5c1e90f71a1"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6174f15df2daea85997f5c1e90f71a1">getSendStats</a> () const noexcept</td></tr>
-<tr class="separator:af6174f15df2daea85997f5c1e90f71a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e74b55f40c1f294c91121c79f60f32" id="r_a60e74b55f40c1f294c91121c79f60f32"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60e74b55f40c1f294c91121c79f60f32">getSyncStats</a> () const noexcept</td></tr>
+<tr class="separator:a60e74b55f40c1f294c91121c79f60f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fb4d54410220cea13df672cb1a5e59" id="r_af1fb4d54410220cea13df672cb1a5e59"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1fb4d54410220cea13df672cb1a5e59">getSendStats</a> () const noexcept</td></tr>
+<tr class="separator:af1fb4d54410220cea13df672cb1a5e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fe5c3795789615fa235ca0ad16c372a" id="r_a8fe5c3795789615fa235ca0ad16c372a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe5c3795789615fa235ca0ad16c372a">getIntf</a> () const noexcept</td></tr>
 <tr class="separator:a8fe5c3795789615fa235ca0ad16c372a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc21041a2d504fa87fe7bb77ae5e16e0" id="r_acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memItemLeft" align="right" valign="top">const u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a> () const noexcept</td></tr>
@@ -430,8 +432,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 
 </div>
 </div>
-<a id="af6174f15df2daea85997f5c1e90f71a1" name="af6174f15df2daea85997f5c1e90f71a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6174f15df2daea85997f5c1e90f71a1">&#9670;&#160;</a></span>getSendStats()</h2>
+<a id="af1fb4d54410220cea13df672cb1a5e59" name="af1fb4d54410220cea13df672cb1a5e59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fb4d54410220cea13df672cb1a5e59">&#9670;&#160;</a></span>getSendStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,7 +442,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Segmenter::getSendStats </td>
+          <td class="memname">const <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a> e2sar::Segmenter::getSendStats </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -452,12 +454,12 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get a tuple &lt;event datagrams cnt, event datagrams err cnt, last errno, last E2SAR error&gt; of send statistics. Stat structure have atomic members, no additional locking needed </p>
+<p>Get a <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a> structure of send statistics. </p>
 
 </div>
 </div>
-<a id="ae50d4ca2dd41f920d610415387320f2a" name="ae50d4ca2dd41f920d610415387320f2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae50d4ca2dd41f920d610415387320f2a">&#9670;&#160;</a></span>getSyncStats()</h2>
+<a id="a60e74b55f40c1f294c91121c79f60f32" name="a60e74b55f40c1f294c91121c79f60f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e74b55f40c1f294c91121c79f60f32">&#9670;&#160;</a></span>getSyncStats()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -466,7 +468,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::tuple&lt; u_int64_t, u_int64_t, int, <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a> &gt; e2sar::Segmenter::getSyncStats </td>
+          <td class="memname">const <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a> e2sar::Segmenter::getSyncStats </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -478,7 +480,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get a tuple &lt;sync msg cnt, sync err cnt, last errno&gt; of sync statistics. Stat structures have atomic members, no additional locking needed. </p>
+<p>Get a <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a> structure of sync statistics. </p>
 
 </div>
 </div>

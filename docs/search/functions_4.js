@@ -19,7 +19,7 @@ var searchData=
   ['get_5finstancetoken_16',['get_InstanceToken',['../classe2sar_1_1_ejfat_u_r_i.html#a847c982dcde174ce58a33ba73ff32da0',1,'e2sar::EjfatURI']]],
   ['get_5flbid_17',['get_lbId',['../classe2sar_1_1_ejfat_u_r_i.html#a426e9883f2bec315da98122fcc660e16',1,'e2sar::EjfatURI']]],
   ['get_5flbname_18',['get_lbName',['../classe2sar_1_1_ejfat_u_r_i.html#af0372873b78abc31562052300dc4f68e',1,'e2sar::EjfatURI']]],
-  ['get_5flostevent_19',['get_LostEvent',['../classe2sar_1_1_reassembler.html#aecc122f8fe233c060559f06bcd0aea99',1,'e2sar::Reassembler']]],
+  ['get_5flostevent_19',['get_LostEvent',['../classe2sar_1_1_reassembler.html#a3b16123df93e9b3678fc1b7bf3b4e956',1,'e2sar::Reassembler']]],
   ['get_5fnextproto_20',['get_nextProto',['../structe2sar_1_1_l_b_hdr.html#ab3e7250b8065f5e08990e5fc48ca0938',1,'e2sar::LBHdr']]],
   ['get_5fnumrecvthreads_21',['get_numRecvThreads',['../classe2sar_1_1_reassembler.html#a8955ea8ff93e880550f62abd0e030e1c',1,'e2sar::Reassembler']]],
   ['get_5fportrange_22',['get_portRange',['../classe2sar_1_1_reassembler.html#a679e7fc30486417e84976857b47bb440',1,'e2sar::Reassembler']]],
@@ -46,7 +46,7 @@ var searchData=
   ['getlbstatus_43',['getLBStatus',['../classe2sar_1_1_l_b_manager.html#a55b8dd0eaa2ed0bd3e74b1faa2d20a19',1,'e2sar::LBManager::getLBStatus(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#aa7122ecc226c28bcf38128e38e0ca4c0',1,'e2sar::LBManager::getLBStatus() noexcept']]],
   ['getmaxpldlen_44',['getMaxPldLen',['../classe2sar_1_1_segmenter.html#a93047c5e85352ce9ed8447c9e1470e24',1,'e2sar::Segmenter']]],
   ['getmtu_45',['getMTU',['../classe2sar_1_1_segmenter.html#acc21041a2d504fa87fe7bb77ae5e16e0',1,'e2sar::Segmenter::getMTU()'],['../classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936',1,'e2sar::NetUtil::getMTU()']]],
-  ['getsendstats_46',['getSendStats',['../classe2sar_1_1_segmenter.html#af6174f15df2daea85997f5c1e90f71a1',1,'e2sar::Segmenter']]],
-  ['getstats_47',['getStats',['../classe2sar_1_1_reassembler.html#aa33922881a190ecdc06d17da18d8644f',1,'e2sar::Reassembler']]],
-  ['getsyncstats_48',['getSyncStats',['../classe2sar_1_1_segmenter.html#ae50d4ca2dd41f920d610415387320f2a',1,'e2sar::Segmenter']]]
+  ['getsendstats_46',['getSendStats',['../classe2sar_1_1_segmenter.html#af1fb4d54410220cea13df672cb1a5e59',1,'e2sar::Segmenter']]],
+  ['getstats_47',['getStats',['../classe2sar_1_1_reassembler.html#a171d26b2d1bb34fe35c2934bf25a1485',1,'e2sar::Reassembler']]],
+  ['getsyncstats_48',['getSyncStats',['../classe2sar_1_1_segmenter.html#a60e74b55f40c1f294c91121c79f60f32',1,'e2sar::Segmenter']]]
 ];
