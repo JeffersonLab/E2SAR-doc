@@ -133,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a171d26b2d1bb34fe35c2934bf25a1485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b16123df93e9b3678fc1b7bf3b4e956" id="r_a3b16123df93e9b3678fc1b7bf3b4e956"><td class="memItemLeft" align="right" valign="top">result&lt; boost::tuple&lt; EventNum_t, u_int16_t, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b16123df93e9b3678fc1b7bf3b4e956">get_LostEvent</a> () noexcept</td></tr>
 <tr class="separator:a3b16123df93e9b3678fc1b7bf3b4e956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08abe4904b9e579e7377e53544ebe7fc" id="r_a08abe4904b9e579e7377e53544ebe7fc"><td class="memItemLeft" align="right" valign="top">result&lt; std::list&lt; std::pair&lt; u_int16_t, size_t &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08abe4904b9e579e7377e53544ebe7fc">get_FDStats</a> () noexcept</td></tr>
+<tr class="separator:a08abe4904b9e579e7377e53544ebe7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8955ea8ff93e880550f62abd0e030e1c" id="r_a8955ea8ff93e880550f62abd0e030e1c"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a> () const noexcept</td></tr>
 <tr class="separator:a8955ea8ff93e880550f62abd0e030e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abac4d3a93ecac81d34b0b9face73f448" id="r_abac4d3a93ecac81d34b0b9face73f448"><td class="memItemLeft" align="right" valign="top">const std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abac4d3a93ecac81d34b0b9face73f448">get_recvPorts</a> () const noexcept</td></tr>
@@ -391,6 +393,32 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 </table>
 </div><div class="memdoc">
 <p>Get the data IP address to be used for communicating to the dataplane </p>
+
+</div>
+</div>
+<a id="a08abe4904b9e579e7377e53544ebe7fc" name="a08abe4904b9e579e7377e53544ebe7fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08abe4904b9e579e7377e53544ebe7fc">&#9670;&#160;</a></span>get_FDStats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">result&lt; std::list&lt; std::pair&lt; u_int16_t, size_t &gt; &gt; &gt; e2sar::Reassembler::get_FDStats </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get per-port/per-fd fragments received stats. Only call this after the threads have been stopped, otherwise error is returned. </p><dl class="section return"><dt>Returns</dt><dd>- list of pairs &lt;port, number of received fragments&gt; or error </dd></dl>
 
 </div>
 </div>
