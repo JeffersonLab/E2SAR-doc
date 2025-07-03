@@ -113,12 +113,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>connectedSocket</b></
 <tr class="memitem:a586083069e973e7bb87b0b473d56c0fc" id="r_a586083069e973e7bb87b0b473d56c0fc"><td class="memItemLeft" align="right" valign="top"><a id="a586083069e973e7bb87b0b473d56c0fc" name="a586083069e973e7bb87b0b473d56c0fc"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useCP</b></td></tr>
 <tr class="separator:a586083069e973e7bb87b0b473d56c0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bf936118884a1dd9a9485ed31843ebe" id="r_a5bf936118884a1dd9a9485ed31843ebe"><td class="memItemLeft" align="right" valign="top"><a id="a5bf936118884a1dd9a9485ed31843ebe" name="a5bf936118884a1dd9a9485ed31843ebe"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>zeroRate</b></td></tr>
-<tr class="separator:a5bf936118884a1dd9a9485ed31843ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3126b2953030fa92b4d65304d24fd6da" id="r_a3126b2953030fa92b4d65304d24fd6da"><td class="memItemLeft" align="right" valign="top"><a id="a3126b2953030fa92b4d65304d24fd6da" name="a3126b2953030fa92b4d65304d24fd6da"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>usecAsEventNum</b></td></tr>
-<tr class="separator:a3126b2953030fa92b4d65304d24fd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af245ba9bd6ab174f77a18efbdd03d16c" id="r_af245ba9bd6ab174f77a18efbdd03d16c"><td class="memItemLeft" align="right" valign="top"><a id="af245ba9bd6ab174f77a18efbdd03d16c" name="af245ba9bd6ab174f77a18efbdd03d16c"></a>
 u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>warmUpMs</b></td></tr>
 <tr class="separator:af245ba9bd6ab174f77a18efbdd03d16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,21 +134,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></
 <tr class="memitem:ae022a0517da36c9e8fc74dfcbab59502" id="r_ae022a0517da36c9e8fc74dfcbab59502"><td class="memItemLeft" align="right" valign="top"><a id="ae022a0517da36c9e8fc74dfcbab59502" name="ae022a0517da36c9e8fc74dfcbab59502"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>rateGbps</b></td></tr>
 <tr class="separator:ae022a0517da36c9e8fc74dfcbab59502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7269122e6a667f2c8181a5bf8ee623b" id="r_ad7269122e6a667f2c8181a5bf8ee623b"><td class="memItemLeft" align="right" valign="top"><a id="ad7269122e6a667f2c8181a5bf8ee623b" name="ad7269122e6a667f2c8181a5bf8ee623b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>multiPort</b></td></tr>
+<tr class="separator:ad7269122e6a667f2c8181a5bf8ee623b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Because of the large number of constructor parameters in <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> we make this a structure with sane defaults</p><ul>
 <li>dpV6 - prefer V6 dataplane if the URI specifies both data=&lt;ipv4&gt;&amp;data=&lt;ipv6&gt; addresses {false}</li>
 <li>connectedSocket - use connected sockets {true}</li>
 <li>useCP - enable control plane to send Sync packets {true}</li>
-<li>zeroRate - don't provide event number change rate in Sync {false}</li>
-<li>usecAsEventNum - use usec clock samples as event numbers in LB and Sync packets {true}</li>
 <li>warmUpMs - a period of sending sync messages before data is allowed {1000}</li>
 <li>syncPeriodMs - sync thread period in milliseconds {1000}</li>
 <li>syncPerods - number of sync periods to use for averaging reported send rate {2}</li>
 <li>mtu - size of the MTU to attempt to fit the segmented data in (must accommodate IP, UDP and LBRE headers). Value of 0 means auto-detect based on MTU of outgoing interface</li>
 <li>Linux only {1500}</li>
 <li>numSendSockets - number of sockets/source ports we will be sending data from. The more, the more randomness the LAG will see in delivering to different FPGA ports. {4}</li>
-<li>sndSocketBufSize - socket buffer size for sending set via SO_SNDBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.wmem_max) to be higher. {3MB} </li>
+<li>sndSocketBufSize - socket buffer size for sending set via SO_SNDBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.wmem_max) to be higher. {3MB}</li>
+<li>rateGbps - send rate as floating point expression in Gbps. Negative value means unlimited. {-1.0}</li>
+<li>multiPort - use numSendSockets consecutive destination ports starting from <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> data port, rather than a single port; source ports are still randomized (incompatible with a load balancer, only useful in back-to-back testing) {false} </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1bde331dfbb59afb6669a49d3a2d5495" name="a1bde331dfbb59afb6669a49d3a2d5495"></a>
