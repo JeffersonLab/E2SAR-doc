@@ -127,10 +127,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af1fb4d54410220cea13df672cb1a5e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fe5c3795789615fa235ca0ad16c372a" id="r_a8fe5c3795789615fa235ca0ad16c372a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe5c3795789615fa235ca0ad16c372a">getIntf</a> () const noexcept</td></tr>
 <tr class="separator:a8fe5c3795789615fa235ca0ad16c372a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc21041a2d504fa87fe7bb77ae5e16e0" id="r_acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memItemLeft" align="right" valign="top">const u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc21041a2d504fa87fe7bb77ae5e16e0">getMTU</a> () const noexcept</td></tr>
-<tr class="separator:acc21041a2d504fa87fe7bb77ae5e16e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93047c5e85352ce9ed8447c9e1470e24" id="r_a93047c5e85352ce9ed8447c9e1470e24"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93047c5e85352ce9ed8447c9e1470e24">getMaxPldLen</a> () const noexcept</td></tr>
-<tr class="separator:a93047c5e85352ce9ed8447c9e1470e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d9c32bb5966c09124a3cc1905bee76" id="r_ad5d9c32bb5966c09124a3cc1905bee76"><td class="memItemLeft" align="right" valign="top">u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d9c32bb5966c09124a3cc1905bee76">getMTU</a> () const noexcept</td></tr>
+<tr class="separator:ad5d9c32bb5966c09124a3cc1905bee76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad660eb5f8fe5ab3ba7ea178557e13dc" id="r_aad660eb5f8fe5ab3ba7ea178557e13dc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad660eb5f8fe5ab3ba7ea178557e13dc">getMaxPldLen</a> () const noexcept</td></tr>
+<tr class="separator:aad660eb5f8fe5ab3ba7ea178557e13dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30bd5b50187de3cc594f7e83013e94ab" id="r_a30bd5b50187de3cc594f7e83013e94ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30bd5b50187de3cc594f7e83013e94ab">isUsingIPv6</a> () const noexcept</td></tr>
+<tr class="separator:a30bd5b50187de3cc594f7e83013e94ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9871b39a3d6200d5a5ff8d603abddc3a" id="r_a9871b39a3d6200d5a5ff8d603abddc3a"><td class="memItemLeft" align="right" valign="top"><a id="a9871b39a3d6200d5a5ff8d603abddc3a" name="a9871b39a3d6200d5a5ff8d603abddc3a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>stopThreads</b> ()</td></tr>
 <tr class="separator:a9871b39a3d6200d5a5ff8d603abddc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,8 +382,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 
 </div>
 </div>
-<a id="a93047c5e85352ce9ed8447c9e1470e24" name="a93047c5e85352ce9ed8447c9e1470e24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93047c5e85352ce9ed8447c9e1470e24">&#9670;&#160;</a></span>getMaxPldLen()</h2>
+<a id="aad660eb5f8fe5ab3ba7ea178557e13dc" name="aad660eb5f8fe5ab3ba7ea178557e13dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad660eb5f8fe5ab3ba7ea178557e13dc">&#9670;&#160;</a></span>getMaxPldLen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,7 +392,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t e2sar::Segmenter::getMaxPldLen </td>
+          <td class="memname">size_t e2sar::Segmenter::getMaxPldLen </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -406,8 +408,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 
 </div>
 </div>
-<a id="acc21041a2d504fa87fe7bb77ae5e16e0" name="acc21041a2d504fa87fe7bb77ae5e16e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc21041a2d504fa87fe7bb77ae5e16e0">&#9670;&#160;</a></span>getMTU()</h2>
+<a id="ad5d9c32bb5966c09124a3cc1905bee76" name="ad5d9c32bb5966c09124a3cc1905bee76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d9c32bb5966c09124a3cc1905bee76">&#9670;&#160;</a></span>getMTU()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +418,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const u_int16_t e2sar::Segmenter::getMTU </td>
+          <td class="memname">u_int16_t e2sar::Segmenter::getMTU </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -481,6 +483,32 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>SendThreadState</b>
 </table>
 </div><div class="memdoc">
 <p>Get a <a class="el" href="structe2sar_1_1_segmenter_1_1_reported_stats.html">ReportedStats</a> structure of sync statistics. </p>
+
+</div>
+</div>
+<a id="a30bd5b50187de3cc594f7e83013e94ab" name="a30bd5b50187de3cc594f7e83013e94ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30bd5b50187de3cc594f7e83013e94ab">&#9670;&#160;</a></span>isUsingIPv6()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool e2sar::Segmenter::isUsingIPv6 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if segmenter is using IPv6 for dataplane </p>
 
 </div>
 </div>

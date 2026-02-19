@@ -126,6 +126,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>dataErrCnt</b></td></t
 <tr class="memitem:aed3240d93f482388027ee171cda74937" id="r_aed3240d93f482388027ee171cda74937"><td class="memItemLeft" align="right" valign="top"><a id="aed3240d93f482388027ee171cda74937" name="aed3240d93f482388027ee171cda74937"></a>
 <a class="el" href="namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1">E2SARErrorc</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastE2SARError</b></td></tr>
 <tr class="separator:aed3240d93f482388027ee171cda74937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22040873ca0f251af279a207a20ae1b" id="r_ac22040873ca0f251af279a207a20ae1b"><td class="memItemLeft" align="right" valign="top"><a id="ac22040873ca0f251af279a207a20ae1b" name="ac22040873ca0f251af279a207a20ae1b"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>totalPackets</b></td></tr>
+<tr class="separator:ac22040873ca0f251af279a207a20ae1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668e44d4b83ac29feee8e165212d0899" id="r_a668e44d4b83ac29feee8e165212d0899"><td class="memItemLeft" align="right" valign="top"><a id="a668e44d4b83ac29feee8e165212d0899" name="a668e44d4b83ac29feee8e165212d0899"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>totalBytes</b></td></tr>
+<tr class="separator:a668e44d4b83ac29feee8e165212d0899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c5afafbd4466947d41bb8ec27ea7755" id="r_a1c5afafbd4466947d41bb8ec27ea7755"><td class="memItemLeft" align="right" valign="top"><a id="a1c5afafbd4466947d41bb8ec27ea7755" name="a1c5afafbd4466947d41bb8ec27ea7755"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>badHeaderDiscards</b></td></tr>
+<tr class="separator:a1c5afafbd4466947d41bb8ec27ea7755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure in which statistics are reported back to user.</p><ul>
@@ -135,7 +144,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>dataErrCnt</b></td></t
 <li>int lastErrno; // last reported errno (use strerror() to get error message)</li>
 <li>int grpcErrCnt; // number of gRPC errors</li>
 <li>int dataErrCnt; // number of dataplae errors</li>
-<li>E2SARErrorc lastE2SARError; // last recorded E2SAR error (use make_error_code(stats.lastE2SARError).message()) </li>
+<li>E2SARErrorc lastE2SARError; // last recorded E2SAR error (use make_error_code(stats.lastE2SARError).message())</li>
+<li>size_t totalPackets; // total packets received</li>
+<li>size_t totalBytes; // total bytes received </li>
 </ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="e2sar_d_p_reassembler_8hpp_source.html">e2sarDPReassembler.hpp</a></li>

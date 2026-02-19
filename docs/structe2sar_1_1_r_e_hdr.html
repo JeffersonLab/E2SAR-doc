@@ -109,12 +109,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a39255365d45793a81b503cb4e3ef4b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6433022663f8f12d63573eb69395a313" id="r_a6433022663f8f12d63573eb69395a313"><td class="memItemLeft" align="right" valign="top">const boost::tuple&lt; u_int16_t, u_int32_t, u_int32_t, EventNum_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6433022663f8f12d63573eb69395a313">get_Fields</a> () const</td></tr>
 <tr class="separator:a6433022663f8f12d63573eb69395a313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748f6cafa9479007d50f403110d84d4c" id="r_a748f6cafa9479007d50f403110d84d4c"><td class="memItemLeft" align="right" valign="top">u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a748f6cafa9479007d50f403110d84d4c">get_HeaderVersion</a> () const</td></tr>
+<tr class="separator:a748f6cafa9479007d50f403110d84d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611942d5957ae336f21cdc9abcec6821" id="r_a611942d5957ae336f21cdc9abcec6821"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a611942d5957ae336f21cdc9abcec6821">validate</a> () const</td></tr>
+<tr class="separator:a611942d5957ae336f21cdc9abcec6821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a0bbda02145c55aafda5216b625089285" id="r_a0bbda02145c55aafda5216b625089285"><td class="memItemLeft" align="right" valign="top"><a id="a0bbda02145c55aafda5216b625089285" name="a0bbda02145c55aafda5216b625089285"></a>
-u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>preamble</b> [2] {rehdrVersionNibble, 0}</td></tr>
-<tr class="separator:a0bbda02145c55aafda5216b625089285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f33170274c4f2e057290caa1412c090" id="r_a9f33170274c4f2e057290caa1412c090"><td class="memItemLeft" align="right" valign="top"><a id="a9f33170274c4f2e057290caa1412c090" name="a9f33170274c4f2e057290caa1412c090"></a>
+const u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>preamble</b> [2] {rehdrVersionNibble, 0}</td></tr>
+<tr class="separator:a9f33170274c4f2e057290caa1412c090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa567dae52138a7e2bd38a8c8c0c48a8" id="r_afa567dae52138a7e2bd38a8c8c0c48a8"><td class="memItemLeft" align="right" valign="top"><a id="afa567dae52138a7e2bd38a8c8c0c48a8" name="afa567dae52138a7e2bd38a8c8c0c48a8"></a>
 u_int16_t&#160;</td><td class="memItemRight" valign="bottom"><b>dataId</b> {0}</td></tr>
 <tr class="separator:afa567dae52138a7e2bd38a8c8c0c48a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,6 +265,32 @@ EventNum_t&#160;</td><td class="memItemRight" valign="bottom"><b>eventNum</b> {0
 
 </div>
 </div>
+<a id="a748f6cafa9479007d50f403110d84d4c" name="a748f6cafa9479007d50f403110d84d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748f6cafa9479007d50f403110d84d4c">&#9670;&#160;</a></span>get_HeaderVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">u_int8_t e2sar::REHdr::get_HeaderVersion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the version of the header </p>
+
+</div>
+</div>
 <a id="ac335666a1e5656ab4f0dab06cdcbacce" name="ac335666a1e5656ab4f0dab06cdcbacce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac335666a1e5656ab4f0dab06cdcbacce">&#9670;&#160;</a></span>set()</h2>
 
@@ -298,6 +328,32 @@ EventNum_t&#160;</td><td class="memItemRight" valign="bottom"><b>eventNum</b> {0
 </table>
 </div><div class="memdoc">
 <p>Set all fields to network/big-endian byte order values </p>
+
+</div>
+</div>
+<a id="a611942d5957ae336f21cdc9abcec6821" name="a611942d5957ae336f21cdc9abcec6821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611942d5957ae336f21cdc9abcec6821">&#9670;&#160;</a></span>validate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool e2sar::REHdr::validate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Validate this header header Check that version matches and reserved field is 00s </p>
 
 </div>
 </div>

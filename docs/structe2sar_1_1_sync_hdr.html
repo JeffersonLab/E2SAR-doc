@@ -101,6 +101,10 @@ $(function(){ initResizable(false); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abc05242f953663e3a568a673329bd051" id="r_abc05242f953663e3a568a673329bd051"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc05242f953663e3a568a673329bd051">set</a> (u_int32_t esid, EventNum_t event_num, EventRate_t avg_rate, UnixTimeNano_t ut)</td></tr>
 <tr class="separator:abc05242f953663e3a568a673329bd051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bb3a499f9bb62422138f0da84e98d1" id="r_a92bb3a499f9bb62422138f0da84e98d1"><td class="memItemLeft" align="right" valign="top">u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92bb3a499f9bb62422138f0da84e98d1">get_version</a> () const</td></tr>
+<tr class="separator:a92bb3a499f9bb62422138f0da84e98d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0015dce52dafaff9ad473186b247ce4" id="r_ae0015dce52dafaff9ad473186b247ce4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0015dce52dafaff9ad473186b247ce4">check_version</a> () const</td></tr>
+<tr class="separator:ae0015dce52dafaff9ad473186b247ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0f6decc55b0b3cb1f9281bea4252d87" id="r_aa0f6decc55b0b3cb1f9281bea4252d87"><td class="memItemLeft" align="right" valign="top">u_int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f6decc55b0b3cb1f9281bea4252d87">get_eventSrcId</a> () const</td></tr>
 <tr class="separator:aa0f6decc55b0b3cb1f9281bea4252d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a562457d2b3e449b01746dd379e1ba5c7" id="r_a562457d2b3e449b01746dd379e1ba5c7"><td class="memItemLeft" align="right" valign="top">EventNum_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a562457d2b3e449b01746dd379e1ba5c7">get_eventNumber</a> () const</td></tr>
@@ -114,11 +118,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aa7074edf7d76399330ce2217d1f49b58" id="r_aa7074edf7d76399330ce2217d1f49b58"><td class="memItemLeft" align="right" valign="top"><a id="aa7074edf7d76399330ce2217d1f49b58" name="aa7074edf7d76399330ce2217d1f49b58"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>preamble</b> [2] {'L', 'C'}</td></tr>
-<tr class="separator:aa7074edf7d76399330ce2217d1f49b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797caa2d1a02cd211e63a7f8f0793749" id="r_a797caa2d1a02cd211e63a7f8f0793749"><td class="memItemLeft" align="right" valign="top"><a id="a797caa2d1a02cd211e63a7f8f0793749" name="a797caa2d1a02cd211e63a7f8f0793749"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>preamble</b> [2] {'L', 'C'}</td></tr>
+<tr class="separator:a797caa2d1a02cd211e63a7f8f0793749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f86884319f3766c893b8b92a2e1f40e" id="r_a0f86884319f3766c893b8b92a2e1f40e"><td class="memItemLeft" align="right" valign="top"><a id="a0f86884319f3766c893b8b92a2e1f40e" name="a0f86884319f3766c893b8b92a2e1f40e"></a>
-u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>version</b> {synchdrVersion}</td></tr>
+u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>version</b> {synchdrVersion2}</td></tr>
 <tr class="separator:a0f86884319f3766c893b8b92a2e1f40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46ec1864752393d92c28371b2c59c82b" id="r_a46ec1864752393d92c28371b2c59c82b"><td class="memItemLeft" align="right" valign="top"><a id="a46ec1864752393d92c28371b2c59c82b" name="a46ec1864752393d92c28371b2c59c82b"></a>
 u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>rsvd</b> {0}</td></tr>
@@ -139,6 +143,32 @@ UnixTimeNano_t&#160;</td><td class="memItemRight" valign="bottom"><b>unixTimeNan
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Syncr Header. You should always use the provided methods to set and interrogate fields as the structure maintains Big-Endian order internally. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae0015dce52dafaff9ad473186b247ce4" name="ae0015dce52dafaff9ad473186b247ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0015dce52dafaff9ad473186b247ce4">&#9670;&#160;</a></span>check_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool e2sar::SyncHdr::check_version </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>check version </p>
+
+</div>
+</div>
 <a id="aa5c1313137818d7ca8a863e6909bbd31" name="aa5c1313137818d7ca8a863e6909bbd31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5c1313137818d7ca8a863e6909bbd31">&#9670;&#160;</a></span>get_avgEventRateHz()</h2>
 
@@ -268,6 +298,32 @@ UnixTimeNano_t&#160;</td><td class="memItemRight" valign="bottom"><b>unixTimeNan
 </table>
 </div><div class="memdoc">
 <p>get unix time nanoseconds in host byte order </p>
+
+</div>
+</div>
+<a id="a92bb3a499f9bb62422138f0da84e98d1" name="a92bb3a499f9bb62422138f0da84e98d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bb3a499f9bb62422138f0da84e98d1">&#9670;&#160;</a></span>get_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">u_int8_t e2sar::SyncHdr::get_version </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get version of SYNC </p>
 
 </div>
 </div>

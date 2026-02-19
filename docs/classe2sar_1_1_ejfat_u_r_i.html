@@ -92,6 +92,7 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle"><div class="title">e2sar::EjfatURI Class Reference</div></div>
 </div><!--header-->
@@ -101,11 +102,28 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab88b14eb1109c338de31668765b2f721" id="r_ab88b14eb1109c338de31668765b2f721"><td class="memItemLeft" align="right" valign="top"><a id="ab88b14eb1109c338de31668765b2f721" name="ab88b14eb1109c338de31668765b2f721"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>TokenType</b> { <b>admin</b>
-, <b>instance</b>
-, <b>session</b>
+<tr class="memitem:a2e0f8704e52e70e5f7d301b3325940e2" id="r_a2e0f8704e52e70e5f7d301b3325940e2"><td class="memItemLeft" align="right" valign="top"><a id="a2e0f8704e52e70e5f7d301b3325940e2" name="a2e0f8704e52e70e5f7d301b3325940e2"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>TokenType</b> : u_int16_t { <br />
+&#160;&#160;<b>all</b> =0
+, <b>admin</b> =1
+, <b>load_balancer</b> =admin
+, <b>instance</b> =2
+, <br />
+&#160;&#160;<b>reservation</b> =instance
+, <b>session</b> =3
+, <b>END</b>
+<br />
  }</td></tr>
-<tr class="separator:ab88b14eb1109c338de31668765b2f721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a2e0f8704e52e70e5f7d301b3325940e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d8ce2dfb60f248850ac6d42d63a58f" id="r_a18d8ce2dfb60f248850ac6d42d63a58f"><td class="memItemLeft" align="right" valign="top"><a id="a18d8ce2dfb60f248850ac6d42d63a58f" name="a18d8ce2dfb60f248850ac6d42d63a58f"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>TokenPermission</b> : u_int16_t { <br />
+&#160;&#160;<b>_read_only_</b>
+, <b>_register_</b>
+, <b>_reserve_</b>
+, <b>_update_</b>
+, <br />
+&#160;&#160;<b>END</b>
+<br />
+ }</td></tr>
+<tr class="separator:a18d8ce2dfb60f248850ac6d42d63a58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -115,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a208e178bdc6a7d70db74649e9ef39f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a244a052e47016e020b18b90e33284284" id="r_a244a052e47016e020b18b90e33284284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a244a052e47016e020b18b90e33284284">get_useTls</a> () const</td></tr>
 <tr class="separator:a244a052e47016e020b18b90e33284284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa4ad47c76b2d0e52c16ebec95d16a8" id="r_a7fa4ad47c76b2d0e52c16ebec95d16a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fa4ad47c76b2d0e52c16ebec95d16a8">set_Token</a> (const std::string &amp;t, TokenType tt)</td></tr>
+<tr class="separator:a7fa4ad47c76b2d0e52c16ebec95d16a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3495f62f503cf111dfd23598fd07dbd0" id="r_a3495f62f503cf111dfd23598fd07dbd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3495f62f503cf111dfd23598fd07dbd0">set_InstanceToken</a> (const std::string &amp;t)</td></tr>
 <tr class="separator:a3495f62f503cf111dfd23598fd07dbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9479a60a1289baec5d27ef288e393fee" id="r_a9479a60a1289baec5d27ef288e393fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9479a60a1289baec5d27ef288e393fee">set_SessionToken</a> (const std::string &amp;t)</td></tr>
@@ -169,12 +189,30 @@ const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_strin
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ac19218bace885cec60944bec23a5f01b" id="r_ac19218bace885cec60944bec23a5f01b"><td class="memItemLeft" align="right" valign="top"><a id="ac19218bace885cec60944bec23a5f01b" name="ac19218bace885cec60944bec23a5f01b"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ttAsIdx</b> (TokenType tt)</td></tr>
+<tr class="separator:ac19218bace885cec60944bec23a5f01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae912009f19b4676ff82168ea35d722" id="r_a0ae912009f19b4676ff82168ea35d722"><td class="memItemLeft" align="right" valign="top"><a id="a0ae912009f19b4676ff82168ea35d722" name="a0ae912009f19b4676ff82168ea35d722"></a>
+static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (TokenType tt)</td></tr>
+<tr class="separator:a0ae912009f19b4676ff82168ea35d722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aded7bb4ff0a3701c7fa1e36d71f7b6" id="r_a3aded7bb4ff0a3701c7fa1e36d71f7b6"><td class="memItemLeft" align="right" valign="top"><a id="a3aded7bb4ff0a3701c7fa1e36d71f7b6" name="a3aded7bb4ff0a3701c7fa1e36d71f7b6"></a>
+static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> (TokenPermission tt)</td></tr>
+<tr class="separator:a3aded7bb4ff0a3701c7fa1e36d71f7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6279e45cb2fdf508c2f38ed1e8459322" id="r_a6279e45cb2fdf508c2f38ed1e8459322"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6279e45cb2fdf508c2f38ed1e8459322">getFromEnv</a> (const std::string &amp;envVar=&quot;EJFAT_URI&quot;s, TokenType tt=TokenType::admin, bool preferV6=false) noexcept</td></tr>
 <tr class="separator:a6279e45cb2fdf508c2f38ed1e8459322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8e2e2ebd34d19328935d9dce236597c" id="r_ab8e2e2ebd34d19328935d9dce236597c"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e2e2ebd34d19328935d9dce236597c">getFromString</a> (const std::string &amp;uriStr, TokenType tt=TokenType::admin, bool preferV6=false) noexcept</td></tr>
 <tr class="separator:ab8e2e2ebd34d19328935d9dce236597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a06bfa38ec689f0ff6309bb46528b10" id="r_a8a06bfa38ec689f0ff6309bb46528b10"><td class="memItemLeft" align="right" valign="top">static result&lt; <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a06bfa38ec689f0ff6309bb46528b10">getFromFile</a> (const std::string &amp;fileName=&quot;/tmp/ejfat_uri&quot;s, TokenType tt=TokenType::admin, bool preferV6=false) noexcept</td></tr>
 <tr class="separator:a8a06bfa38ec689f0ff6309bb46528b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a4a391d98aac2ab1db104f8bc64722247" id="r_a4a391d98aac2ab1db104f8bc64722247"><td class="memItemLeft" align="right" valign="top"><a id="a4a391d98aac2ab1db104f8bc64722247" name="a4a391d98aac2ab1db104f8bc64722247"></a>
+static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tokenTypeCardinality</b> = static_cast&lt;size_t&gt;(TokenType::END)</td></tr>
+<tr class="separator:a4a391d98aac2ab1db104f8bc64722247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb496cef84a64baf8d9bb1101360c747" id="r_adb496cef84a64baf8d9bb1101360c747"><td class="memItemLeft" align="right" valign="top"><a id="adb496cef84a64baf8d9bb1101360c747" name="adb496cef84a64baf8d9bb1101360c747"></a>
+static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tokenPermissionCardinality</b> = static_cast&lt;size_t&gt;(TokenPermission::END)</td></tr>
+<tr class="separator:adb496cef84a64baf8d9bb1101360c747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -214,7 +252,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 <p>base constructor, sets instance token from string </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uri</td><td>- the URI string </td></tr>
-    <tr><td class="paramname">tt</td><td>- convert to this token type (admin, instance, session) </td></tr>
+    <tr><td class="paramname">tt</td><td>- convert to this token type (all, admin/load_balancer, instance/reservation, session) </td></tr>
     <tr><td class="paramname">preferV6</td><td>- when connecting to the control plane, prefer IPv6 address if the name resolves to both (defaults to v4)</td></tr>
   </table>
   </dd>
@@ -1035,6 +1073,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const
 </table>
 </div><div class="memdoc">
 <p>Set the sync address (v4 or v6) </p>
+
+</div>
+</div>
+<a id="a7fa4ad47c76b2d0e52c16ebec95d16a8" name="a7fa4ad47c76b2d0e52c16ebec95d16a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa4ad47c76b2d0e52c16ebec95d16a8">&#9670;&#160;</a></span>set_Token()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void e2sar::EjfatURI::set_Token </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TokenType</td>          <td class="paramname"><span class="paramname"><em>tt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>set the token and token type </p>
 
 </div>
 </div>

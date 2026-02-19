@@ -114,7 +114,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structe2sar_1_1_r_e_hdr.html">   21</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_r_e_hdr.html">REHdr</a></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        u_int8_t preamble[2] {rehdrVersionNibble, 0}; <span class="comment">// 4 bit version + reserved</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keyword">const</span> u_int8_t preamble[2] {rehdrVersionNibble, 0}; <span class="comment">// 4 bit version + reserved</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        u_int16_t dataId{0};   <span class="comment">// source identifier</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        u_int32_t bufferOffset{0};</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        u_int32_t bufferLength{0}; <span class="comment">// this is event length, not the length of the buffer being sent</span></div>
@@ -159,163 +159,334 @@ $(function(){ initResizable(false); });
 </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structe2sar_1_1_r_e_hdr.html#a6433022663f8f12d63573eb69395a313">   81</a></span>        <span class="keyword">inline</span> <span class="keyword">const</span> boost::tuple&lt;u_int16_t, u_int32_t, u_int32_t, EventNum_t&gt; <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a6433022663f8f12d63573eb69395a313">get_Fields</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structe2sar_1_1_r_e_hdr.html#a6433022663f8f12d63573eb69395a313">   81</a></span>        <span class="keyword">const</span> <span class="keyword">inline</span> boost::tuple&lt;u_int16_t, u_int32_t, u_int32_t, EventNum_t&gt; <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a6433022663f8f12d63573eb69395a313">get_Fields</a>()<span class="keyword"> const </span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">return</span> boost::make_tuple(<a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a39255365d45793a81b503cb4e3ef4b9d">get_dataId</a>(), <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#ac2acb69db5b77d17701e72604ad5f67b">get_bufferOffset</a>(), <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#aacac4f3e1c20791fc43ad6687b6e731f">get_bufferLength</a>(), <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a2e9bfaa8b5d69f36c819dd177ffab726">get_eventNum</a>());</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    } __attribute__((__packed__));</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structe2sar_1_1_r_e_hdr.html#a748f6cafa9479007d50f403110d84d4c">   89</a></span>        <span class="keyword">inline</span> u_int8_t <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a748f6cafa9479007d50f403110d84d4c">get_HeaderVersion</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">return</span> preamble[0] &gt;&gt; 4; </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">constexpr</span> u_int8_t lbhdrVersion = 2;</div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html">   93</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr.html">LBHdr</a></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">char</span> preamble[2] {<span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;B&#39;</span>};</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        u_int8_t version{lbhdrVersion};</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        u_int8_t nextProto{rehdrVersion};</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        u_int16_t rsvd{0};</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        u_int16_t entropy{0};</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        EventNum_t eventNum{0L};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#a15aa87e651c1387407a0e34b50c469a5">  105</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#a15aa87e651c1387407a0e34b50c469a5">set</a>(u_int16_t ent, EventNum_t event_num) </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            entropy = htobe16(ent);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            eventNum = htobe64(event_num);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structe2sar_1_1_r_e_hdr.html#a611942d5957ae336f21cdc9abcec6821">   98</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structe2sar_1_1_r_e_hdr.html#a611942d5957ae336f21cdc9abcec6821">validate</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">return</span> (preamble[0] == rehdrVersionNibble) &amp;&amp; (preamble[1] == 0);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#a1eff7b38fce2bd185174b99b97bdcd49">  114</a></span>        u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#a1eff7b38fce2bd185174b99b97bdcd49">get_version</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordflow">return</span> version;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    } __attribute__((__packed__));</div>
 </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#ab3e7250b8065f5e08990e5fc48ca0938">  122</a></span>        u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#ab3e7250b8065f5e08990e5fc48ca0938">get_nextProto</a>()<span class="keyword"> const </span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordflow">return</span> nextProto;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">constexpr</span> u_int8_t lbhdrVersion2 = 2;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">constexpr</span> u_int8_t lbhdrVersion3 = 3;</div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html">  111</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v2.html">LBHdrV2</a></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> preamble[2] {<span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;B&#39;</span>};</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        u_int8_t version{lbhdrVersion2};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        u_int8_t nextProto{rehdrVersion};</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        u_int16_t rsvd{0};</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        u_int16_t entropy{0};</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        EventNum_t eventNum{0L};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#a4fe2d0fee244580c024d7fd236443683">  123</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#a4fe2d0fee244580c024d7fd236443683">set</a>(u_int16_t ent, EventNum_t event_num) </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            entropy = htobe16(ent);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            eventNum = htobe64(event_num);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        }</div>
 </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#ab9132919e75e5f72c35a9750fec372cb">  130</a></span>        u_int16_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#ab9132919e75e5f72c35a9750fec372cb">get_entropy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordflow">return</span> be16toh(entropy);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#a4222152b43dddc06355a10ead90630f8">  132</a></span>        <span class="keyword">inline</span> u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#a4222152b43dddc06355a10ead90630f8">get_version</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">return</span> version;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#a9de8ee51f8442f1806a6684a596b1329">  138</a></span>        EventNum_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#a9de8ee51f8442f1806a6684a596b1329">get_eventNum</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordflow">return</span> be64toh(eventNum);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#af3cf6dedf76310debcb2c743ae4f5ec4">  140</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#af3cf6dedf76310debcb2c743ae4f5ec4">check_version</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">return</span> version == lbhdrVersion2;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        }</div>
 </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr.html#aedf97e5bfc66e5915f1ddd04d723c015">  154</a></span>        <span class="keyword">const</span> boost::tuple&lt;u_int8_t, u_int8_t, u_int16_t, EventNum_t&gt; <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#aedf97e5bfc66e5915f1ddd04d723c015">get_Fields</a>()<span class="keyword"> const </span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">return</span> boost::make_tuple(version, nextProto, <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#ab9132919e75e5f72c35a9750fec372cb">get_entropy</a>(), <a class="code hl_function" href="structe2sar_1_1_l_b_hdr.html#a9de8ee51f8442f1806a6684a596b1329">get_eventNum</a>());</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#a7b0ad7f357912a673585ab0a61f42380">  148</a></span>        <span class="keyword">inline</span> u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#a7b0ad7f357912a673585ab0a61f42380">get_nextProto</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">return</span> nextProto;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        }</div>
 </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    } __attribute__((__packed__));</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#a4e8e9d7221fc4094a11c464ae2f21f3b">  156</a></span>        <span class="keyword">inline</span> u_int16_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#a4e8e9d7221fc4094a11c464ae2f21f3b">get_entropy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">return</span> be16toh(entropy);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
 </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">// for memory allocation purposes we need them concatenated</span></div>
-<div class="foldopen" id="foldopen00161" data-start="{" data-end="};">
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_r_e_hdr.html">  161</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_r_e_hdr.html">LBREHdr</a> {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr.html">LBHdr</a> lb;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_r_e_hdr.html">REHdr</a> re;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    } __attribute__((__packed__));</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#aa6ba72424de254c1ee2a5c268984f4fe">  164</a></span>        <span class="keyword">inline</span> EventNum_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#aa6ba72424de254c1ee2a5c268984f4fe">get_eventNum</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordflow">return</span> be64toh(eventNum);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        }</div>
 </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">constexpr</span> u_int8_t synchdrVersion = 2;</div>
-<div class="foldopen" id="foldopen00172" data-start="{" data-end="};">
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html">  172</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_sync_hdr.html">SyncHdr</a></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    {</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordtype">char</span> preamble[2] {<span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;C&#39;</span>};</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        u_int8_t version{synchdrVersion};</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        u_int8_t rsvd{0};</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        u_int32_t eventSrcId{0};</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        EventNum_t eventNumber{0LL};</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        EventRate_t avgEventRateHz{0};</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        UnixTimeNano_t unixTimeNano{0LL};</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">  185</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">set</a>(u_int32_t esid, EventNum_t event_num, EventRate_t avg_rate, UnixTimeNano_t ut)</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        {</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            eventSrcId = htobe32(esid);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            eventNumber = htobe64(event_num);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            avgEventRateHz = htobe32(avg_rate);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            unixTimeNano = htobe64(ut);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v2.html#ab7c1c9aefd874b18e172f5e605cd94a6">  180</a></span>        <span class="keyword">const</span> <span class="keyword">inline</span> boost::tuple&lt;u_int8_t, u_int8_t, u_int16_t, EventNum_t&gt; <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#ab7c1c9aefd874b18e172f5e605cd94a6">get_Fields</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">return</span> boost::make_tuple(version, nextProto, <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#a4e8e9d7221fc4094a11c464ae2f21f3b">get_entropy</a>(), <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v2.html#aa6ba72424de254c1ee2a5c268984f4fe">get_eventNum</a>());</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
 </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">  196</a></span>        <span class="keyword">inline</span> u_int32_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">get_eventSrcId</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            <span class="keywordflow">return</span> be32toh(eventSrcId);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    } __attribute__((__packed__));</div>
 </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="};">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html">  191</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v3.html">LBHdrV3</a></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> preamble[2] {<span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;B&#39;</span>};</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        u_int8_t version{lbhdrVersion3};</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        u_int8_t nextProto{rehdrVersion};</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        u_int16_t slotSelect{0};</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        u_int16_t portSelect{0};</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        EventNum_t tick{0L};</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
 <div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">  203</a></span>        <span class="keyword">inline</span> EventNum_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">get_eventNumber</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            <span class="keywordflow">return</span> be64toh(eventNumber);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#a6b6e7aa4c1b23173e48433f236133042">  203</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a6b6e7aa4c1b23173e48433f236133042">set</a>(u_int16_t slt, u_int16_t prt, EventNum_t tk) </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            slotSelect = htobe16(slt);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            portSelect = htobe16(prt);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            tick = htobe64(tk);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        }</div>
 </div>
-<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">  210</a></span>        <span class="keyword">inline</span> u_int32_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">get_avgEventRateHz</a>()<span class="keyword"> const </span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">return</span> be32toh(avgEventRateHz);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#afc5377f2ec30d1ae007d34e227d745e1">  213</a></span>        <span class="keyword">inline</span> u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#afc5377f2ec30d1ae007d34e227d745e1">get_version</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            <span class="keywordflow">return</span> version;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        }</div>
 </div>
-<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">  217</a></span>        <span class="keyword">inline</span> UnixTimeNano_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">get_unixTimeNano</a>()<span class="keyword"> const </span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">return</span> be64toh(unixTimeNano);</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#a28b865654d7008ac5442e8d9c82d65f4">  221</a></span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a28b865654d7008ac5442e8d9c82d65f4">check_version</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keywordflow">return</span> version == lbhdrVersion3;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
 </div>
-<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">  232</a></span>        <span class="keyword">const</span> boost::tuple&lt;u_int32_t, EventNum_t, u_int32_t, UnixTimeNano_t&gt; <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">get_Fields</a>()<span class="keyword"> const </span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">return</span> boost::make_tuple(<a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">get_eventSrcId</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">get_eventNumber</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">get_avgEventRateHz</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">get_unixTimeNano</a>());</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#afe7170fc8399fb734bd54fb0d9a094d2">  229</a></span>        <span class="keyword">inline</span> u_int8_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#afe7170fc8399fb734bd54fb0d9a094d2">get_nextProto</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keywordflow">return</span> nextProto;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
 </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    } __attribute__((__packed__));</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#ab56a9ed35482305a432cc2b533bd43ab">  237</a></span>        <span class="keyword">inline</span> u_int16_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#ab56a9ed35482305a432cc2b533bd43ab">get_slotSelect</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">return</span> be16toh(slotSelect);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
 </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="comment">// various useful header lengths</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> IP_HDRLEN = 20;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> UDP_HDRLEN = 8;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> TOTAL_HDR_LEN{IP_HDRLEN + UDP_HDRLEN + <span class="keyword">sizeof</span>(LBHdr) + <span class="keyword">sizeof</span>(REHdr)};</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>}</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#a5591c29b0b8a28092788469041541e91">  245</a></span>        <span class="keyword">inline</span> u_int16_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a5591c29b0b8a28092788469041541e91">get_portSelect</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            <span class="keywordflow">return</span> be16toh(portSelect);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        }</div>
+</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#a6f176ef1438bf7b6afa64cb13b65f3bb">  253</a></span>        <span class="keyword">inline</span> EventNum_t <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a6f176ef1438bf7b6afa64cb13b65f3bb">get_tick</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <span class="keywordflow">return</span> be64toh(tick);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
+</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="foldopen" id="foldopen00270" data-start="{" data-end="}">
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_hdr_v3.html#aee88ff895fe49f725d50bc83eaae69f3">  270</a></span>        <span class="keyword">const</span> <span class="keyword">inline</span> boost::tuple&lt;u_int8_t, u_int8_t, u_int16_t, u_int16_t, EventNum_t&gt; <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#aee88ff895fe49f725d50bc83eaae69f3">get_Fields</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span> boost::make_tuple(version, nextProto, <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#ab56a9ed35482305a432cc2b533bd43ab">get_slotSelect</a>(), <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a5591c29b0b8a28092788469041541e91">get_portSelect</a>(), <a class="code hl_function" href="structe2sar_1_1_l_b_hdr_v3.html#a6f176ef1438bf7b6afa64cb13b65f3bb">get_tick</a>());</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
+</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    } __attribute__((__packed__));</div>
+</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="comment">// union of LB headers (they are all the same lengths)</span></div>
+<div class="foldopen" id="foldopen00278" data-start="{" data-end="};">
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="unione2sar_1_1_l_b_hdr_u.html">  278</a></span>    <span class="keyword">union </span><a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a> {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v2.html">LBHdrV2</a> lb2;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v3.html">LBHdrV3</a> lb3;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="comment">// explicit c-tor because it&#39;s a union</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a>()</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            ;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        }</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="comment">// c-tor that builds a specific header version</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a>(u_int8_t ver)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            <span class="keywordflow">switch</span>(ver) {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>                <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                    <span class="keyword">new</span> (<span class="keyword">this</span>) <a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v2.html">LBHdrV2</a>();</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                    <span class="keyword">new</span> (<span class="keyword">this</span>) <a class="code hl_struct" href="structe2sar_1_1_l_b_hdr_v3.html">LBHdrV3</a>();</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            }</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        }</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    } __attribute__((__packed__));</div>
+</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="comment">// for memory allocation purposes we need them concatenated</span></div>
+<div class="foldopen" id="foldopen00302" data-start="{" data-end="};">
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno"><a class="line" href="structe2sar_1_1_l_b_r_e_hdr.html">  302</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_l_b_r_e_hdr.html">LBREHdr</a> {</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keyword">union </span><a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a> lbu;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_r_e_hdr.html">REHdr</a> re;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <a class="code hl_struct" href="structe2sar_1_1_l_b_r_e_hdr.html">LBREHdr</a>()</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <span class="keyword">new</span> (&amp;lbu) <a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a>();</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            <span class="keyword">new</span> (&amp;re) <a class="code hl_struct" href="structe2sar_1_1_r_e_hdr.html">REHdr</a>();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <a class="code hl_struct" href="structe2sar_1_1_l_b_r_e_hdr.html">LBREHdr</a>(u_int8_t ver)</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            <span class="keyword">new</span> (&amp;lbu) <a class="code hl_union" href="unione2sar_1_1_l_b_hdr_u.html">LBHdrU</a>(ver);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keyword">new</span> (&amp;re) <a class="code hl_struct" href="structe2sar_1_1_r_e_hdr.html">REHdr</a>();</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    } __attribute__((__packed__));</div>
+</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keyword">constexpr</span> u_int8_t synchdrVersion2 = 2;</div>
+<div class="foldopen" id="foldopen00323" data-start="{" data-end="};">
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html">  323</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structe2sar_1_1_sync_hdr.html">SyncHdr</a></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> preamble[2] {<span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;C&#39;</span>};</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        u_int8_t version{synchdrVersion2};</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        u_int8_t rsvd{0};</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        u_int32_t eventSrcId{0};</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        EventNum_t eventNumber{0LL};</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        EventRate_t avgEventRateHz{0};</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        UnixTimeNano_t unixTimeNano{0LL};</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="foldopen" id="foldopen00336" data-start="{" data-end="}">
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">  336</a></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">set</a>(u_int32_t esid, EventNum_t event_num, EventRate_t avg_rate, UnixTimeNano_t ut)</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        {</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            eventSrcId = htobe32(esid);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            eventNumber = htobe64(event_num);</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            avgEventRateHz = htobe32(avg_rate);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            unixTimeNano = htobe64(ut);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        }</div>
+</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="foldopen" id="foldopen00347" data-start="{" data-end="}">
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#a92bb3a499f9bb62422138f0da84e98d1">  347</a></span>        u_int8_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#a92bb3a499f9bb62422138f0da84e98d1">get_version</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>            <span class="keywordflow">return</span> version;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        }</div>
+</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="foldopen" id="foldopen00355" data-start="{" data-end="}">
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#ae0015dce52dafaff9ad473186b247ce4">  355</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ae0015dce52dafaff9ad473186b247ce4">check_version</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <span class="keywordflow">return</span> version == synchdrVersion2;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        }</div>
+</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="foldopen" id="foldopen00363" data-start="{" data-end="}">
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">  363</a></span>        <span class="keyword">inline</span> u_int32_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">get_eventSrcId</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>            <span class="keywordflow">return</span> be32toh(eventSrcId);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00370" data-start="{" data-end="}">
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">  370</a></span>        <span class="keyword">inline</span> EventNum_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">get_eventNumber</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            <span class="keywordflow">return</span> be64toh(eventNumber);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00377" data-start="{" data-end="}">
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">  377</a></span>        <span class="keyword">inline</span> u_int32_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">get_avgEventRateHz</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            <span class="keywordflow">return</span> be32toh(avgEventRateHz);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00384" data-start="{" data-end="}">
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">  384</a></span>        <span class="keyword">inline</span> UnixTimeNano_t <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">get_unixTimeNano</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>            <span class="keywordflow">return</span> be64toh(unixTimeNano);</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        }</div>
+</div>
+<div class="foldopen" id="foldopen00399" data-start="{" data-end="}">
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno"><a class="line" href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">  399</a></span>        <span class="keyword">const</span> boost::tuple&lt;u_int32_t, EventNum_t, u_int32_t, UnixTimeNano_t&gt; <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">get_Fields</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordflow">return</span> boost::make_tuple(<a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">get_eventSrcId</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">get_eventNumber</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">get_avgEventRateHz</a>(), <a class="code hl_function" href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">get_unixTimeNano</a>());</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        }</div>
+</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    } __attribute__((__packed__));</div>
+</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="comment">// various useful header lengths</span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> IPV4_HDRLEN = 20;</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> IPV6_HDRLEN = 40;</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> UDP_HDRLEN = 8;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    </div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    <span class="comment">// Legacy constant for backward compatibility (IPv4 only)</span></div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> IP_HDRLEN = IPV4_HDRLEN;</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> TOTAL_HDR_LEN{IP_HDRLEN + UDP_HDRLEN + <span class="keyword">sizeof</span>(LBHdrV2) + <span class="keyword">sizeof</span>(REHdr)};</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="comment">// Protocol-aware header length functions</span></div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> getIPHeaderLength(<span class="keywordtype">bool</span> useIPv6) {</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        <span class="keywordflow">return</span> useIPv6 ? IPV6_HDRLEN : IPV4_HDRLEN;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    }</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keyword">inline</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> getTotalHeaderLength(<span class="keywordtype">bool</span> useIPv6) {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordflow">return</span> getIPHeaderLength(useIPv6) + UDP_HDRLEN + <span class="keyword">sizeof</span>(LBHdrV2) + <span class="keyword">sizeof</span>(REHdr);</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    }</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>}</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacee2sar_html"><div class="ttname"><a href="namespacee2sar.html">e2sar</a></div><div class="ttdef"><b>Definition</b> e2sar.hpp:11</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html">e2sar::LBHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:94</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_a15aa87e651c1387407a0e34b50c469a5"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#a15aa87e651c1387407a0e34b50c469a5">e2sar::LBHdr::set</a></div><div class="ttdeci">void set(u_int16_t ent, EventNum_t event_num)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:105</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_a1eff7b38fce2bd185174b99b97bdcd49"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#a1eff7b38fce2bd185174b99b97bdcd49">e2sar::LBHdr::get_version</a></div><div class="ttdeci">u_int8_t get_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:114</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_a9de8ee51f8442f1806a6684a596b1329"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#a9de8ee51f8442f1806a6684a596b1329">e2sar::LBHdr::get_eventNum</a></div><div class="ttdeci">EventNum_t get_eventNum() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:138</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_ab3e7250b8065f5e08990e5fc48ca0938"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#ab3e7250b8065f5e08990e5fc48ca0938">e2sar::LBHdr::get_nextProto</a></div><div class="ttdeci">u_int8_t get_nextProto() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:122</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_ab9132919e75e5f72c35a9750fec372cb"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#ab9132919e75e5f72c35a9750fec372cb">e2sar::LBHdr::get_entropy</a></div><div class="ttdeci">u_int16_t get_entropy() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:130</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_hdr_html_aedf97e5bfc66e5915f1ddd04d723c015"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr.html#aedf97e5bfc66e5915f1ddd04d723c015">e2sar::LBHdr::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int8_t, u_int8_t, u_int16_t, EventNum_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:154</div></div>
-<div class="ttc" id="astructe2sar_1_1_l_b_r_e_hdr_html"><div class="ttname"><a href="structe2sar_1_1_l_b_r_e_hdr.html">e2sar::LBREHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:161</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html">e2sar::LBHdrV2</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:112</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_a4222152b43dddc06355a10ead90630f8"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#a4222152b43dddc06355a10ead90630f8">e2sar::LBHdrV2::get_version</a></div><div class="ttdeci">u_int8_t get_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:132</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_a4e8e9d7221fc4094a11c464ae2f21f3b"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#a4e8e9d7221fc4094a11c464ae2f21f3b">e2sar::LBHdrV2::get_entropy</a></div><div class="ttdeci">u_int16_t get_entropy() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:156</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_a4fe2d0fee244580c024d7fd236443683"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#a4fe2d0fee244580c024d7fd236443683">e2sar::LBHdrV2::set</a></div><div class="ttdeci">void set(u_int16_t ent, EventNum_t event_num)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:123</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_a7b0ad7f357912a673585ab0a61f42380"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#a7b0ad7f357912a673585ab0a61f42380">e2sar::LBHdrV2::get_nextProto</a></div><div class="ttdeci">u_int8_t get_nextProto() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:148</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_aa6ba72424de254c1ee2a5c268984f4fe"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#aa6ba72424de254c1ee2a5c268984f4fe">e2sar::LBHdrV2::get_eventNum</a></div><div class="ttdeci">EventNum_t get_eventNum() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:164</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_ab7c1c9aefd874b18e172f5e605cd94a6"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#ab7c1c9aefd874b18e172f5e605cd94a6">e2sar::LBHdrV2::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int8_t, u_int8_t, u_int16_t, EventNum_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:180</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v2_html_af3cf6dedf76310debcb2c743ae4f5ec4"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v2.html#af3cf6dedf76310debcb2c743ae4f5ec4">e2sar::LBHdrV2::check_version</a></div><div class="ttdeci">bool check_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:140</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html">e2sar::LBHdrV3</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:192</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_a28b865654d7008ac5442e8d9c82d65f4"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#a28b865654d7008ac5442e8d9c82d65f4">e2sar::LBHdrV3::check_version</a></div><div class="ttdeci">bool check_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:221</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_a5591c29b0b8a28092788469041541e91"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#a5591c29b0b8a28092788469041541e91">e2sar::LBHdrV3::get_portSelect</a></div><div class="ttdeci">u_int16_t get_portSelect() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:245</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_a6b6e7aa4c1b23173e48433f236133042"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#a6b6e7aa4c1b23173e48433f236133042">e2sar::LBHdrV3::set</a></div><div class="ttdeci">void set(u_int16_t slt, u_int16_t prt, EventNum_t tk)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:203</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_a6f176ef1438bf7b6afa64cb13b65f3bb"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#a6f176ef1438bf7b6afa64cb13b65f3bb">e2sar::LBHdrV3::get_tick</a></div><div class="ttdeci">EventNum_t get_tick() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:253</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_ab56a9ed35482305a432cc2b533bd43ab"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#ab56a9ed35482305a432cc2b533bd43ab">e2sar::LBHdrV3::get_slotSelect</a></div><div class="ttdeci">u_int16_t get_slotSelect() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:237</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_aee88ff895fe49f725d50bc83eaae69f3"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#aee88ff895fe49f725d50bc83eaae69f3">e2sar::LBHdrV3::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int8_t, u_int8_t, u_int16_t, u_int16_t, EventNum_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:270</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_afc5377f2ec30d1ae007d34e227d745e1"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#afc5377f2ec30d1ae007d34e227d745e1">e2sar::LBHdrV3::get_version</a></div><div class="ttdeci">u_int8_t get_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:213</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_hdr_v3_html_afe7170fc8399fb734bd54fb0d9a094d2"><div class="ttname"><a href="structe2sar_1_1_l_b_hdr_v3.html#afe7170fc8399fb734bd54fb0d9a094d2">e2sar::LBHdrV3::get_nextProto</a></div><div class="ttdeci">u_int8_t get_nextProto() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:229</div></div>
+<div class="ttc" id="astructe2sar_1_1_l_b_r_e_hdr_html"><div class="ttname"><a href="structe2sar_1_1_l_b_r_e_hdr.html">e2sar::LBREHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:302</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html">e2sar::REHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:22</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a2e9bfaa8b5d69f36c819dd177ffab726"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a2e9bfaa8b5d69f36c819dd177ffab726">e2sar::REHdr::get_eventNum</a></div><div class="ttdeci">EventNum_t get_eventNum() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:43</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a39255365d45793a81b503cb4e3ef4b9d"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a39255365d45793a81b503cb4e3ef4b9d">e2sar::REHdr::get_dataId</a></div><div class="ttdeci">u_int16_t get_dataId() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:67</div></div>
+<div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a611942d5957ae336f21cdc9abcec6821"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a611942d5957ae336f21cdc9abcec6821">e2sar::REHdr::validate</a></div><div class="ttdeci">bool validate() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:98</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a6433022663f8f12d63573eb69395a313"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a6433022663f8f12d63573eb69395a313">e2sar::REHdr::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int16_t, u_int32_t, u_int32_t, EventNum_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:81</div></div>
+<div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_a748f6cafa9479007d50f403110d84d4c"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#a748f6cafa9479007d50f403110d84d4c">e2sar::REHdr::get_HeaderVersion</a></div><div class="ttdeci">u_int8_t get_HeaderVersion() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:89</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_aacac4f3e1c20791fc43ad6687b6e731f"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#aacac4f3e1c20791fc43ad6687b6e731f">e2sar::REHdr::get_bufferLength</a></div><div class="ttdeci">u_int32_t get_bufferLength() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:51</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_ac2acb69db5b77d17701e72604ad5f67b"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#ac2acb69db5b77d17701e72604ad5f67b">e2sar::REHdr::get_bufferOffset</a></div><div class="ttdeci">u_int32_t get_bufferOffset() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:59</div></div>
 <div class="ttc" id="astructe2sar_1_1_r_e_hdr_html_ac335666a1e5656ab4f0dab06cdcbacce"><div class="ttname"><a href="structe2sar_1_1_r_e_hdr.html#ac335666a1e5656ab4f0dab06cdcbacce">e2sar::REHdr::set</a></div><div class="ttdeci">void set(u_int16_t data_id, u_int32_t buff_off, u_int32_t buff_len, EventNum_t event_num)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:32</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html">e2sar::SyncHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:173</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_a562457d2b3e449b01746dd379e1ba5c7"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">e2sar::SyncHdr::get_eventNumber</a></div><div class="ttdeci">EventNum_t get_eventNumber() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:203</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_aa0f6decc55b0b3cb1f9281bea4252d87"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">e2sar::SyncHdr::get_eventSrcId</a></div><div class="ttdeci">u_int32_t get_eventSrcId() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:196</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_aa5c1313137818d7ca8a863e6909bbd31"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">e2sar::SyncHdr::get_avgEventRateHz</a></div><div class="ttdeci">u_int32_t get_avgEventRateHz() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:210</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_abc05242f953663e3a568a673329bd051"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">e2sar::SyncHdr::set</a></div><div class="ttdeci">void set(u_int32_t esid, EventNum_t event_num, EventRate_t avg_rate, UnixTimeNano_t ut)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:185</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_ac794487ff22921e756e6483d10a86453"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">e2sar::SyncHdr::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int32_t, EventNum_t, u_int32_t, UnixTimeNano_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:232</div></div>
-<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_ad455bc600ab2b89e17abedfd53d43f5b"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">e2sar::SyncHdr::get_unixTimeNano</a></div><div class="ttdeci">UnixTimeNano_t get_unixTimeNano() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:217</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html">e2sar::SyncHdr</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:324</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_a562457d2b3e449b01746dd379e1ba5c7"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#a562457d2b3e449b01746dd379e1ba5c7">e2sar::SyncHdr::get_eventNumber</a></div><div class="ttdeci">EventNum_t get_eventNumber() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:370</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_a92bb3a499f9bb62422138f0da84e98d1"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#a92bb3a499f9bb62422138f0da84e98d1">e2sar::SyncHdr::get_version</a></div><div class="ttdeci">u_int8_t get_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:347</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_aa0f6decc55b0b3cb1f9281bea4252d87"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#aa0f6decc55b0b3cb1f9281bea4252d87">e2sar::SyncHdr::get_eventSrcId</a></div><div class="ttdeci">u_int32_t get_eventSrcId() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:363</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_aa5c1313137818d7ca8a863e6909bbd31"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#aa5c1313137818d7ca8a863e6909bbd31">e2sar::SyncHdr::get_avgEventRateHz</a></div><div class="ttdeci">u_int32_t get_avgEventRateHz() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:377</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_abc05242f953663e3a568a673329bd051"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#abc05242f953663e3a568a673329bd051">e2sar::SyncHdr::set</a></div><div class="ttdeci">void set(u_int32_t esid, EventNum_t event_num, EventRate_t avg_rate, UnixTimeNano_t ut)</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:336</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_ac794487ff22921e756e6483d10a86453"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#ac794487ff22921e756e6483d10a86453">e2sar::SyncHdr::get_Fields</a></div><div class="ttdeci">const boost::tuple&lt; u_int32_t, EventNum_t, u_int32_t, UnixTimeNano_t &gt; get_Fields() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:399</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_ad455bc600ab2b89e17abedfd53d43f5b"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#ad455bc600ab2b89e17abedfd53d43f5b">e2sar::SyncHdr::get_unixTimeNano</a></div><div class="ttdeci">UnixTimeNano_t get_unixTimeNano() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:384</div></div>
+<div class="ttc" id="astructe2sar_1_1_sync_hdr_html_ae0015dce52dafaff9ad473186b247ce4"><div class="ttname"><a href="structe2sar_1_1_sync_hdr.html#ae0015dce52dafaff9ad473186b247ce4">e2sar::SyncHdr::check_version</a></div><div class="ttdeci">bool check_version() const</div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:355</div></div>
+<div class="ttc" id="aunione2sar_1_1_l_b_hdr_u_html"><div class="ttname"><a href="unione2sar_1_1_l_b_hdr_u.html">e2sar::LBHdrU</a></div><div class="ttdef"><b>Definition</b> e2sarHeaders.hpp:278</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

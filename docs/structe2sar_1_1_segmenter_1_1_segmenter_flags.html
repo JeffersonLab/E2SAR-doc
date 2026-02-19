@@ -134,9 +134,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sndSocketBufSize</b></
 <tr class="memitem:ae022a0517da36c9e8fc74dfcbab59502" id="r_ae022a0517da36c9e8fc74dfcbab59502"><td class="memItemLeft" align="right" valign="top"><a id="ae022a0517da36c9e8fc74dfcbab59502" name="ae022a0517da36c9e8fc74dfcbab59502"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>rateGbps</b></td></tr>
 <tr class="separator:ae022a0517da36c9e8fc74dfcbab59502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f14c3b95dcfd7e4fbe0393f27f5e8fc" id="r_a3f14c3b95dcfd7e4fbe0393f27f5e8fc"><td class="memItemLeft" align="right" valign="top"><a id="a3f14c3b95dcfd7e4fbe0393f27f5e8fc" name="a3f14c3b95dcfd7e4fbe0393f27f5e8fc"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>smooth</b></td></tr>
+<tr class="separator:a3f14c3b95dcfd7e4fbe0393f27f5e8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7269122e6a667f2c8181a5bf8ee623b" id="r_ad7269122e6a667f2c8181a5bf8ee623b"><td class="memItemLeft" align="right" valign="top"><a id="ad7269122e6a667f2c8181a5bf8ee623b" name="ad7269122e6a667f2c8181a5bf8ee623b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>multiPort</b></td></tr>
 <tr class="separator:ad7269122e6a667f2c8181a5bf8ee623b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76623759d46b34708e4b7718bba10817" id="r_a76623759d46b34708e4b7718bba10817"><td class="memItemLeft" align="right" valign="top"><a id="a76623759d46b34708e4b7718bba10817" name="a76623759d46b34708e4b7718bba10817"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ticksAsREEventNum</b></td></tr>
+<tr class="separator:a76623759d46b34708e4b7718bba10817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b460f0dd820717b20e3f96680d1b64e" id="r_a9b460f0dd820717b20e3f96680d1b64e"><td class="memItemLeft" align="right" valign="top"><a id="a9b460f0dd820717b20e3f96680d1b64e" name="a9b460f0dd820717b20e3f96680d1b64e"></a>
+u_int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>lbHdrVersion</b></td></tr>
+<tr class="separator:a9b460f0dd820717b20e3f96680d1b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Because of the large number of constructor parameters in <a class="el" href="classe2sar_1_1_segmenter.html">Segmenter</a> we make this a structure with sane defaults</p><ul>
@@ -151,7 +160,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>multiPort</b></td></t
 <li>numSendSockets - number of sockets/source ports we will be sending data from. The more, the more randomness the LAG will see in delivering to different FPGA ports. {4}</li>
 <li>sndSocketBufSize - socket buffer size for sending set via SO_SNDBUF setsockopt. Note that this requires systemwide max set via sysctl (net.core.wmem_max) to be higher. {3MB}</li>
 <li>rateGbps - send rate as floating point expression in Gbps. Negative value means unlimited. {-1.0}</li>
-<li>multiPort - use numSendSockets consecutive destination ports starting from <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> data port, rather than a single port; source ports are still randomized (incompatible with a load balancer, only useful in back-to-back testing) {false} </li>
+<li>smooth - shape on a per sendmsg() call rather than after every event, doesn't work for send optimizations and only works at low speeds (~&lt;3Gbps) {false}</li>
+<li>multiPort - use numSendSockets consecutive destination ports starting from <a class="el" href="classe2sar_1_1_ejfat_u_r_i.html">EjfatURI</a> data port, rather than a single port; source ports are still randomized {false}</li>
+<li>ticksAsREEventNum - override the RE event number field with the same event number as LB event number which is a tick, primarily good for debugging {false}</li>
+<li>lbHdrVersion - version of the LB header to be used (2 or 3 are valid) {2} </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1bde331dfbb59afb6669a49d3a2d5495" name="a1bde331dfbb59afb6669a49d3a2d5495"></a>

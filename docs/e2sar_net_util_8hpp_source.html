@@ -125,10 +125,11 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">static</span> result&lt;boost::tuple&lt;std::string, u_int16_t&gt;&gt; getInterfaceAndMTU(<span class="keyword">const</span> ip::address &amp;addr);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">static</span> result&lt;int&gt; getSocketOutstandingBytes(<span class="keywordtype">int</span> sockfd) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    };</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasse2sar_1_1_net_util_html"><div class="ttname"><a href="classe2sar_1_1_net_util.html">e2sar::NetUtil</a></div><div class="ttdef"><b>Definition</b> e2sarNetUtil.hpp:19</div></div>
 <div class="ttc" id="aclasse2sar_1_1_net_util_html_a37fb7d8d68088969c89131a36095f936"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a37fb7d8d68088969c89131a36095f936">e2sar::NetUtil::getMTU</a></div><div class="ttdeci">static size_t getMTU(const std::string &amp;interfaceName) noexcept</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:18</div></div>
 <div class="ttc" id="aclasse2sar_1_1_net_util_html_a6f46bcf9843097757f8d35830ae3a087"><div class="ttname"><a href="classe2sar_1_1_net_util.html#a6f46bcf9843097757f8d35830ae3a087">e2sar::NetUtil::getInterfaceIPs</a></div><div class="ttdeci">static result&lt; std::vector&lt; ip::address &gt; &gt; getInterfaceIPs(const std::string &amp;interfaceName, bool v6=false) noexcept</div><div class="ttdef"><b>Definition</b> e2sarNetUtil.cpp:45</div></div>

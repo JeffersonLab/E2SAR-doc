@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['freelb_0',['freeLB',['../classe2sar_1_1_l_b_manager.html#a7052ffdbfa7137616c2146c8cddaf6df',1,'e2sar::LBManager::freeLB(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#a1454cfc487e9e4b8443734cad9bcf0cf',1,'e2sar::LBManager::freeLB() noexcept']]]
+  ['e2sar_0',['e2sar',['../namespacee2sar.html',1,'']]],
+  ['e2sarerrorc_1',['E2SARErrorc',['../namespacee2sar.html#a22467d88fc86a9d335f7dc1e3c830bf1',1,'e2sar']]],
+  ['e2sarerrorc_5fcategory_2',['E2SARErrorc_category',['../classdetail_1_1_e2_s_a_r_errorc__category.html',1,'detail']]],
+  ['e2sarerrorinfo_3',['E2SARErrorInfo',['../structe2sar_1_1_e2_s_a_r_error_info.html',1,'e2sar']]],
+  ['e2sarexception_4',['E2SARException',['../classe2sar_1_1_e2_s_a_r_exception.html',1,'e2sar']]],
+  ['ejfaturi_5',['EjfatURI',['../classe2sar_1_1_ejfat_u_r_i.html',1,'e2sar::EjfatURI'],['../classe2sar_1_1_ejfat_u_r_i.html#a0e8408d5790be8a2be878bdea21a53b9',1,'e2sar::EjfatURI::EjfatURI()']]],
+  ['expandtilde_6',['expandTilde',['../namespacee2sar.html#a03590ad0771ee9df14784f7c102e367a',1,'e2sar']]]
 ];

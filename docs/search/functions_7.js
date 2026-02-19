@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lbmanager_0',['LBManager',['../classe2sar_1_1_l_b_manager.html#a32c1b39bc8c486bd173329779fc0c5fb',1,'e2sar::LBManager']]],
-  ['lbstatus_1',['LBStatus',['../structe2sar_1_1_l_b_status.html#aae83df50a5ef96ab4abfab19c2c01cf8',1,'e2sar::LBStatus']]]
+  ['isselected_0',['isSelected',['../classe2sar_1_1_optimizations.html#ab43b3d95270136998b351361e6b830ec',1,'e2sar::Optimizations']]],
+  ['isusingipv6_1',['isUsingIPv6',['../classe2sar_1_1_segmenter.html#a30bd5b50187de3cc594f7e83013e94ab',1,'e2sar::Segmenter']]]
 ];

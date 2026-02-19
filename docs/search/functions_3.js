@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['freelb_0',['freeLB',['../classe2sar_1_1_l_b_manager.html#a7052ffdbfa7137616c2146c8cddaf6df',1,'e2sar::LBManager::freeLB(const std::string &amp;lbid) noexcept'],['../classe2sar_1_1_l_b_manager.html#a1454cfc487e9e4b8443734cad9bcf0cf',1,'e2sar::LBManager::freeLB() noexcept']]]
+  ['ejfaturi_0',['EjfatURI',['../classe2sar_1_1_ejfat_u_r_i.html#a0e8408d5790be8a2be878bdea21a53b9',1,'e2sar::EjfatURI']]],
+  ['expandtilde_1',['expandTilde',['../namespacee2sar.html#a03590ad0771ee9df14784f7c102e367a',1,'e2sar']]]
 ];

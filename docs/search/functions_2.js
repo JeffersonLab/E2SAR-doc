@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ejfaturi_0',['EjfatURI',['../classe2sar_1_1_ejfat_u_r_i.html#a0e8408d5790be8a2be878bdea21a53b9',1,'e2sar::EjfatURI']]]
+  ['definecloglogger_0',['defineClogLogger',['../namespacee2sar.html#a92a39994cb242e7496688d018426382a',1,'e2sar']]],
+  ['deregisterworker_1',['deregisterWorker',['../classe2sar_1_1_l_b_manager.html#a8e0fa40b7d4c1995902e05c122277251',1,'e2sar::LBManager::deregisterWorker()'],['../classe2sar_1_1_reassembler.html#af1d74bb1d375c7d0d513075b49046ac7',1,'e2sar::Reassembler::deregisterWorker()']]]
 ];

@@ -135,12 +135,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3b16123df93e9b3678fc1b7bf3b4e956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08abe4904b9e579e7377e53544ebe7fc" id="r_a08abe4904b9e579e7377e53544ebe7fc"><td class="memItemLeft" align="right" valign="top">result&lt; std::list&lt; std::pair&lt; u_int16_t, size_t &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08abe4904b9e579e7377e53544ebe7fc">get_FDStats</a> () noexcept</td></tr>
 <tr class="separator:a08abe4904b9e579e7377e53544ebe7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8955ea8ff93e880550f62abd0e030e1c" id="r_a8955ea8ff93e880550f62abd0e030e1c"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8955ea8ff93e880550f62abd0e030e1c">get_numRecvThreads</a> () const noexcept</td></tr>
-<tr class="separator:a8955ea8ff93e880550f62abd0e030e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af67ec22d23d3f657d08a0b49b20acf7a" id="r_af67ec22d23d3f657d08a0b49b20acf7a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af67ec22d23d3f657d08a0b49b20acf7a">get_numRecvThreads</a> () const noexcept</td></tr>
+<tr class="separator:af67ec22d23d3f657d08a0b49b20acf7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abac4d3a93ecac81d34b0b9face73f448" id="r_abac4d3a93ecac81d34b0b9face73f448"><td class="memItemLeft" align="right" valign="top">const std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abac4d3a93ecac81d34b0b9face73f448">get_recvPorts</a> () const noexcept</td></tr>
 <tr class="separator:abac4d3a93ecac81d34b0b9face73f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a679e7fc30486417e84976857b47bb440" id="r_a679e7fc30486417e84976857b47bb440"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679e7fc30486417e84976857b47bb440">get_portRange</a> () const noexcept</td></tr>
-<tr class="separator:a679e7fc30486417e84976857b47bb440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e05fd52fd487e1a8324b886227ec28f" id="r_a9e05fd52fd487e1a8324b886227ec28f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e05fd52fd487e1a8324b886227ec28f">get_portRange</a> () const noexcept</td></tr>
+<tr class="separator:a9e05fd52fd487e1a8324b886227ec28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fd19bde43918f660a33e96ba2d4853a" id="r_a6fd19bde43918f660a33e96ba2d4853a"><td class="memItemLeft" align="right" valign="top">const ip::address&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fd19bde43918f660a33e96ba2d4853a">get_dataIP</a> () const noexcept</td></tr>
 <tr class="separator:a6fd19bde43918f660a33e96ba2d4853a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cda1d99a76c3b1c0e62397d695455f3" id="r_a5cda1d99a76c3b1c0e62397d695455f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cda1d99a76c3b1c0e62397d695455f3">stopThreads</a> ()</td></tr>
@@ -448,8 +448,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
-<a id="a8955ea8ff93e880550f62abd0e030e1c" name="a8955ea8ff93e880550f62abd0e030e1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8955ea8ff93e880550f62abd0e030e1c">&#9670;&#160;</a></span>get_numRecvThreads()</h2>
+<a id="af67ec22d23d3f657d08a0b49b20acf7a" name="af67ec22d23d3f657d08a0b49b20acf7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af67ec22d23d3f657d08a0b49b20acf7a">&#9670;&#160;</a></span>get_numRecvThreads()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +458,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t e2sar::Reassembler::get_numRecvThreads </td>
+          <td class="memname">size_t e2sar::Reassembler::get_numRecvThreads </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -474,8 +474,8 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
 
 </div>
 </div>
-<a id="a679e7fc30486417e84976857b47bb440" name="a679e7fc30486417e84976857b47bb440"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a679e7fc30486417e84976857b47bb440">&#9670;&#160;</a></span>get_portRange()</h2>
+<a id="a9e05fd52fd487e1a8324b886227ec28f" name="a9e05fd52fd487e1a8324b886227ec28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e05fd52fd487e1a8324b886227ec28f">&#9670;&#160;</a></span>get_portRange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -484,7 +484,7 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>sendStateThreadStat
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int e2sar::Reassembler::get_portRange </td>
+          <td class="memname">int e2sar::Reassembler::get_portRange </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
