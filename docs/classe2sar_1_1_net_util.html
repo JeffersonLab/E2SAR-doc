@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.3.0</span>
+   <div id="projectname">E2SAR<span id="projectnumber">&#160;0.4.0</span>
    </div>
   </td>
  </tr>
@@ -105,6 +105,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afb4afa6dedb5cb1b7880aadb9105eedd" id="r_afb4afa6dedb5cb1b7880aadb9105eedd"><td class="memItemLeft" align="right" valign="top"><a id="afb4afa6dedb5cb1b7880aadb9105eedd" name="afb4afa6dedb5cb1b7880aadb9105eedd"></a>
 static result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getSocketOutstandingBytes</b> (int sockfd) noexcept</td></tr>
 <tr class="separator:afb4afa6dedb5cb1b7880aadb9105eedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402d5ccfc4f6e9a1e4e080889ac2e1bf" id="r_a402d5ccfc4f6e9a1e4e080889ac2e1bf"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a402d5ccfc4f6e9a1e4e080889ac2e1bf">isNonRoutable</a> (const std::string &amp;addr_str) noexcept</td></tr>
+<tr class="separator:a402d5ccfc4f6e9a1e4e080889ac2e1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada2d5ed3eef7e7758c8da47b6a8609db" id="r_ada2d5ed3eef7e7758c8da47b6a8609db"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada2d5ed3eef7e7758c8da47b6a8609db">isNonRoutable</a> (const std::vector&lt; std::string &gt; &amp;addrs) noexcept</td></tr>
+<tr class="separator:ada2d5ed3eef7e7758c8da47b6a8609db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9a164b4d0fe47db80be667e3d81d51b3" name="a9a164b4d0fe47db80be667e3d81d51b3"></a>
@@ -193,6 +197,58 @@ static result&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>MTU or 1500 as the best guess</dd></dl>
 <p>Get MTU of a given interface. Used in constructors, so doesn't return error. </p>
+
+</div>
+</div>
+<a id="a402d5ccfc4f6e9a1e4e080889ac2e1bf" name="a402d5ccfc4f6e9a1e4e080889ac2e1bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402d5ccfc4f6e9a1e4e080889ac2e1bf">&#9670;&#160;</a></span>isNonRoutable() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool e2sar::NetUtil::isNonRoutable </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>addr_str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if an IP address string is non-routable (private RFC1918, loopback, link-local, IPv6 ULA, or unspecified). Returns false on parse failure. </p>
+
+</div>
+</div>
+<a id="ada2d5ed3eef7e7758c8da47b6a8609db" name="ada2d5ed3eef7e7758c8da47b6a8609db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2d5ed3eef7e7758c8da47b6a8609db">&#9670;&#160;</a></span>isNonRoutable() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool e2sar::NetUtil::isNonRoutable </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>addrs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if any address in the vector is non-routable. </p>
 
 </div>
 </div>
